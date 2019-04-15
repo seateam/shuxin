@@ -1,4 +1,0 @@
-<button
-bindgetuserinfo="login"
-type="primary"
-open-type="getUserInfo">授权登录</button>

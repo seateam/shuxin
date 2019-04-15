@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/about/about"
+    ],
+    "window": {
+        "navigationBarTitleText": "书信",
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": false
+    },
+    "debug": false
+}

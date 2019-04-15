@@ -1,0 +1,4 @@
+# 匹配所有
+node_modules
+project.config.json
+.DS_Store

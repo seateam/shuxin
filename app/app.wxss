@@ -1,0 +1,17 @@
+/* 图标库 */
+@import "/ku/css/iconfont.wxss";
+
+page {
+    background: #FFF;
+    font-size: 26rpx;
+}
+div {
+    display: block;
+}
+image {
+    width: 100%;
+    height: 100%;
+}
+button::after {
+    display: none;
+}

@@ -1,1 +1,0 @@
-<button bindtap="play" type="primary">{{playing}}</button>
