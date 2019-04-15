@@ -1,6 +1,5 @@
 const log = console.log.bind(console, '>>>')
 const app = getApp()
-const Sea = require('../../ku/bigsea')
 
 Page({
   data: {},
