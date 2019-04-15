@@ -3,7 +3,8 @@ import Sea from 'ku/bigsea'
 
 App({
   data: {},
-  onLaunch() {},
+  onLaunch() {
+  },
   onShow() {},
   onHide() {},
 })

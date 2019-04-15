@@ -1,4 +1,7 @@
 const log = console.log.bind(console, '>>>')
+const config = {
+  host: 'https://api.bigc.cc',
+}
 module.exports = {
   config: config,
   system: wx.getSystemInfoSync(),

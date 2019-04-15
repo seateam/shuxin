@@ -3,12 +3,13 @@
         "pages/index/index",
         "pages/about/about"
     ],
+    "requiredBackgroundModes": ["audio"],
     "window": {
         "navigationBarTitleText": "书信",
-        "backgroundTextStyle": "dark",
-        "navigationBarBackgroundColor": "#000",
-        "navigationBarTextStyle": "white",
-        "enablePullDownRefresh": false
+        "navigationBarBackgroundColor": "#FFF",
+        "backgroundTextStyle": "light",
+        "navigationBarTextStyle": "black",
+        "enablePullDownRefresh": true
     },
     "debug": false
 }
