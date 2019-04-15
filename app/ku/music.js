@@ -1,44 +1,22 @@
-export default {
+const music = {
   player: wx.getBackgroundAudioManager(),
-  list: [
-    {
-      title: '浮生',
-      epname: '浮生',
-      singer: '刘莱斯',
-      coverImgUrl:
-        'http://p1.music.126.net/mhWnNBXzrY83dNWJ6GDGwg==/109951163872080254.jpg',
-      src: 'https://music.163.com/song/media/outer/url?id=445546453.mp3',
-    },
-    {
-      title: '情歌王',
-      epname: '我还是你的 - 情歌王',
-      singer: '古巨基',
-      coverImgUrl:
-        'http://p2.music.126.net/pKGF1VAaqAW5ICLlrO5pVw==/6657542906242861.jpg',
-      src: 'https://music.163.com/song/media/outer/url?id=86279.mp3',
-    },
-    {
-      title: '烟火里的尘埃',
-      epname: '烟火里的尘埃',
-      singer: '华晨宇',
-      coverImgUrl:
-        'http://p1.music.126.net/_49Xz_x9kTTdEgmYYk6w2w==/6672936069046297.jpg',
-      src: 'https://music.163.com/song/media/outer/url?id=29004400.mp3',
-    },
-  ],
+  list: [],
   now: 0,
   // 播放
   play() {
+    const player = this.player
     const paused = this.player.paused
-    if (paused === undefined) {
+    const now = player.currentTime
+    const all = player.duration
+    const v = Math.round((now / all) * 100)
+    // 重新播放
+    if (paused === undefined || !v || v === 100) {
       this.playOne(this.now)
-      return true
     } else if (paused === false) {
-      this.player.pause()
+      player.pause()
     } else if (paused === true) {
-      this.player.play()
+      player.play()
     }
-    return paused
   },
   playOne(i) {
     const player = this.player
@@ -65,4 +43,32 @@ export default {
   prev() {
     this.playOne(this.now - 1)
   },
+  init(callback) {
+    const player = this.player
+    // 监听背景音频进入可播放状态事件。但不保证后面可以流畅播放
+    player.onCanplay(event => callback('onCanplay', event))
+    // 监听音频加载中事件。当音频因为数据不足，需要停下来加载时会触发
+    player.onWaiting(event => callback('onWaiting', event))
+    // 监听背景音频播放错误事件
+    player.onWaiting(event => callback('onWaiting', event))
+    // 监听背景音频播放事件
+    player.onPlay(event => callback('onPlay', event))
+    // 监听背景音频暂停事件
+    player.onPause(event => callback('onPause', event))
+    // 监听背景音频开始跳转操作事件
+    player.onSeeking(event => callback('onSeeking', event))
+    // 监听背景音频完成跳转操作事件
+    player.onSeeked(event => callback('onSeeked', event))
+    // 监听背景音频自然播放结束事件
+    player.onEnded(event => callback('onEnded', event))
+    // 监听背景音频停止事件
+    player.onStop(event => callback('onStop', event))
+    // 监听背景音频播放进度更新事件
+    player.onTimeUpdate(event => callback('onTimeUpdate', event))
+    // 监听用户在系统音乐播放面板点击下一曲事件（仅iOS）
+    player.onNext(event => callback('onNext', event))
+    // 监听用户在系统音乐播放面板点击上一曲事件（仅iOS）
+    player.onPrev(event => callback('onPrev', event))
+  },
 }
+export default music

@@ -1,4 +1,5 @@
 <div class="button" bind:tap="bindButton">跳转到 about 页面</div>
-<div class="button" bind:tap="bindPlay">{{paused ? '暂停' : '播放'}}</div>
-<div class="button" bind:tap="bindPrev">上一曲</div>
-<div class="button" bind:tap="bindNext">下一曲</div>
+<div class="button" bind:tap="bindPlay">{{paused ? '播放' : '暂停'}}</div>
+<!-- <div class="button" bind:tap="bindPrev">上一曲</div>
+<div class="button" bind:tap="bindNext">下一曲</div> -->
+<slider bind:change="bindSlider" activeColor="#FF7200" backgroundColor="#CCCCCC" block-color="#FF7200" block-size="14" value="{{silderNow}}" />
