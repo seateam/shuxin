@@ -1,7 +1,10 @@
 const music = {
   player: wx.getBackgroundAudioManager(),
   list: [],
+  listID: '',
   now: 0,
+  // 新列表
+  new: true,
   // 播放
   play() {
     const player = this.player
@@ -10,8 +13,9 @@ const music = {
     const all = player.duration
     const v = Math.round((now / all) * 100)
     // 重新播放
-    if (paused === undefined || !v || v === 100) {
+    if (this.new || !v || v === 100) {
       this.playOne(this.now)
+      this.new = false
     } else if (paused === false) {
       player.pause()
     } else if (paused === true) {
@@ -21,7 +25,7 @@ const music = {
   playOne(i) {
     const player = this.player
     const song = this.list[i]
-    if (song && song.src) {
+    if (song && song.src && song.src !== player.src) {
       this.now = i
       player.title = song.title
       player.epname = song.epname
@@ -43,6 +47,7 @@ const music = {
   prev() {
     this.playOne(this.now - 1)
   },
+  // 回调
   init(callback) {
     const player = this.player
     // 监听背景音频进入可播放状态事件。但不保证后面可以流畅播放
@@ -69,6 +74,21 @@ const music = {
     player.onNext(event => callback('onNext', event))
     // 监听用户在系统音乐播放面板点击上一曲事件（仅iOS）
     player.onPrev(event => callback('onPrev', event))
+  },
+  // 新列表
+  initList(list, id) {
+    if (this.listID !== id) {
+      // 清除播放记录
+      for (const song of list) {
+        delete song.played
+      }
+      this.listID = id
+      this.player.stop()
+      this.now = 0
+      // 新列表
+      this.new = true
+      this.list = list
+    }
   },
 }
 export default music

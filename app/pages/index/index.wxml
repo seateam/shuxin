@@ -1,8 +1,2 @@
-<!-- <div wx:for="{{list}}" wx:for-item="song" wx:key="index" class="list" bind:tap="bindSong">
-  <div class="song">
-    <image src="{{song.coverImgUrl}}"></image>
-    <text>{{song.title}}</text>
-    <text>{{song.singer}}</text>
-  </div>
-</div> -->
-<div class="button" bind:tap="bindMusic">跳转到 music 页面</div>
+<div class="button" bind:tap="bindMusic1">跳转到 list1</div>
+<div class="button" bind:tap="bindMusic2">跳转到 list2</div>

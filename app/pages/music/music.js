@@ -6,6 +6,7 @@ Page({
     paused: true,
     silderNow: 0,
     song: null,
+    songNow: null,
     list: null,
   },
   onLoad() {
@@ -17,8 +18,9 @@ Page({
   },
   onShow() {
     // 恢复播放状态
-    if (player.paused !== undefined) {
+    if (!app.music.new) {
       this.setData({
+        songNow: app.music.now,
         paused: player.paused,
       })
     }
@@ -26,8 +28,12 @@ Page({
   initMusic() {
     const dict = {
       onCanplay: () => {
+        const song = app.music.list[app.music.now]
+        song.played = true
         this.setData({
-          song: app.music.list[app.music.now],
+          songNow: app.music.now,
+          song: song,
+          list: app.music.list,
         })
       },
       onPlay: () => {
@@ -55,10 +61,10 @@ Page({
           paused: true,
           silderNow: 0,
         })
+        app.music.next()
       },
     }
     app.music.init((name, event) => {
-      console.log(name)
       if (dict[name]) {
         dict[name](event)
       }

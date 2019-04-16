@@ -3,7 +3,7 @@ const player = app.music.player
 const Sea = require('../../ku/bigsea')
 Page({
   data: {
-    list: [
+    list1: [
       {
         title: '浮生',
         epname: '浮生',
@@ -29,12 +29,35 @@ Page({
         src: 'https://music.163.com/song/media/outer/url?id=29004400.mp3',
       },
     ],
+    list2: [
+      {
+        title: `迷途羔羊`,
+        epname: `天兵`,
+        singer: '张震岳',
+        coverImgUrl:
+          'http://p2.music.126.net/b1eSBbx2Yia0k89ocfOnjQ==/18677404023325159.jpg',
+        src: 'https://music.163.com/song/media/outer/url?id=454698657.mp3',
+      },
+      {
+        title: `One's 4 Da Money`,
+        epname: `Shyheim A.K.A. The Rugged Child`,
+        singer: 'Shyheim',
+        coverImgUrl:
+          'http://p2.music.126.net/YsnhX9fYeQ1j6RhiXpqlAw==/109951163548510199.jpg',
+        src: 'https://music.163.com/song/media/outer/url?id=3464474.mp3',
+      },
+    ],
   },
-  onLoad() {
-  },
+  onLoad() {},
   onShow() {},
-  bindMusic(event) {
-    app.music.list = this.data.list
+  bindMusic1() {
+    app.music.initList(this.data.list1, '1')
+    wx.navigateTo({
+      url: '/pages/music/music',
+    })
+  },
+  bindMusic2() {
+    app.music.initList(this.data.list2, '2')
     wx.navigateTo({
       url: '/pages/music/music',
     })
