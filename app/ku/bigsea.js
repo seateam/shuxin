@@ -12,14 +12,6 @@ module.exports = {
     return parseFloat(n.toFixed(10))
   },
   Ajax(request) {
-    let codeDict = {
-      // 系统后台错误
-      '90008': true,
-      // API Server接口运行错误
-      '90003': true,
-    }
-    // 获取token
-    let that = this
     let req = {
       url: config.host + request.url,
       data: request.data || {},
@@ -34,10 +26,10 @@ module.exports = {
         data: req.data,
         header: req.header,
         method: req.method,
-        success: function(res) {
+        success(res) {
           success(res)
         },
-        fail: function(err) {
+        fail(err) {
           if (err.errMsg === 'request:fail timeout') {
             Sea.tip('您的网络有点慢，请稍后尝试', null, 2500)
           }

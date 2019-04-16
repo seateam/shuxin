@@ -1,5 +1,8 @@
-<div class="button" bind:tap="bindButton">跳转到 about 页面</div>
-<div class="button" bind:tap="bindPlay">{{paused ? '播放' : '暂停'}}</div>
-<!-- <div class="button" bind:tap="bindPrev">上一曲</div>
-<div class="button" bind:tap="bindNext">下一曲</div> -->
-<slider bind:change="bindSlider" activeColor="#FF7200" backgroundColor="#CCCCCC" block-color="#FF7200" block-size="14" value="{{silderNow}}" />
+<!-- <div wx:for="{{list}}" wx:for-item="song" wx:key="index" class="list" bind:tap="bindSong">
+  <div class="song">
+    <image src="{{song.coverImgUrl}}"></image>
+    <text>{{song.title}}</text>
+    <text>{{song.singer}}</text>
+  </div>
+</div> -->
+<div class="button" bind:tap="bindMusic">跳转到 music 页面</div>

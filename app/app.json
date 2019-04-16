@@ -1,6 +1,7 @@
 {
     "pages": [
         "pages/index/index",
+        "pages/music/music",
         "pages/about/about"
     ],
     "requiredBackgroundModes": ["audio"],

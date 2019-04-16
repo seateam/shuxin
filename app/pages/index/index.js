@@ -3,8 +3,6 @@ const player = app.music.player
 const Sea = require('../../ku/bigsea')
 Page({
   data: {
-    paused: true,
-    silderNow: 0,
     list: [
       {
         title: '浮生',
@@ -33,63 +31,17 @@ Page({
     ],
   },
   onLoad() {
-    app.music.list = this.data.list
-    const dict = {
-      onPlay: () => {
-        this.setData({
-          paused: false,
-        })
-      },
-      onPause: () => {
-        this.setData({
-          paused: true,
-        })
-      },
-      onTimeUpdate: () => {
-        const now = player.currentTime
-        const all = player.duration
-        const v = Math.round((now / all) * 100)
-        if (this.data.silderNow !== v) {
-          this.setData({
-            silderNow: v,
-          })
-        }
-      },
-      onEnded: () => {
-        this.setData({
-          paused: true,
-          silderNow: 0,
-        })
-      },
-    }
-    app.music.init((name, event) => {
-      if (dict[name]) {
-        dict[name](event)
-      }
-    })
   },
   onShow() {},
+  bindMusic(event) {
+    app.music.list = this.data.list
+    wx.navigateTo({
+      url: '/pages/music/music',
+    })
+  },
   onHide() {},
   // 刷新
   onPullDownRefresh() {
     wx.stopPullDownRefresh()
-  },
-  bindSlider(event) {
-    let v = event.detail.value
-    player.seek((v / 100) * player.duration)
-  },
-  bindPlay() {
-    app.music.play()
-  },
-  bindNext() {
-    app.music.next()
-  },
-  bindPrev() {
-    app.music.prev()
-  },
-  bindButton() {
-    wx.navigateTo({
-      url: '/pages/about/about',
-    })
   },
 })
