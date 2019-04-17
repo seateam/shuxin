@@ -22,7 +22,7 @@ const music = {
     } else if (paused === true) {
       // 连续点击播放 小程序bug 音乐被后台杀掉
       if (this.continuousClick) {
-        player.src = 'https://qingmang.me'
+        this.playOne(this.now)
       } else {
         player.play()
         this.continuousClick = true
@@ -32,7 +32,11 @@ const music = {
   playOne(i) {
     const player = this.player
     const song = this.list[i]
-    if (song && song.src && song.src !== player.src) {
+    if (song && song.src) {
+      if (player.src === song.src) {
+        player.src = song.src
+        return
+      }
       this.now = i
       player.title = song.title
       player.epname = song.epname
