@@ -18,10 +18,14 @@ Page({
   },
   onShow() {
     // 恢复播放状态
+    const now = player.currentTime
+    const all = player.duration
+    const progress = Math.round((now / all) * 100)
     if (!app.music.new) {
       this.setData({
         songNow: app.music.now,
         paused: player.paused,
+        silderNow: progress,
       })
     }
   },
@@ -97,5 +101,8 @@ Page({
   // 刷新
   onPullDownRefresh() {
     wx.stopPullDownRefresh()
+  },
+  onUnload() {
+    // console.log('页面卸载')
   },
 })

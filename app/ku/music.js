@@ -5,21 +5,28 @@ const music = {
   now: 0,
   // 新列表
   new: true,
+  // 连续点击播放
+  continuousClick: false,
   // 播放
   play() {
     const player = this.player
     const paused = this.player.paused
-    const now = player.currentTime
-    const all = player.duration
-    const v = Math.round((now / all) * 100)
+    const progress = Math.round((player.currentTime / player.duration) * 100)
     // 重新播放
-    if (this.new || !v || v === 100) {
+    if (this.new || !progress || progress === 100) {
       this.playOne(this.now)
       this.new = false
     } else if (paused === false) {
+      this.continuousClick = false
       player.pause()
     } else if (paused === true) {
-      player.play()
+      // 连续点击播放 小程序bug 音乐被后台杀掉
+      if (this.continuousClick) {
+        player.src = 'https://qingmang.me'
+      } else {
+        player.play()
+        this.continuousClick = true
+      }
     }
   },
   playOne(i) {
@@ -71,9 +78,15 @@ const music = {
     // 监听背景音频播放进度更新事件
     player.onTimeUpdate(event => callback('onTimeUpdate', event))
     // 监听用户在系统音乐播放面板点击下一曲事件（仅iOS）
-    player.onNext(event => callback('onNext', event))
+    player.onNext(event => {
+      this.next()
+      callback('onNext', event)
+    })
     // 监听用户在系统音乐播放面板点击上一曲事件（仅iOS）
-    player.onPrev(event => callback('onPrev', event))
+    player.onPrev(event => {
+      this.prev()
+      callback('onPrev', event)
+    })
   },
   // 新列表
   initList(list, id) {
