@@ -1,106 +1,98 @@
-div,
-view,
-scroll-view,
-swiper,
-swiper-item,
-movable-area,
-movable-view,
-cover-view,
-cover-image,
-icon,
-text,
-rich-text,
-progress,
-button,
-checkbox-group,
-checkbox,
-form,
-input,
-label,
-picker,
-picker-view,
-radio-group,
-radio,
-slider,
-switch,
-textarea,
-navigator,
-functional-page-navigator,
-image,
-video,
-camera,
-live-player,
-live-pusher,
-map,
-canvas,
-open-data,
-web-view,
-ad {
-  box-sizing: border-box;
-}
-
-page {
+.music {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 128rpx);
 }
 
-.button {
-  border: 1px solid black;
+.music image.cover {
+  margin-top: 44rpx;
+  width: 400rpx;
+  height: 400rpx;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.16);
   border-radius: 2px;
-  width: 80%;
-  height: 40px;
-  margin-top: 20px;
+}
+
+.music .title {
+  text-align: center;
+  width: 560rpx;
+  margin-top: 44rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #000;
+  /* 最多显示两行 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.music .column {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #000;
+}
+
+.music .time {
+  margin-top: 90rpx;
+  margin-bottom: 12rpx;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 28rpx;
+  color: #999;
+  font-family: Helvetica;
+}
+
+.music .time .now {
+  color: #000;
+}
+
+.music slider {
+  width: 560rpx;
+  margin: 0;
+  padding: 0;
+}
+
+.music .player {
+  margin-top: 48rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #6F7E8D;
 }
 
-slider {
-  margin-top: 20px;
-  width: 80%;
+.music .player i {
+  font-size: 44rpx;
 }
 
-.player {
-  margin-top: 20px;
+.music .player .play {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
-
-.player image {
-  width: 200rpx;
-  height: 200rpx;
-  border-radius: 2px;
-}
-
-.player text {
-  margin-top: 10px;
-  color: #FF7200;
-}
-
-.list {
-  width: 100%;
-}
-
-.list .song {
-  padding: 0 10%;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.list .song.played {
-  color: #666;
-}
-
-.list .song.playing {
-  background: #EEE;
-}
-
-.list .song image {
-  width: 100rpx;
-  height: 100rpx;
+  width: 160rpx;
+  height: 160rpx;
+  background: #6F7E8D;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
+  margin: 0 116rpx;
+}
+
+.music .player .play i {
+  color: #FFF;
+}
+
+.footer {
+  width: 100%;
+  height: 128rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer i {
+  padding: 20rpx;
 }

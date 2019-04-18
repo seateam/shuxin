@@ -1,5 +1,5 @@
 /* 图标库 */
-/* @import "/ku/css/iconfont.wxss"; */
+@import "/ku/iconfont.wxss";
 
 page {
     display: flex;

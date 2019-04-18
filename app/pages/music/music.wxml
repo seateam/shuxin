@@ -1,13 +1,30 @@
-<div class="button" bind:tap="bindButton">跳转到 about 页面</div>
-<div wx:if="{{song}}" class="player">
-  <image src="{{song.coverImgUrl}}"></image>
-  <text>{{song.title}} - {{song.singer}}</text>
+<div class="music">
+  <image class="cover" src="{{song.coverImgUrl}}"></image>
+  <text class="title">{{song.title}} - {{song.singer}}</text>
+  <text class="column">栏目名</text>
+  <div class="time">
+    <div class="now">01:05</div>
+    <div class="all">08:16</div>
+  </div>
+  <slider bind:change="bindSlider" activeColor="#000000" backgroundColor="rgba(0,0,0,0.2)" block-color="#000000" block-size="16" value="{{silderNow}}" />
+  <div class="player">
+    <div class="prev" bind:tap="bindPrev">
+      <i class="iconfont icon-prev"></i>
+    </div>
+    <div class="play" bind:tap="bindPlay">
+      <i class="iconfont icon-{{paused ? 'play' : 'pause'}}"></i>
+    </div>
+    <div class="next" bind:tap="bindNext">
+      <i class="iconfont icon-next"></i>
+    </div>
+  </div>
 </div>
-<div class="button" bind:tap="bindPlay">{{paused ? '播放' : '暂停'}}</div>
-<div class="button" bind:tap="bindPrev">上一曲</div>
-<div class="button" bind:tap="bindNext">下一曲</div>
-<slider bind:change="bindSlider" activeColor="#FF7200" backgroundColor="#CCCCCC" block-color="#FF7200" block-size="14" value="{{silderNow}}" />
-<div class="list">
+<div class="footer">
+  <i class="iconfont icon-history"></i>
+  <i class="iconfont icon-playing-list"></i>
+  <i class="iconfont icon-article"></i>
+</div>
+<!-- <div class="list">
   <block wx:for="{{list}}" wx:for-item="song" wx:key="index">
     <div class="song {{song.played ? 'played' : ''}} {{songNow === index ? 'playing' : ''}}" bind:tap="bindSong" data-index="{{index}}">
       <image src="{{song.coverImgUrl}}"></image>
@@ -15,4 +32,4 @@
       <text>{{song.singer}}</text>
     </div>
   </block>
-</div>
+</div> -->
