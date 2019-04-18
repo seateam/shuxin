@@ -13,7 +13,7 @@ const music = {
     const paused = this.player.paused
     const progress = Math.round((player.currentTime / player.duration) * 100)
     // 重新播放
-    if (this.new || !progress || progress === 100) {
+    if (this.new || progress === 100) {
       this.playOne(this.now)
       this.new = false
     } else if (paused === false) {
@@ -29,6 +29,7 @@ const music = {
       }
     }
   },
+  // 播放第 n 首
   playOne(i) {
     const player = this.player
     const song = this.list[i]
@@ -58,6 +59,27 @@ const music = {
   prev() {
     this.playOne(this.now - 1)
   },
+  // 时间格式
+  time(n) {
+    let h = 0
+    let s = Math.floor(n % 60) || '00'
+    let m = Math.floor(n / 60) || '00'
+    if (m > 59) {
+      h = Math.floor(m / 60) || '00'
+      m = m % 60 || '00'
+    }
+    let result = [h, m, s].map(function(e) {
+      e = String(e)
+      if (e.length < 2) {
+        e = '0' + e
+      }
+      return e
+    })
+    if (result[0] === '00') {
+      result = result.slice(1)
+    }
+    return result.join(':')
+  },
   // 回调
   init(callback) {
     const player = this.player
@@ -66,7 +88,7 @@ const music = {
     // 监听音频加载中事件。当音频因为数据不足，需要停下来加载时会触发
     player.onWaiting(event => callback('onWaiting', event))
     // 监听背景音频播放错误事件
-    player.onWaiting(event => callback('onWaiting', event))
+    player.onError(event => callback('onError', event))
     // 监听背景音频播放事件
     player.onPlay(event => callback('onPlay', event))
     // 监听背景音频暂停事件

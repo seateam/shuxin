@@ -37,11 +37,11 @@
 }
 
 .music .time {
+  width: 560rpx;
   margin-top: 90rpx;
   margin-bottom: 12rpx;
   display: flex;
   justify-content: space-between;
-  width: 100%;
   font-size: 28rpx;
   color: #999;
   font-family: Helvetica;
@@ -94,5 +94,6 @@
 }
 
 .footer i {
+  font-size: 36rpx;
   padding: 20rpx;
 }

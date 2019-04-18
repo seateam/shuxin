@@ -3,8 +3,8 @@
   <text class="title">{{song.title}} - {{song.singer}}</text>
   <text class="column">栏目名</text>
   <div class="time">
-    <div class="now">01:05</div>
-    <div class="all">08:16</div>
+    <div class="now">{{timeNow}}</div>
+    <div class="all">{{timeAll}}</div>
   </div>
   <slider bind:change="bindSlider" activeColor="#000000" backgroundColor="rgba(0,0,0,0.2)" block-color="#000000" block-size="16" value="{{silderNow}}" />
   <div class="player">

@@ -8,6 +8,8 @@ Page({
     song: null,
     songNow: null,
     list: null,
+    timeAll: '00:00',
+    timeNow: '00:00',
   },
   onLoad() {
     app.music.list = [
@@ -80,6 +82,8 @@ Page({
           songNow: app.music.now,
           song: song,
           list: app.music.list,
+          timeAll: app.music.time(player.duration),
+          timeNow: app.music.time(player.currentTime),
         })
       },
       onPlay: () => {
@@ -99,6 +103,12 @@ Page({
         if (this.data.silderNow !== v) {
           this.setData({
             silderNow: v,
+          })
+        }
+        const timeNow = app.music.time(player.currentTime)
+        if (this.timeNow !== timeNow) {
+          this.setData({
+            timeNow: timeNow,
           })
         }
       },
@@ -122,7 +132,6 @@ Page({
     player.seek((v / 100) * player.duration)
   },
   bindPlay() {
-    console.log('🐸', 123)
     app.music.play()
   },
   bindNext() {
