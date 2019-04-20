@@ -8,6 +8,7 @@ Page({
     song: null,
     songNow: null,
     list: null,
+    listClass: '',
     timeAll: '00:00',
     timeNow: '00:00',
   },
@@ -144,9 +145,14 @@ Page({
     const i = event.currentTarget.dataset.index
     app.music.playOne(i)
   },
-  bindButton() {
-    wx.navigateTo({
-      url: '/pages/about/about',
+  bindList() {
+    this.setData({
+      listClass: 'show',
+    })
+  },
+  bindListClose() {
+    this.setData({
+      listClass: '',
     })
   },
   onHide() {},
