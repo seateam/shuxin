@@ -18,18 +18,28 @@
       <i class="iconfont icon-next"></i>
     </div>
   </div>
-</div>
-<div class="footer">
-  <i class="iconfont icon-history"></i>
-  <i class="iconfont icon-playing-list"></i>
-  <i class="iconfont icon-article"></i>
-</div>
-<!-- <div class="list">
-  <block wx:for="{{list}}" wx:for-item="song" wx:key="index">
-    <div class="song {{song.played ? 'played' : ''}} {{songNow === index ? 'playing' : ''}}" bind:tap="bindSong" data-index="{{index}}">
-      <image src="{{song.coverImgUrl}}"></image>
-      <text>{{song.title}}</text>
-      <text>{{song.singer}}</text>
+  <div class="footer">
+    <i class="iconfont icon-history"></i>
+    <i class="iconfont icon-playing-list"></i>
+    <i class="iconfont icon-article"></i>
+  </div>
+  <div class="list">
+    <div class="column">
+      <div>栏目名</div>
+      <i class="iconfont icon-close"></i>
     </div>
-  </block>
-</div> -->
+    <div class="songs">
+      <block wx:for="{{list}}" wx:for-item="song" wx:key="index">
+        <div class="song {{song.played ? 'played' : ''}} {{songNow === index ? 'playing' : ''}}" bind:tap="bindSong" data-index="{{index}}">
+          <div class="play">
+            <i class="iconfont icon-audio"></i>
+          </div>
+          <div class="info">
+            <text class="title">{{song.title}}</text>
+            <text>19:34</text>
+          </div>
+        </div>
+      </block>
+    </div>
+  </div>
+</div>

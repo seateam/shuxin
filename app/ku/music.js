@@ -35,6 +35,7 @@ const music = {
     const song = this.list[i]
     if (song && song.src) {
       if (player.src === song.src) {
+        player.title = song.title
         player.src = song.src
         return
       }

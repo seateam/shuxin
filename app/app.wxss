@@ -1,6 +1,10 @@
 /* 图标库 */
 @import "/ku/iconfont.wxss";
 
+div {
+    box-sizing: border-box;
+}
+
 page {
     display: flex;
     align-items: center;
