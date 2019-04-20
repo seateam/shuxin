@@ -32,7 +32,15 @@
       <block wx:for="{{list}}" wx:for-item="song" wx:key="index">
         <div class="song {{song.played ? 'played' : ''}} {{songNow === index ? 'playing' : ''}}" bind:tap="bindSong" data-index="{{index}}">
           <div class="play">
-            <i class="iconfont icon-audio"></i>
+            <div class="musicalNoteBg" wx:if="{{ songNow === index }}">
+              <div class="musicalNote active">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+            </div>
+            <i wx:else class="iconfont icon-audio"></i>
           </div>
           <div class="info">
             <text class="title">{{song.title}}</text>
