@@ -1,7 +1,36 @@
 /* 图标库 */
 @import "/ku/iconfont.wxss";
 
-div {
+page,
+view,
+scroll-view,
+swiper,
+movable-area,
+cover-view,
+text,
+icon,
+rich-text,
+progress,
+button,
+checkbox-group,
+checkbox,
+form,
+input,
+label,
+picker,
+picker-view,
+radio-group,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+image,
+video,
+live-player,
+live-pusher,
+open-data,
+web-view {
     box-sizing: border-box;
 }
 
@@ -9,7 +38,6 @@ page {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background: #FFF;
     font-size: 32rpx;
 }
 
@@ -23,5 +51,11 @@ image {
 }
 
 button::after {
-    display: none;
+    border: none;
+}
+
+input {
+    outline: none;
+    border: none;
+    list-style: none;
 }

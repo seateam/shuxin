@@ -1,2 +1,1 @@
-<div class="button" bind:tap="bindMusic1">跳转到 list1</div>
-<div class="button" bind:tap="bindMusic2">跳转到 list2</div>
+<button open-type="getUserInfo" bind:getuserinfo="bindLogin">登录</button>
