@@ -8,10 +8,11 @@
     "audio"
   ],
   "window": {
-    "navigationBarTitleText": "书信",
+    "navigationBarTitleText": "蓝色潮汐",
     "navigationBarBackgroundColor": "#FFF",
     "backgroundTextStyle": "light",
     "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
     "enablePullDownRefresh": true
   },
   "debug": false,

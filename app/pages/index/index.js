@@ -6,7 +6,7 @@ Page({
   onLoad() { },
   onShow() { },
   bindLogin(res) {
-    console.log('🐸', res.detail.userInfo)
+    console.log('🐸', res.detail)
     wx.login({
       success(res) {
         if (res.code) {
@@ -29,3 +29,11 @@ Page({
     wx.stopPullDownRefresh()
   },
 })
+
+
+
+// code ->  weixin -> openid  123
+// openid
+
+
+// openid 
