@@ -10,21 +10,19 @@ Page({
     latitude: 23.099994,
     longitude: 113.324520,
     markers: [{
-      id: 0,
-      latitude: 23.099994,
-      longitude: 113.344520,
-      width: 22,
-      height: 27,
-      name: '鬼地方',
-      iconPath: './img/mark.png'
-    }, {
       id: 1,
       latitude: 23.099994,
+      longitude: 113.324520,
+      name: 'T.I.T 创意园'
+    }],
+    covers: [{
+      latitude: 23.099994,
+      longitude: 113.344520,
+      iconPath: './img/location.png'
+    }, {
+      latitude: 23.099994,
       longitude: 113.304520,
-      width: 22,
-      height: 27,
-      name: '鬼地方2',
-      iconPath: './img/mark.png'
+      iconPath: './img/location.png'
     }]
   },
   onReady: function (e) {
@@ -88,8 +86,14 @@ Page({
   },
   includePoints: function () {
     this.mapCtx.includePoints({
-      padding: [30],
-      points: this.data.markers
+      padding: [10],
+      points: [{
+        latitude: 23.10229,
+        longitude: 113.3345211,
+      }, {
+        latitude: 23.00229,
+        longitude: 113.3345211,
+      }]
     })
   },
   bindLogin(res) {

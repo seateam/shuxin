@@ -22,15 +22,14 @@ page {
 #map .top .serach {
   width: 590rpx;
   height: 72rpx;
-  border: 1px solid #666;
+  line-height: 72rpx;
+  border: 1px solid #A0A0A0;
+  background: rgba(239, 239, 239, 0.86);
   border-radius: 8px;
-  display: flex;
-  align-items: center;
   padding: 0 26rpx;
   font-size: 32rpx;
   font-family: FangSong;
   color: #666;
-  background: rgba(255, 255, 255, 0.6)
 }
 
 #map .top cover-image.edit {
@@ -46,8 +45,57 @@ page {
   position: absolute;
   bottom: 100rpx;
 }
-#map .bottom cover-image.planet {
+
+#map .bottom .btns {
+  position: relative;
   width: 516rpx;
+  display: flex;
+  justify-content: center;
+}
+
+#map .bottom .btn {
+  position: absolute;
+}
+
+#map .bottom .btn.share,
+#map .bottom .btn.data {
+  top: 78rpx;
+  font-size: 34rpx;
+  font-family: SimHei;
+  color: rgba(220, 147, 127, 1);
+  text-shadow: 0px 8px 8px rgba(29, 45, 47, 0.84);
+}
+
+#map .bottom .btn.data {
+  left: 96rpx;
+}
+
+#map .bottom .btn.card {
+  top: 52rpx;
+  font-size: 48rpx;
+  font-family: SimHei;
+  color: rgba(220, 147, 127, 1);
+  text-shadow: 0 8rpx 4rpx rgba(103, 52, 18, 0.84);
+}
+
+#map .bottom .btn.share {
+  right: 96rpx;
+}
+
+#map .bottom cover-image.planet {
+  width: 100%;
+}
+
+#map .left {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  left: 18rpx;
+  bottom: 298rpx;
+}
+
+#map .left cover-image.location {
+  width: 66rpx;
 }
 
 /* 临时样式 */

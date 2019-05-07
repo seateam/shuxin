@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/music/music",
-    "pages/about/about"
+    "pages/search/search",
+    "pages/data/data",
+    "pages/card/card",
+    "pages/share/share"
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "打卡功能需要开启位置服务"
     }
   },
   "window": {
@@ -17,5 +19,6 @@
     "navigationStyle": "custom",
     "enablePullDownRefresh": true
   },
-  "debug": false
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
 }
