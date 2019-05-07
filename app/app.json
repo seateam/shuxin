@@ -11,13 +11,16 @@
       "desc": "打卡功能需要开启位置服务"
     }
   },
+  "usingComponents": {
+    "sea-nav-bar": "./ku/navBar/navBar"
+  },
   "window": {
     "navigationBarTitleText": "蓝色潮汐",
     "navigationBarBackgroundColor": "#FFF",
     "backgroundTextStyle": "light",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": false
   },
   "debug": true,
   "sitemapLocation": "sitemap.json"

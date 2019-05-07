@@ -1,0 +1,5 @@
+<div class="navBar {{system}}" style="padding-top:{{barHeight}}px">
+    <div class="back" bind:tap="bindBack">
+        <div class="iconfont icon-back"></div>
+    </div>
+</div>

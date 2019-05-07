@@ -1,6 +1,7 @@
 /* 图标库 */
 @import "/ku/iconfont.wxss";
 
+div,
 page,
 view,
 scroll-view,
@@ -58,4 +59,34 @@ input {
     outline: none;
     border: none;
     list-style: none;
+}
+
+sea-nav-bar {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+sea-nav-bar .navBar {
+    padding-top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    height: 64px;
+}
+
+sea-nav-bar .navBar .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    color: #000;
+}
+
+sea-nav-bar .navBar.android {
+    height: 68px;
 }
