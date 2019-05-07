@@ -4,9 +4,11 @@
     "pages/music/music",
     "pages/about/about"
   ],
-  "requiredBackgroundModes": [
-    "audio"
-  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "navigationBarTitleText": "蓝色潮汐",
     "navigationBarBackgroundColor": "#FFF",
@@ -15,6 +17,5 @@
     "navigationStyle": "custom",
     "enablePullDownRefresh": true
   },
-  "debug": false,
-  "sitemapLocation": "sitemap.json"
+  "debug": false
 }

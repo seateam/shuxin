@@ -1,4 +1,5 @@
 # 匹配所有
 node_modules
 project.config.json
+sitemap.json
 .DS_Store

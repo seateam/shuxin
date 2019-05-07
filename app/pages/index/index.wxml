@@ -1,2 +1,24 @@
-<!-- map.wxml -->
-<map id="map" subkey="MKSBZ-INSWX-SL44P-TVVTZ-7AIRO-RQBYF" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location></map>
+<map id="map"
+  subkey="MKSBZ-INSWX-SL44P-TVVTZ-7AIRO-RQBYF"
+  latitude="{{latitude}}"
+  scale="14"
+  longitude="{{longitude}}"
+  markers="{{markers}}"
+  covers="{{covers}}"
+  show-location>
+  <!-- <cover-view class="top">
+    <cover-view  class="serach">搜索国家、省份、城市</cover-view>
+    <cover-image class="edit" src="./img/edit.svg"></cover-image>
+  </cover-view>
+  <cover-view class="bottom">
+    <cover-image class="planet" src="./img/planet.png"></cover-image>
+  </cover-view> -->
+</map>
+
+<!-- <div class="btns">
+    <button bind:tap="bindLogin" open-type="getUserInfo" >登陆</button>
+    <button bind:tap="getCenterLocation" >获取位置</button>
+    <button bind:tap="moveToLocation" >移动位置</button>
+    <button bind:tap="translateMarker" >移动标注</button>
+    <button bind:tap="includePoints" >缩放视野展示所有经纬度</button>
+</div> -->
