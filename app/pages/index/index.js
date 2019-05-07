@@ -50,13 +50,13 @@ Page({
       //获取输入框值并设置keyword参数
       keyword: '湖南安化', //用户输入的关键词，可设置固定值,如keyword:'KFC'
       //region:'北京', //设置城市名，限制关键词所示的地域范围，非必填参数
-      success: function (res) { //搜索成功后的回调
+      success (res) { //搜索成功后的回调
         console.log(res);
       },
-      fail: function (error) {
+      fail (error) {
         console.error(error);
       },
-      complete: function (res) {
+      complete (res) {
         console.log(res);
       }
     });
@@ -69,7 +69,7 @@ Page({
       }
     })
   },
-  moveToLocation: function () {
+  bindLocation: function () {
     this.mapCtx.moveToLocation()
   },
   translateMarker: function () {
@@ -86,25 +86,29 @@ Page({
       }
     })
   },
-  includePoints: function () {
+  bindSearch () {
+    Sea.path('/pages/search/search')
+  },
+  bindPoints () {
     this.mapCtx.includePoints({
       padding: [30],
       points: this.data.markers
     })
   },
-  bindLogin(res) {
-    console.log('🐸', res.detail)
+  bindLogin() {
     wx.login({
       success(res) {
         if (res.code) {
           console.log('🐸', res.code)
           // 发起网络请求
-          // wx.request({
-          //   url: 'https://test.com/onLogin',
-          //   data: {
-          //     code: res.code
-          //   }
-          // })
+          Sea.Ajax({
+            url: '/v1/login',
+            data: {
+              js_code: res.code
+            }
+          }).then(res => {
+            console.log('🐸', res)
+          })
         } else {
           console.log('登录失败！' + res.errMsg)
         }

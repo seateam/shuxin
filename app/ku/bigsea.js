@@ -1,6 +1,6 @@
 const log = console.log.bind(console, '>>>')
 const config = {
-  host: 'https://api.bigc.cc',
+  host: 'https://api.echo1999.com',
 }
 module.exports = {
   config: config,
@@ -27,7 +27,7 @@ module.exports = {
         header: req.header,
         method: req.method,
         success(res) {
-          success(res)
+          success(res.data)
         },
         fail(err) {
           if (err.errMsg === 'request:fail timeout') {
