@@ -55,11 +55,12 @@ page {
 
 #map .bottom .btn {
   position: absolute;
+  padding: 20rpx;
 }
 
 #map .bottom .btn.share,
 #map .bottom .btn.data {
-  top: 78rpx;
+  top: 58rpx;
   font-size: 34rpx;
   font-family: SimHei;
   color: rgba(220, 147, 127, 1);
@@ -67,11 +68,11 @@ page {
 }
 
 #map .bottom .btn.data {
-  left: 96rpx;
+  left: 84rpx;
 }
 
 #map .bottom .btn.card {
-  top: 52rpx;
+  top: 32rpx;
   font-size: 48rpx;
   font-family: SimHei;
   color: rgba(220, 147, 127, 1);
@@ -79,7 +80,7 @@ page {
 }
 
 #map .bottom .btn.share {
-  right: 96rpx;
+  right: 84rpx;
 }
 
 #map .bottom cover-image.planet {

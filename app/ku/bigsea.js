@@ -18,7 +18,7 @@ module.exports = {
       header: request.header || {},
       method: (request.method || 'GET').toUpperCase(),
     }
-    req.data.token = wx.getStorageSync('token')
+    req.data.openid = wx.getStorageSync('token')
     req.header['Content-Type'] = 'application/json'
     return new Promise(function(success) {
       wx.request({

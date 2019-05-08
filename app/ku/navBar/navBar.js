@@ -10,7 +10,7 @@ Component({
   },
   attached() {
     const systemInfo = wx.getSystemInfoSync()
-    const ios = !systemInfo.system.startsWith('Android')
+    const ios = /ios/i.test(systemInfo.system)
     const system = ios ? 'ios' : 'android'
     this.setData({
       system: system,
@@ -22,5 +22,4 @@ Component({
       Sea.back()
     }
   }
-
 })

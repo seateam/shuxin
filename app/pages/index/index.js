@@ -99,7 +99,6 @@ Page({
     wx.login({
       success(res) {
         if (res.code) {
-          console.log('🐸', res.code)
           // 发起网络请求
           Sea.Ajax({
             url: '/v1/login',
@@ -107,13 +106,40 @@ Page({
               js_code: res.code
             }
           }).then(res => {
-            console.log('🐸', res)
+            if (res.ok) {
+              console.log('🐸', '登陆成功!')
+              wx.setStorageSync('token', res.openid)
+            }
           })
         } else {
-          console.log('登录失败！' + res.errMsg)
+          console.log('登录失败!' + res.errMsg)
         }
       }
     })
+  },
+  isLogin() {
+    const token = wx.getStorageSync('token')
+    if (token) {
+      return true
+    } else {
+      this.bindLogin()
+      return false
+    }
+  },
+  bindData() {
+    if (this.isLogin()) {
+      Sea.path('/pages/data/data')
+    }
+  },
+  bindCard() {
+    if (this.isLogin()) {
+      Sea.path('/pages/card/card')
+    }
+  },
+  bindShare() {
+    if (this.isLogin()) {
+      Sea.path('/pages/share/share')
+    }
   },
   // 刷新
   onPullDownRefresh() {

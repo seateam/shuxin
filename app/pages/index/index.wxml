@@ -15,9 +15,9 @@
   <cover-view class="bottom">
     <cover-view class="btns">
       <cover-image class="planet" bind:tap="bindPoints" src="./img/planet.png"></cover-image>
-      <cover-view bind:tap="bindLogin" class="btn data">数据</cover-view>
-      <cover-view bind:tap="bindLogin" class="btn card">打卡</cover-view>
-      <cover-view bind:tap="bindLogin" class="btn share">分享</cover-view>
+      <cover-view bind:tap="bindData" class="btn data">数据</cover-view>
+      <cover-view bind:tap="bindCard" class="btn card">打卡</cover-view>
+      <cover-view bind:tap="bindShare" class="btn share">分享</cover-view>
     </cover-view>
   </cover-view>
 </map>
