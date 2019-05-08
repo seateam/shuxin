@@ -45,22 +45,7 @@ Page({
       }
     })
   },
-  onShow() {
-    qqmapsdk.getSuggestion({
-      //获取输入框值并设置keyword参数
-      keyword: '湖南安化', //用户输入的关键词，可设置固定值,如keyword:'KFC'
-      //region:'北京', //设置城市名，限制关键词所示的地域范围，非必填参数
-      success (res) { //搜索成功后的回调
-        console.log(res);
-      },
-      fail (error) {
-        console.error(error);
-      },
-      complete (res) {
-        console.log(res);
-      }
-    });
-  },
+  onShow() {},
   getCenterLocation: function () {
     this.mapCtx.getCenterLocation({
       success: function (res) {
@@ -86,10 +71,10 @@ Page({
       }
     })
   },
-  bindSearch () {
+  bindSearch() {
     Sea.path('/pages/search/search')
   },
-  bindPoints () {
+  bindPoints() {
     this.mapCtx.includePoints({
       padding: [30],
       points: this.data.markers

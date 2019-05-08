@@ -63,9 +63,11 @@ input {
     list-style: none;
 }
 
+/* 导航栏 */
 sea-nav-bar {
     box-sizing: border-box;
     width: 100%;
+    z-index: 10;
 }
 
 sea-nav-bar .navBar {
@@ -76,12 +78,18 @@ sea-nav-bar .navBar {
     justify-content: flex-start;
     height: 64px;
 }
+sea-nav-bar .navBar.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 
 sea-nav-bar .navBar .back {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 20rpx;
     width: 32px;
     height: 32px;
     background-color: rgba(255, 255, 255, 0.7);
@@ -91,4 +99,16 @@ sea-nav-bar .navBar .back {
 
 sea-nav-bar .navBar.android {
     height: 68px;
+}
+
+/* 背景 */
+image.page-background {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 }
