@@ -2,7 +2,7 @@
 <sea-nav-bar />
 <input bindinput="bindInput" focus value="" placeholder="搜索国家、省份、城市" confirm-type="search" />
 <div class="list">
-    <div class="one" wx:for="{{list}}" wx:key="index" wx:for-item="e">
+    <div class="one" wx:for="{{list}}" wx:key="index" wx:for-item="e" data-i="{{index}}" bind:tap="bindOne">
         <i class="iconfont icon-location"></i>
         <div class="info">
             <div class="t1">{{e.title}}</div>

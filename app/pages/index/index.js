@@ -27,49 +27,42 @@ Page({
       iconPath: './img/mark.png'
     }]
   },
-  onReady: function (e) {
+  onReady() {
     this.mapCtx = wx.createMapContext('map')
   },
   onLoad() {
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userLocation']) {
-          wx.authorize({
-            scope: 'scope.userLocation',
-            success() {
-              // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-              // wx.startRecord()
-            }
-          })
-        }
-      }
-    })
+    // wx.getSetting({
+    //   success(res) {
+    //     if (!res.authSetting['scope.userLocation']) {
+    //       wx.authorize({
+    //         scope: 'scope.userLocation',
+    //         success() {
+    //           // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+    //           // wx.startRecord()
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
   },
-  onShow() {},
-  getCenterLocation: function () {
+  onShow() {
+    const location = app.data.location
+    if (location) {
+      this.setData({
+        latitude: location.lat,
+        longitude: location.lng,
+      })
+    }
+  },
+  getCenterLocation() {
     this.mapCtx.getCenterLocation({
-      success: function (res) {
-        console.log(res.longitude)
-        console.log(res.latitude)
+      success(res) {
+        console.log('🐸', res)
       }
     })
   },
-  bindLocation: function () {
+  bindLocation() {
     this.mapCtx.moveToLocation()
-  },
-  translateMarker: function () {
-    this.mapCtx.translateMarker({
-      markerId: 1,
-      autoRotate: true,
-      duration: 1000,
-      destination: {
-        latitude: 23.10229,
-        longitude: 113.3345211,
-      },
-      animationEnd() {
-        console.log('animation end')
-      }
-    })
   },
   bindSearch() {
     Sea.path('/pages/search/search')

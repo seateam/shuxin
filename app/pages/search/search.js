@@ -22,4 +22,10 @@ Page({
       }
     })
   },
+  bindOne(event) {
+    const i = event.currentTarget.dataset.i
+    const e = this.data.list[i]
+    app.data.location = e.location
+    Sea.back()
+  },
 })

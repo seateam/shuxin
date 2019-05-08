@@ -21,9 +21,3 @@
     </cover-view>
   </cover-view>
 </map>
-
-<!-- <div class="btns">
-    <button bind:tap="bindLogin" open-type="getUserInfo" >登陆</button>
-    <button bind:tap="getCenterLocation" >获取位置</button>
-    <button bind:tap="translateMarker" >移动标注</button>
-</div> -->
