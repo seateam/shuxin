@@ -1,41 +1,44 @@
+page {
+    padding: 0 35rpx;
+}
 input {
-    width: 680rpx;
-    height: 72rpx;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 8rpx;
-    padding: 0 28rpx;
-    margin-top: 30rpx;
-    margin-bottom: 18rpx;
+  width: 100%;
+  height: 72rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  padding: 0 28rpx;
+  margin-top: 30rpx;
+  margin-bottom: 18rpx;
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 680rpx;
-    padding-bottom: 98rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 98rpx;
 }
 .list i {
-    color: rgba(170, 170, 170, 1);
-    font-size: 44rpx;
-    margin-right: 8rpx;
+  color: rgba(170, 170, 170, 1);
+  font-size: 44rpx;
+  margin-right: 8rpx;
 }
 
 .list .one .info .t1 {
-    font-size: 32rpx;
-    margin-bottom: 14rpx;
+  font-size: 32rpx;
+  margin-bottom: 14rpx;
 }
 .list .one .info .t2 {
-    font-size: 28rpx;
-    color: #6C6C6C;
+  font-size: 28rpx;
+  color: #6c6c6c;
 }
 
 .list .one {
-    padding: 10rpx 20rpx;
-    margin-bottom: 6rpx;
-    width: 100%;
-    min-height: 120rpx;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10rpx;
-    display: flex;
+  padding: 10rpx 20rpx;
+  margin-bottom: 6rpx;
+  width: 100%;
+  min-height: 120rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10rpx;
+  display: flex;
 }
