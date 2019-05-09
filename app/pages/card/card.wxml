@@ -1,1 +1,20 @@
+<image class="page-background" src="../../ku/img/bg1.jpg" />
 <sea-nav-bar />
+<header>
+    <div>取消</div>
+    <div>发布</div>
+</header>
+<main>
+    <textarea></textarea>
+    <div>
+        <i class="iconfont icon-location" />
+        <text>西北农林科技大学北校区8号教学楼</text>
+        <i class="iconfont icon-location" />
+    </div>
+</main>
+<footer>
+    <i class="iconfont icon-location" />
+    <i class="iconfont icon-location" />
+    <i class="iconfont icon-location" />
+    <i class="iconfont icon-location" />
+</footer>

@@ -2,6 +2,9 @@
 @import "/ku/iconfont.wxss";
 
 div,
+header,
+main,
+footer,
 page,
 view,
 scroll-view,
