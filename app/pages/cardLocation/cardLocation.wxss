@@ -1,3 +1,28 @@
 page {
 	padding: 0 20rpx;
 }
+
+.list {
+	margin-bottom: 20rpx;
+	border-top: 1px solid rgba(19, 19, 19, 1);
+}
+.list i {
+	color: #e88536;
+}
+.list .one {
+	border-bottom: 1px solid rgba(19, 19, 19, 1);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 34rpx 0;
+}
+.list .one .info {
+	margin-right: 100rpx;
+}
+.list .one .info .t1 {
+	font-size: 32rpx;
+}
+.list .one .info .t2 {
+	font-size: 24rpx;
+	color: #363333;
+}

@@ -13,11 +13,14 @@ module.exports = {
   },
   Ajax(request) {
     let req = {
-      url: config.host + request.url,
+      url: request.url,
       data: request.data || {},
       header: request.header || {},
       method: (request.method || 'GET').toUpperCase(),
     }
+    if (!req.url.startsWith('http')) {
+			req.url = config.host + req.url
+		}
     req.data.openid = wx.getStorageSync('token')
     req.header['Content-Type'] = 'application/json'
     return new Promise(function(success) {

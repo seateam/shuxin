@@ -74,12 +74,12 @@ sea-nav-bar {
 }
 
 sea-nav-bar .navBar {
-    padding-top: 20px;
+    margin-top: 20px;
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: flex-start;
-    height: 64px;
+    height: 44px;
 }
 sea-nav-bar .navBar.fixed {
     position: fixed;
@@ -98,10 +98,6 @@ sea-nav-bar .navBar .back {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
     color: #000;
-}
-
-sea-nav-bar .navBar.android {
-    height: 68px;
 }
 
 /* 背景 */

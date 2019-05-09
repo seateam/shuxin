@@ -1,25 +1,16 @@
 const Sea = require('../../ku/bigsea.js')
-
+const app = getApp()
 Component({
-  options: {
-    addGlobalClass: true,
-  },
-  data: {
-    system: 'ios',
-    barHeight: '20',
-  },
-  attached() {
-    const systemInfo = wx.getSystemInfoSync()
-    const ios = /ios/i.test(systemInfo.system)
-    const system = ios ? 'ios' : 'android'
-    this.setData({
-      system: system,
-      barHeight: systemInfo.statusBarHeight,
-    })
-  },
-  methods: {
-    bindBack () {
-      Sea.back()
-    }
-  }
+	options: {
+		addGlobalClass: true,
+	},
+	data: {
+		navBar: app.data.navBar,
+	},
+	attached() {},
+	methods: {
+		bindBack() {
+			Sea.back()
+		},
+	},
 })

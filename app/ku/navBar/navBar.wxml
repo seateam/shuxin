@@ -1,7 +1,7 @@
 <!-- 占位 -->
-<div class="navBar {{system}}" style="padding-top:{{barHeight}}px"></div>
+<div class="navBar" style="margin-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;"></div>
 <!-- 悬浮 -->
-<div class="navBar {{system}} fixed" style="padding-top:{{barHeight}}px">
+<div class="navBar fixed" style="margin-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;">
     <div class="back" bind:tap="bindBack">
         <div class="iconfont icon-back"></div>
     </div>

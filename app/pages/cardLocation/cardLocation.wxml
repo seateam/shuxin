@@ -1,2 +1,11 @@
-<image class="page-background" src="../../ku/img/bg1.jpg" />
+<image class="page-background" src="../../ku/img/bg2.png" />
 <sea-nav-bar />
+<div class="list">
+  <div class="one" wx:for="{{list}}">
+    <div class="info">
+      <div class="t1">{{item.title}}</div>
+      <div class="t2">{{item.address}}</div>
+    </div>
+    <i class="iconfont icon-choose"></i>
+  </div>
+</div>
