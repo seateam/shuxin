@@ -7,6 +7,7 @@ const qqmapsdk = new QQMapWX({
 })
 Page({
   data: {
+    keyword: '',
     mapTop: 64,
     latitude: 23.099994,
     longitude: 113.324520,
@@ -38,13 +39,14 @@ Page({
 		})
   },
   onShow() {
-    const location = app.data.location
-    if (location) {
-      this.setData({
-        latitude: location.lat,
-        longitude: location.lng,
-      })
-    }
+    const search = app.data.search
+    if (search && search.location) {
+			this.setData({
+				latitude: search.location.lat,
+				longitude: search.location.lng,
+				keyword: search.title,
+			})
+		}
   },
   getCenterLocation() {
     this.mapCtx.getCenterLocation({

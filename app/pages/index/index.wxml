@@ -6,7 +6,7 @@
   markers="{{markers}}"
   show-location>
   <cover-view class="top" style="top:{{mapTop}}px">
-    <cover-view  class="serach" bind:tap="bindSearch">搜索国家、省份、城市</cover-view>
+    <cover-view  class="serach" bind:tap="bindSearch">{{keyword || '搜索国家、省份、城市'}}</cover-view>
     <cover-image class="edit" src="./img/edit.png"></cover-image>
   </cover-view>
   <cover-view class="left">

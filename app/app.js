@@ -5,7 +5,10 @@ App({
 			height: '44',
 			marginTop: '20',
 		},
-		location: null,
+		search: {
+			location: null,
+			keyword: '',
+		},
 		mark: {
 			arr: ['#F82727', '#E88536', '#F9EE33', '#32B16C', '#448ACA', '#8957A1'],
 			now: 0,

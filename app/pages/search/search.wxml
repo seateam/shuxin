@@ -1,6 +1,6 @@
 <image class="page-background" src="../../ku/img/bg1.jpg" />
 <sea-nav-bar />
-<input bindinput="bindInput" focus value="" placeholder="搜索国家、省份、城市" confirm-type="search" />
+<input bindinput="bindInput" focus value="{{keyword}}" placeholder="搜索国家、省份、城市" confirm-type="search" />
 <div class="list">
     <div class="one" wx:for="{{list}}" wx:key="index" wx:for-item="e" data-i="{{index}}" bind:tap="bindOne">
         <i class="iconfont icon-location"></i>
