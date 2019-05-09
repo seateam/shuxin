@@ -1,11 +1,11 @@
 <image class="page-background" src="../../ku/img/bg2.png" />
 <sea-nav-bar />
 <div class="list">
-  <div class="one" wx:for="{{list}}">
+  <div class="one" bind:tap="bindOne" data-i="{{index}}" wx:for="{{list}}" wx:key="index">
     <div class="info">
       <div class="t1">{{item.title}}</div>
       <div class="t2">{{item.address}}</div>
     </div>
-    <i class="iconfont icon-choose"></i>
+    <i class="iconfont icon-choose {{now === index ? 'active' : ''}}"></i>
   </div>
 </div>

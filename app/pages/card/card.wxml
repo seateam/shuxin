@@ -9,7 +9,7 @@
   <div class="location" bind:tap="bindLocation">
     <view class="info">
       <i class="iconfont icon-location" style="color:{{mark.arr[mark.now]}}" />
-      <text>西北农林科技大学北校区8号教学楼</text>
+      <text>{{location.title}}</text>
     </view>
     <i class="iconfont icon-go" />
   </div>

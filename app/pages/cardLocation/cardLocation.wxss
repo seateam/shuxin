@@ -7,6 +7,9 @@ page {
 	border-top: 1px solid rgba(19, 19, 19, 1);
 }
 .list i {
+	color: transparent;
+}
+.list i.active {
 	color: #e88536;
 }
 .list .one {
