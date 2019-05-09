@@ -1,5 +1,4 @@
-const log = console.log.bind(console, '>>>')
-import Sea from 'ku/bigsea'
+const Sea = require('./ku/bigsea.js')
 App({
   data: {
     location: null,

@@ -1,13 +1,13 @@
 page {
-    padding: 0 20rpx;
+  padding: 0 20rpx;
 }
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    font-size:42rpx;
-    font-family:MicrosoftYaHei-Bold;
-    font-weight:bold;
-    color:rgba(194,103,48,1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 42rpx;
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: bold;
+  color: rgba(194, 103, 48, 1);
 }

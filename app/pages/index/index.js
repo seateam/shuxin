@@ -1,5 +1,5 @@
+const Sea = require('../../ku/bigsea.js')
 const app = getApp()
-const Sea = require('../../ku/bigsea')
 const QQMapWX = require('../../ku/qqmap-wx-jssdk.js')
 // 实例化API核心类
 const qqmapsdk = new QQMapWX({
