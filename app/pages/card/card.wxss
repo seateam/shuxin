@@ -37,6 +37,9 @@ main .location {
 	justify-content: space-between;
 	align-items: center;
 }
+main .location .info {
+	display: flex;
+}
 main .location .icon-location {
 	margin-right: 10rpx;
 	font-size: 38rpx;

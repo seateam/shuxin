@@ -4,6 +4,7 @@
     "pages/search/search",
     "pages/data/data",
     "pages/card/card",
+    "pages/cardLocation/cardLocation",
     "pages/share/share"
   ],
   "permission": {

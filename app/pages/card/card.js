@@ -14,4 +14,7 @@ Page({
 			mark: mark,
 		})
 	},
+	bindLocation(){
+		Sea.path('/pages/cardLocation/cardLocation')
+	}
 })
