@@ -13,12 +13,15 @@ header {
 	padding-top: 18rpx;
 	padding-bottom: 36rpx;
 }
+header .post:active {
+	color: #999;
+}
 
 main {
 	width: 100%;
 	background: rgba(0, 0, 0, 0.7);
 	border-radius: 20px;
-	padding: 26rpx 30rpx;
+	padding: 26rpx 30rpx 0;
 	color: #c9c9c9;
 }
 main textarea {
@@ -31,11 +34,14 @@ main .placeholder {
 }
 main .location {
 	font-size: 32rpx;
-	padding-top: 26rpx;
+	padding: 26rpx 0;
 	border-top: 1px solid #999;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+main .location:active {
+	background: rgba(255, 255, 255, 0.07);
 }
 main .location .info {
 	display: flex;

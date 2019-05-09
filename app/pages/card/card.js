@@ -3,6 +3,8 @@ const Sea = require('../../ku/bigsea.js')
 Page({
 	data: {
 		mark: app.data.mark,
+		content: '',
+		location: null,
 	},
 	onLoad() {
 		// 获取周边位置
@@ -45,5 +47,34 @@ Page({
 	},
 	bindLocation() {
 		Sea.path('/pages/cardLocation/cardLocation')
+	},
+	bindInput(event) {
+		const v = event.detail.value
+		this.data.content = v
+	},
+	bindPost() {
+		const { lat, lng } = this.data.location.location
+		const mark = this.data.mark
+		const content = this.data.content
+		if (content) {
+			Sea.loading('正在发布...')
+			Sea.Ajax({
+				url: '/card.add',
+				data: {
+					content: content,
+					location: `[${lat}, ${lng}]`,
+					mark_color: mark.now,
+				},
+			}).then(res => {
+				Sea.loading()
+				if (res && res.ok) {
+					Sea.tip('发布成功')
+				} else {
+					Sea.tip('发布失败')
+				}
+			})
+		} else {
+			Sea.tip('说点什么吧...')
+		}
 	},
 })
