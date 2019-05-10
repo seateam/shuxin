@@ -62,8 +62,9 @@ Page({
 				url: '/card.add',
 				data: {
 					content: content,
-					location: `[${lat}, ${lng}]`,
+					location: `${lat},${lng}`,
 					mark_color: mark.now,
+					time_stamp: Date.now(),
 				},
 			}).then(res => {
 				Sea.loading()
