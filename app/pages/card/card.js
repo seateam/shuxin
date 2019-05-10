@@ -59,7 +59,7 @@ Page({
 		if (content) {
 			Sea.loading('正在发布...')
 			Sea.Ajax({
-				url: '/card.add',
+				url: '/v1/card.add',
 				data: {
 					content: content,
 					location: `${lat},${lng}`,
@@ -70,6 +70,7 @@ Page({
 				Sea.loading()
 				if (res && res.ok) {
 					Sea.tip('发布成功')
+					Sea.back()
 				} else {
 					Sea.tip('发布失败')
 				}
