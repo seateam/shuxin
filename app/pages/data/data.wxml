@@ -4,33 +4,30 @@
   <div>“蓝色潮汐”已陪您走过</div>
   <div>1</div>
   <div>个地方啦</div>
-  <image src="./person.png" mode="aspectFit"/>
+  <image src="./person.png" mode="aspectFit" />
 </header>
-
 <main>
   <div class="location">
-    <div class="province">
-      <dir class="one">河南</dir>
-      <dir class="one">河北</dir>
-      <dir class="one">北京</dir>
-      <dir class="one">湖南</dir>
-      <dir class="one">湖北</dir>
-      <dir class="one">广东</dir>
-      <dir class="one">河南</dir>
-      <dir class="one">河北</dir>
-      <dir class="one">北京</dir>
-      <dir class="one">湖南</dir>
-      <dir class="one">湖北</dir>
-      <dir class="one">广东</dir>
-    </div>
+    <scroll-view scroll-x="{{true}}" class="province">
+      <div class="one">河南</div>
+      <div class="one">河北</div>
+      <div class="one">北京</div>
+      <div class="one">湖南</div>
+      <div class="one">湖北</div>
+      <div class="one">广东</div>
+      <div class="one">河南</div>
+      <div class="one">河北</div>
+      <div class="one">北京</div>
+      <div class="one">湖南</div>
+      <div class="one">湖北</div>
+      <div class="one">广东</div>
+    </scroll-view>
     <div class="province-all">全部</div>
   </div>
   <div class="cont">
     <div class="date">
       <div>全部</div>
-      <div class="list">
-
-      </div>
+      <div class="list"></div>
     </div>
     <div class="cards"></div>
   </div>
