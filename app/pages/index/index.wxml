@@ -2,7 +2,7 @@
   subkey="IHRBZ-RVWWQ-FHC5D-GGHIX-WPIGS-MABL6"
   latitude="{{latitude}}"
   longitude="{{longitude}}"
-  scale="14"
+  scale="{{scale}}"
   markers="{{markers}}"
   show-location>
   <cover-view class="top" style="top:{{mapTop}}px">

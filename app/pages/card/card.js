@@ -70,6 +70,8 @@ Page({
 				Sea.loading()
 				if (res && res.ok) {
 					Sea.tip('发布成功')
+					app.data.search.location = location.location
+					app.data.search.scale = 18
 					Sea.back()
 				} else {
 					Sea.tip('发布失败')
