@@ -1,15 +1,15 @@
 {
   "pages": [
+    "pages/data/data",
     "pages/index/index",
     "pages/search/search",
-    "pages/data/data",
     "pages/card/card",
     "pages/cardLocation/cardLocation",
     "pages/share/share"
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "打卡功能需要开启位置服务"
+      "desc": "【打卡】需要开启位置服务"
     }
   },
   "usingComponents": {

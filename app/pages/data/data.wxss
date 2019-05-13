@@ -41,6 +41,7 @@ main {
 	flex-direction: column;
 	width: 100%;
 	height: calc(100vh - 178rpx);
+	overflow: hidden;
 	border-radius: 30rpx 30rpx 0 0;
 	padding: 0 20rpx;
 }
@@ -58,13 +59,19 @@ main .location .province {
 	width: 100%;
 	flex: 1;
 	display: flex;
+	align-items: center;
 	white-space: nowrap;
 	overflow: hidden;
 }
 main .location .province .one {
 	display: inline-block;
-	margin: 10rpx;
+	margin: 0 20rpx;
 	margin-left: 0;
+}
+main .location .province .one.active {
+	font-size: 43rpx;
+	font-weight: bold;
+	color: #c26730;
 }
 main .location .province-all {
 	display: flex;
@@ -75,5 +82,86 @@ main .location .province-all {
 	font-weight: bold;
 	color: rgba(255, 255, 255, 0.68);
 	width: 80rpx;
-	border-left: 1px solid #bfbfbf;
+	/* border-left: 1px solid #bfbfbf; */
+}
+main .cont {
+	color: #fff;
+	height: 100%;
+	flex: 1;
+	display: flex;
+}
+main .cont .date {
+	width: 114rpx;
+}
+main .cont .date .all {
+	font-size: 32rpx;
+	font-weight: bold;
+	color: rgba(255, 255, 255, 0.68);
+}
+main .cont .date .list {
+	margin-top: 34rpx;
+	height: 70vh;
+	overflow: hidden;
+}
+main .cont .date .list .year {
+	font-size: 24rpx;
+	margin-bottom: 40rpx;
+}
+main .cont .date .list .month {
+	margin-bottom: 40rpx;
+	font-size: 40rpx;
+}
+main .cont .date .list .month span {
+	font-size: 28rpx;
+}
+main .cont .date .list .month.active {
+	font-size: 53rpx;
+	font-weight: bold;
+	color: #c26730;
+}
+main .cont .date .list .month.active span {
+	font-size: 33rpx;
+}
+main .cont .cards {
+	width: 100%;
+	flex: 1;
+	height: 100%;
+	overflow-y: auto;
+}
+main .cont .cards .card {
+	position: relative;
+	width: 100%;
+	/* height: 130rpx; */
+	background: rgba(27, 27, 27, 0.93);
+	box-shadow: 0 10rpx 10rpx 1px rgba(6, 19, 86, 0.48);
+	opacity: 0.71;
+	border-radius: 20rpx;
+	margin-bottom: 16rpx;
+	padding: 34rpx 36rpx;
+	font-size: 28rpx;
+	color: #CBC8C8;
+}
+main .cont .cards .card .content {
+  /* 最多显示一行 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+main .cont .cards .card .card-date {
+	margin-top: 12rpx;
+}
+main .cont .cards .card .city {
+	position: absolute;
+	right: 0;
+	bottom: 18rpx;
+	width: 128rpx;
+	height: 50rpx;
+	background: rgba(232, 133, 54, 0.89);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-right: 26rpx;
+	border-radius: 10rpx  0 0 10rpx;
 }

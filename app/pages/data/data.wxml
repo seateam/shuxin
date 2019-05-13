@@ -8,27 +8,189 @@
 </header>
 <main>
   <div class="location">
-    <scroll-view scroll-x="{{true}}" class="province">
+    <scroll-view scroll-x class="province">
       <div class="one">河南</div>
       <div class="one">河北</div>
       <div class="one">北京</div>
-      <div class="one">湖南</div>
+      <div class="one active">湖南</div>
       <div class="one">湖北</div>
       <div class="one">广东</div>
-      <div class="one">河南</div>
-      <div class="one">河北</div>
-      <div class="one">北京</div>
-      <div class="one">湖南</div>
-      <div class="one">湖北</div>
-      <div class="one">广东</div>
+      <div class="one">黑龙江</div>
+      <div class="one">山西</div>
+      <div class="one">四川</div>
+      <div class="one">陕西</div>
     </scroll-view>
     <div class="province-all">全部</div>
   </div>
   <div class="cont">
     <div class="date">
-      <div>全部</div>
-      <div class="list"></div>
+      <div class="all">全部</div>
+      <scroll-view scroll-y class="list">
+        <div class="year">2019</div>
+        <div class="month">
+          <text>5</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>4</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>3</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>2</text>
+          <span>月</span>
+        </div>
+        <div class="month active">
+          <text>1</text>
+          <span>月</span>
+        </div>
+        <div class="year">2018</div>
+        <div class="month">
+          <text>12</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>11</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          10
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>9</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>7</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>6</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>5</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>4</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>3</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>2</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>1</text>
+          <span>月</span>
+        </div>
+        <div class="year">2017</div>
+        <div class="month">
+          <text>12</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>11</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>10</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>9</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>7</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>6</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>5</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>4</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>3</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>2</text>
+          <span>月</span>
+        </div>
+        <div class="month">
+          <text>1</text>
+          <span>月</span>
+        </div>
+        <div class="year">2016</div>
+      </scroll-view>
     </div>
-    <div class="cards"></div>
+    <div class="cards">
+      <div class="card">
+        <div class="content">想了你一整夜，再也想不起你的脸再也想不起你的脸</div>
+        <div class="card-date">7/1</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">猎户，天狼，织女。光年外沉默。光年外沉默</div>
+        <div class="card-date">7/2</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">想了你一整夜，再也想不起你的脸再也想不起你的脸</div>
+        <div class="card-date">7/1</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">猎户，天狼，织女。光年外沉默。光年外沉默</div>
+        <div class="card-date">7/2</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">想了你一整夜，再也想不起你的脸再也想不起你的脸</div>
+        <div class="card-date">7/1</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">猎户，天狼，织女。光年外沉默。光年外沉默</div>
+        <div class="card-date">7/2</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">想了你一整夜，再也想不起你的脸再也想不起你的脸</div>
+        <div class="card-date">7/1</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">猎户，天狼，织女。光年外沉默。光年外沉默</div>
+        <div class="card-date">7/2</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">想了你一整夜，再也想不起你的脸再也想不起你的脸</div>
+        <div class="card-date">7/1</div>
+        <div class="city">深圳</div>
+      </div>
+      <div class="card">
+        <div class="content">猎户，天狼，织女。光年外沉默。光年外沉默</div>
+        <div class="card-date">7/6</div>
+        <div class="city">深圳</div>
+      </div>
+    </div>
   </div>
 </main>
