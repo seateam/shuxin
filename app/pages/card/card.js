@@ -53,9 +53,8 @@ Page({
 		this.data.content = v
 	},
 	bindPost() {
-		const { lat, lng } = this.data.location.location
-		const mark = this.data.mark
-		const content = this.data.content
+		const { location, mark, content } = this.data
+		const { lat, lng } = location.location
 		if (content) {
 			Sea.loading('正在发布...')
 			Sea.Ajax({
@@ -65,6 +64,7 @@ Page({
 					location: `${lat},${lng}`,
 					mark_color: mark.now,
 					time_stamp: Date.now(),
+					location_text: location.title,
 				},
 			}).then(res => {
 				Sea.loading()

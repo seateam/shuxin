@@ -1,16 +1,11 @@
 const Sea = require('../../ku/bigsea.js')
 const app = getApp()
-const QQMapWX = require('../../ku/qqmap-wx-jssdk.js')
-// 实例化API核心类
-const qqmapsdk = new QQMapWX({
-	key: '7FXBZ-CJRKF-L7KJI-J4RNO-YZ372-IYFDP',
-})
 Page({
 	data: {
 		keyword: '',
 		mapTop: 64,
-		latitude: 23.099994,
-		longitude: 113.32452,
+		latitude: 39.90374,
+		longitude: 116.397827,
 		markers: [
 			{
 				id: 0,
@@ -56,32 +51,27 @@ Page({
 		}
 	},
 	initMarkers() {
-		//
+		// 初始化打卡地点
 		Sea.Ajax({
 			url: '/v1/card.get',
-			data: {
-				// 必填
-				// openid : '',
-				// id: '',
-				// 若有月份 则必填
-				// year,
-				// month,
-				// province,
-			},
 		}).then(res => {
-			// {
-			// 	id: 'dudududu',
-			// 	year: '2019',
-			// 	month: '05',
-			// 	province: '广东',
-			// 	mark_color: '1',
-      //  content: 'dudududu',
-      //  // 原封不动
-			// 	location: '34.34149,108.9397',
-			// 	time_stamp: '1557486178644',
-			// }
 			if (res.ok) {
-				console.log('🐸', res.data)
+				const markers = res.data.map((e, i) => {
+					const [latitude, longitude] = e.location.split(',')
+					return {
+						id: e.id,
+						latitude: latitude,
+						longitude: longitude,
+						width: 22,
+						height: 27,
+						name: e.content,
+						iconPath: './img/mark.png',
+					}
+				})
+				this.setData({
+					markers: markers,
+				})
+				this.bindPoints()
 			}
 		})
 	},
@@ -104,54 +94,13 @@ Page({
 			points: this.data.markers,
 		})
 	},
-	bindLogin() {
-		wx.login({
-			success(res) {
-				if (res.code) {
-					// 发起网络请求
-					Sea.Ajax({
-						url: '/v1/login',
-						data: {
-							js_code: res.code,
-						},
-					}).then(res => {
-						if (res.ok) {
-							console.log('🐸', '登陆成功!')
-							wx.setStorageSync('token', res.openid)
-						}
-					})
-				} else {
-					console.log('登录失败!' + res.errMsg)
-				}
-			},
-		})
-	},
-	isLogin() {
-		const token = wx.getStorageSync('token')
-		if (token) {
-			return true
-		} else {
-			this.bindLogin()
-			return false
-		}
-	},
 	bindData() {
-		if (this.isLogin()) {
-			Sea.path('/pages/data/data')
-		}
+		Sea.path('/pages/data/data')
 	},
 	bindCard() {
-		if (this.isLogin()) {
-			Sea.path('/pages/card/card')
-		}
+		Sea.path('/pages/card/card')
 	},
 	bindShare() {
-		if (this.isLogin()) {
-			Sea.path('/pages/share/share')
-		}
-	},
-	// 刷新
-	onPullDownRefresh() {
-		wx.stopPullDownRefresh()
+		Sea.path('/pages/share/share')
 	},
 })

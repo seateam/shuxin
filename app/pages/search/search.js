@@ -1,7 +1,7 @@
 const app = getApp()
 const Sea = require('../../ku/bigsea.js')
 const QQMapWX = require('../../ku/qqmap-wx-jssdk.js')
-const qqmapsdk = new QQMapWX({
+const QQMap = new QQMapWX({
 	key: '7FXBZ-CJRKF-L7KJI-J4RNO-YZ372-IYFDP',
 })
 Page({
@@ -19,7 +19,7 @@ Page({
 	},
 	initSug(keyword) {
 		if (keyword) {
-			qqmapsdk.getSuggestion({
+			QQMap.getSuggestion({
 				keyword: keyword,
 				//region:'北京', //设置城市名，限制关键词所示的地域范围，非必填参数
 				success: res => {

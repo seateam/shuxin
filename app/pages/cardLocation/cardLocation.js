@@ -18,5 +18,6 @@ Page({
 			now: i,
 		})
 		Sea.cardLocationNow = i
+		Sea.back()
 	},
 })
