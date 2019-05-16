@@ -89,7 +89,7 @@ Page({
 		Sea.path('/pages/data/data')
 	},
 	bindCard() {
-		Sea.path('/pages/card/card')
+		Sea.path('/pages/cardAdd/cardAdd')
 	},
 	bindShare() {
 		Sea.path('/pages/share/share')

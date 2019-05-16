@@ -2,14 +2,14 @@
 <sea-nav-bar />
 <header>
   <div>“蓝色潮汐”已陪您走过</div>
-  <div>100</div>
+  <div>{{cardLength}}</div>
   <div>个地方啦</div>
   <image src="./person.png" mode="aspectFit" />
 </header>
 <main>
   <div class="location">
     <scroll-view scroll-x class="province">
-      <block wx:for="{{province}}" wx:key="index" >
+      <block wx:for="{{provinceShow}}" wx:key="index" >
         <div class="one {{index ===  provinceNow ? 'active' : ''}}"
           bind:tap="bindProvince" data-i="{{index}}">{{item}}</div>
       </block>
@@ -32,7 +32,7 @@
       </scroll-view>
     </div>
     <div class="cards">
-      <div class="card" wx:for="{{cards}}" wx:key="index" wx:for-item="card">
+      <div class="card" bind:tap="bindCard" data-id="{{card.id}}" wx:for="{{cards}}" wx:key="index" wx:for-item="card">
         <div class="content">{{card.content}}</div>
         <div class="card-date">{{card.date}}</div>
         <div class="city">{{card.city}}</div>

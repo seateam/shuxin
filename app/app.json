@@ -4,6 +4,7 @@
     "pages/index/index",
     "pages/search/search",
     "pages/card/card",
+    "pages/cardAdd/cardAdd",
     "pages/cardLocation/cardLocation",
     "pages/share/share"
   ],

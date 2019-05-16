@@ -140,7 +140,6 @@ main .cont .cards .card {
 	/* height: 130rpx; */
 	background: rgba(27, 27, 27, 0.93);
 	box-shadow: 0 10rpx 10rpx 1px rgba(6, 19, 86, 0.48);
-	opacity: 0.71;
 	border-radius: 20rpx;
 	margin-bottom: 16rpx;
 	padding: 34rpx 36rpx;
@@ -164,10 +163,14 @@ main .cont .cards .card .city {
 	bottom: 18rpx;
 	width: 128rpx;
 	height: 50rpx;
+	line-height: 50rpx;
+	padding: 0 12rpx;
 	background: rgba(232, 133, 54, 0.89);
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	padding-right: 26rpx;
-	border-radius: 10rpx 0 0 10rpx;
+	text-align: center;
+	/* 最多显示一行 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 }

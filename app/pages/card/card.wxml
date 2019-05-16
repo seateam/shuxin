@@ -1,21 +1,2 @@
 <image class="page-background" src="../../ku/img/bg1.jpg" />
 <sea-nav-bar />
-<header>
-  <div></div>
-  <div class="post" bind:tap="bindPost">发布</div>
-</header>
-<main>
-  <textarea focus bindinput="bindInput" placeholder="说点什么吧..." placeholder-class="placeholder" maxlength="1000"></textarea>
-  <div class="location" bind:tap="bindLocation">
-    <view class="info">
-      <i class="iconfont icon-location" style="color:{{mark.arr[mark.now]}}" />
-      <text>{{location.title}}</text>
-    </view>
-    <i class="iconfont icon-go" />
-  </div>
-</main>
-<footer>
-  <block wx:for="{{mark.arr}}" wx:key="index">
-    <i bind:tap="bindColor" data-i="{{index}}" style="color:{{item}}" class="iconfont icon-location {{index === mark.now ? 'active' : ''}}" />
-  </block>
-</footer>
