@@ -35,7 +35,7 @@
       <div class="card" bind:tap="bindCard" data-id="{{card.id}}" wx:for="{{cards}}" wx:key="index" wx:for-item="card">
         <div class="content">{{card.content}}</div>
         <div class="card-date">{{card.date}}</div>
-        <div class="city">{{card.city}}</div>
+        <div class="city" style="background: {{colors[card.mark_color]}}">{{card.city}}</div>
       </div>
     </div>
   </div>

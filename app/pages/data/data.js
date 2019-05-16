@@ -9,6 +9,7 @@ const request = {
 }
 Page({
   data: {
+    colors: app.data.mark.arr,
     province: [],
     provinceNow: 'all',
     date: [
@@ -115,6 +116,7 @@ Page({
         date: date.format('YYYY-MM-DD'),
         city: this.formatCity(e.city),
         id: e.id,
+        mark_color: e.mark_color,
       }
     })
   },
