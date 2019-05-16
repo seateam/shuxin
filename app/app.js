@@ -17,11 +17,11 @@ App({
 	onLaunch() {
 		this.initNavBar()
 		// 大海 不圆 崔婷 鱼雷
-		this.变身('大海')
-		// this.initToken()
+		this.变身('不圆')
+		this.initToken()
 	},
-	onShow() {},
-	onHide() {},
+	onShow() { },
+	onHide() { },
 	initNavBar() {
 		const systemInfo = wx.getSystemInfoSync()
 		const ios = /ios/i.test(systemInfo.system)

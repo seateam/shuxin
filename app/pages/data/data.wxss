@@ -84,6 +84,9 @@ main .location .province-all {
 	width: 80rpx;
 	/* border-left: 1px solid #bfbfbf; */
 }
+main .location .province-all.active {
+	color: #c26730;
+}
 main .cont {
 	color: #fff;
 	height: 100%;
@@ -97,6 +100,9 @@ main .cont .date .all {
 	font-size: 32rpx;
 	font-weight: bold;
 	color: rgba(255, 255, 255, 0.68);
+}
+main .cont .date .all.active {
+	color: #c26730;
 }
 main .cont .date .list {
 	margin-top: 34rpx;
@@ -139,15 +145,15 @@ main .cont .cards .card {
 	margin-bottom: 16rpx;
 	padding: 34rpx 36rpx;
 	font-size: 28rpx;
-	color: #CBC8C8;
+	color: #cbc8c8;
 }
 main .cont .cards .card .content {
-  /* 最多显示一行 */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+	/* 最多显示一行 */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
 }
 main .cont .cards .card .card-date {
 	margin-top: 12rpx;
@@ -163,5 +169,5 @@ main .cont .cards .card .city {
 	justify-content: flex-end;
 	align-items: center;
 	padding-right: 26rpx;
-	border-radius: 10rpx  0 0 10rpx;
+	border-radius: 10rpx 0 0 10rpx;
 }

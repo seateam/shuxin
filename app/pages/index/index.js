@@ -8,6 +8,7 @@ Page({
 		latitude: 39.90374,
 		longitude: 116.397827,
 		markers: [],
+		onLoad: false,
 	},
 	onReady() {
 		this.mapCtx = wx.createMapContext('map')
@@ -17,12 +18,16 @@ Page({
 		this.setData({
 			mapTop: navBar.marginTop + navBar.height,
 		})
-		this.initMarkers().then(() => {
+		this.initMarkers(() => {
 			this.bindPoints()
 		})
+		this.data.onLoad = true
 	},
 	onShow() {
 		this.initSearch()
+		if (this.data.onLoad) {
+			return
+		}
 		this.initMarkers()
 	},
 	initSearch() {
@@ -36,31 +41,31 @@ Page({
 			})
 		}
 	},
-	initMarkers() {
-		return new Promise(success => {
-			// 初始化打卡地点
-			Sea.Ajax({
-				url: '/v1/card.get',
-			}).then(res => {
-				if (res.ok && res.data.length) {
-					const markers = res.data.map((e, i) => {
-						const [latitude, longitude] = e.location.split(',')
-						return {
-							id: e.id,
-							latitude: latitude,
-							longitude: longitude,
-							width: 26,
-							height: 26,
-							name: e.content,
-							iconPath: `./img/mark${e.mark_color}.png`,
-						}
-					})
-					this.setData({
-						markers: markers,
-					})
-					success()
+	initMarkers(callback) {
+		// 初始化打卡地点
+		Sea.Ajax({
+			url: '/v1/card.get',
+		}).then(res => {
+			if (res.ok && res.data.length) {
+				const markers = res.data.map((e, i) => {
+					const [latitude, longitude] = e.location.split(',')
+					return {
+						id: e.id,
+						latitude: latitude,
+						longitude: longitude,
+						width: 26,
+						height: 26,
+						name: e.content,
+						iconPath: `./img/mark${e.mark_color}.png`,
+					}
+				})
+				this.setData({
+					markers: markers,
+				})
+				if (typeof callback === 'function') {
+					callback()
 				}
-			})
+			}
 		})
 	},
 	getCenterLocation() {
