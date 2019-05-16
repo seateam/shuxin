@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/data/data",
+    "pages/index/index",
     "pages/search/search",
     "pages/card/card",
     "pages/cardLocation/cardLocation",

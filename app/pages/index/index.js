@@ -21,13 +21,9 @@ Page({
 		this.initMarkers(() => {
 			this.bindPoints()
 		})
-		this.data.onLoad = true
 	},
 	onShow() {
 		this.initSearch()
-		if (this.data.onLoad) {
-			return
-		}
 		this.initMarkers()
 	},
 	initSearch() {
