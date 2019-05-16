@@ -1,2 +1,22 @@
-<image class="page-background" src="../../ku/img/bg1.jpg" />
+<image class="page-background" src="../../ku/img/bg3.jpg" />
 <sea-nav-bar />
+<main>
+  <div class="t1">
+    <div>{{card.date}}</div>
+    <div>{{card.location_text}}</div>
+  </div>
+  <div class="t2">
+    <div wx:for="{{card.contents}}" wx:key="index">{{item}}</div>
+  </div>
+  <div class="flag" style="background: {{colors[colorNow]}}"></div>
+</main>
+<footer>
+  <div></div>
+  <div class="edit">
+    <text bind:tap="bindEdit">修改</text>
+    <div class="colors" wx:if="{{showColors}}">
+      <div class="close" bind:tap="bindClose">×</div>
+      <div bind:tap="bindColor" data-i="{{index}}" class="color {{colorNow === index ? 'active' : ''}}" wx:for="{{colors}}" wx:key="index" style="background:{{item}}"></div>
+    </div>
+  </div>
+</footer>
