@@ -62,7 +62,9 @@ Page({
       }
     })
   },
-  onShow() { },
+  onShow() {
+    this.render()
+  },
   initProvince(res) {
     const arr = ['省', '自治区']
     const result = res.data.map(e => e.province)

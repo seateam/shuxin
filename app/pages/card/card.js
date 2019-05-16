@@ -49,6 +49,10 @@ Page({
 				id: this.data.cardID,
 				mark_color: this.data.colorNow,
 			},
+		}).then(res => {
+			if (res.ok) {
+				console.log('🐸', '颜色修改成功')
+			}
 		})
 		this.setData({
 			showColors: false,
