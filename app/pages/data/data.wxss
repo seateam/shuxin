@@ -65,7 +65,7 @@ main .location .province {
 }
 main .location .province .one {
 	display: inline-block;
-	margin: 0 20rpx;
+	margin: 0 30rpx;
 	margin-left: 0;
 }
 main .location .province .one.active {
