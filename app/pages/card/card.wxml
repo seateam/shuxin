@@ -8,7 +8,7 @@
   <div class="t2">
     <div wx:for="{{card.contents}}" wx:key="index">{{item}}</div>
   </div>
-  <div class="flag" style="background: {{colors[colorNow]}}"></div>
+  <i class="iconfont icon-flag"  style="color: {{colors[colorNow]}}"> </i>
 </main>
 <footer>
   <div></div>

@@ -26,13 +26,13 @@ main .t2 {
 	font-size: 34rpx;
 	font-family: FangSong;
 }
-main .flag {
+main .icon-flag {
 	position: absolute;
-	top: 0;
+	top: -3rpx;
 	left: 22rpx;
-	background: #e88536;
 	width: 48rpx;
 	height: 50rpx;
+	font-size: 48rpx;
 	opacity: 0.86;
 }
 footer {

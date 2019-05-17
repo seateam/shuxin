@@ -13,6 +13,9 @@ Page({
 		const card = res.data[0]
 		card.date = moment(Number(card.time_stamp)).format('M/D HH:mm')
 		card.contents = card.content.split('\n')
+		this.setData({
+			colorNow: card.mark_color
+		})
 		return card
 	},
 	onLoad(option) {
@@ -51,7 +54,7 @@ Page({
 			},
 		}).then(res => {
 			if (res.ok) {
-				console.log('🐸', '颜色修改成功')
+				// Sea.alert('颜色修改成功')
 			}
 		})
 		this.setData({
