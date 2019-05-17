@@ -1,1 +1,14 @@
+<image class="page-background" src="../../ku/img/share{{shareIndex}}.jpg" />
 <sea-nav-bar />
+<div id="fixed">
+  <div class="bottom">
+    <div class="next" bind:tap="bindNext">
+      <i class="iconfont icon-top"></i>
+      <text>下一组</text>
+    </div>
+  </div>
+  <div class="right">
+    <i class="iconfont icon-top"></i>
+    <div class="holiday">节</div>
+  </div>
+</div>
