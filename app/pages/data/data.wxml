@@ -9,12 +9,15 @@
 <main>
   <div class="location">
     <scroll-view scroll-x class="province">
-      <block wx:for="{{provinceShow}}" wx:key="index" >
-        <div class="one {{index ===  provinceNow ? 'active' : ''}}"
-          bind:tap="bindProvince" data-i="{{index}}">{{item}}</div>
+      <block wx:for="{{provinceShow}}" wx:key="index">
+        <div class="one {{index ===  provinceNow ? 'active' : ''}}" bind:tap="bindProvince" data-i="{{index}}">
+          {{item}}
+        </div>
       </block>
     </scroll-view>
-    <div class="province-all {{provinceNow === 'all' ? 'active' : ''}}" bind:tap="bindAllProvince">全部</div>
+    <div class="province-all {{provinceNow === 'all' ? 'active' : ''}}" bind:tap="bindAllProvince">
+      全部
+    </div>
   </div>
   <div class="cont">
     <div class="date">
@@ -35,7 +38,10 @@
       <div class="card" bind:tap="bindCard" data-id="{{card.id}}" wx:for="{{cards}}" wx:key="index" wx:for-item="card">
         <div class="content">{{card.content}}</div>
         <div class="card-date">{{card.date}}</div>
-        <div class="city" style="background: {{colors[card.mark_color]}}">{{card.city}}</div>
+        <div class="city">
+          <i class="iconfont icon-city" style="color: {{colors[card.mark_color]}}"></i>
+          <text>{{card.city}}</text>
+        </div>
       </div>
     </div>
   </div>

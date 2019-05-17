@@ -164,9 +164,19 @@ main .cont .cards .card .city {
 	width: 128rpx;
 	height: 50rpx;
 	line-height: 50rpx;
-	padding: 0 12rpx;
-	background: rgba(232, 133, 54, 0.89);
 	text-align: center;
+}
+main .cont .cards .card .city i {
+	position: absolute;
+	right: 0;
+	font-size: 50rpx;
+}
+main .cont .cards .card .city text {
+	position: absolute;
+	right: 0;
+	display: block;
+	padding: 0 8rpx 0 34rpx;
+	width: 100%;
 	/* 最多显示一行 */
 	overflow: hidden;
 	text-overflow: ellipsis;

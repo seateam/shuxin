@@ -144,6 +144,8 @@ Page({
 				this.setData({
 					cards: this.initCards(res),
 				})
+			} else {
+				Sea.tip('读取失败')
 			}
 		})
 	},
