@@ -1,34 +1,59 @@
-<image class="page-background" src="../../ku/img/bg3.jpg" />
 <sea-nav-bar />
 <main>
-  <div>
-    <h2 wx:if="{{data.clock_count && data.city_count}}">
-      <p>你一共打卡<span> {{data.clock_count}} </span>次</p>
-      <p>脚印留在<span> {{data.city_count}} </span>个城市</p>
-    </h2>
+  <image class="background" mode="aspectFill" src="./bg.png"/>
+  <div class="list">
+    <div class="one">
+      <div class="left" style="opacity: {{data.Yuan_Dan_Visit ? '1' : '0'}};">
+        <p>凡数之始为“元”,</p>
+        <p>日之始为“旦”</p>
+        <p>你在<span>{{data.Yuan_Dan_Visit}}</span>开启了b年的第一天；</p>
+      </div>
+      <div class="right">元旦</div>
+    </div>
+    <div class="one" style="opacity: {{data.New_Year_Eve_Visit ? '1' : '0'}};">
+      <div class="left">
+        <p>辞旧迎新更万象，春满人间</p>
+        <p>你在<span>{{data.New_Year_Eve_Visit}}</span>迎接新的一年；</p>
+      </div>
+      <div class="right">春节</div>
+    </div>
+    <div class="one" style="opacity: {{data.Qing_ming_Visit ? '1' : '0'}};">
+      <div class="left">
+        <p>况是清明好天气，</p>
+        <p>不妨游衍莫忘归</p>
+        <p><span>{{data.Qing_ming_Visit}}</span>的清明可有牡丹樱花？</p>
+      </div>
+      <div class="right">清明</div>
+    </div>
+    <div class="one" style="opacity: {{data.Labour_Day_Visit ? '1' : '0'}};">
+      <div class="left">
+        <p>扶摇而上的风筝嵌入碧空, </p>
+        <p>杏花开遍的烂漫五月</p>
+        <p>你在<span>{{data.Labour_Day_Visit}}</span>度过五一假期；</p>
+      </div>
+      <div class="right">劳动节</div>
+    </div>
+    <div class="one" style="opacity: {{data.Dragon_Boat_Festival_Visit ? '1' : '0'}};">
+      <div class="left">
+        <p>碧艾香蒲处处忙</p>
+        <p>你在<span>{{data.Dragon_Boat_Festival_Visit}}</span>度过的端午可有甜粽；</p>
+      </div>
+      <div class="right">端午</div>
+    </div>
+    <div class="one" style="opacity: {{data.Mid_Autumn_festival_Visit ? '1' : '0'}};">
+      <div class="left">
+        <p>每圆处即良宵，万里婵娟</p>
+        <p>你在<span>{{data.Mid_Autumn_festival_Visit}}</span>的中秋是否有所念人；</p>
+      </div>
+      <div class="right">中秋</div>
+    </div>
+    <div class="one" style="opacity: {{data.National_Day_Visit ? '1' : '0'}};">
+      <div class="left">
+        <p>祖国是涌动的血液奔腾，</p>
+        <p>是跳动着五千年的心脏脉搏</p>
+        <p>你的国庆长假在<span>{{data.National_Day_Visit}}</span>度过。</p>
+      </div>
+      <div class="right">国庆</div>
+    </div>
   </div>
-  <div>
-    <h2>
-      <p><span>{{data.city_most}}</span>一定是一个特别的地方</p>
-      <p>你共计在这里标记多达<span> {{data.clock_most}} </span>次</p>
-    </h2>
-  </div>
-  <div>
-    <h2 wx:if="{{data.spring_visit}}">
-      <p>当春日被揉进夹着露水的清晨</p>
-      <p>你在<span>{{data.spring_visit}}</span>的蕴酝春风中醒来</p>
-    </h2>
-   </div>
-  <h2 wx:if="{{data.summer_visit}}">
-    <p>当夏日的树梢紧紧拥抱着绿叶</p>
-    <p>你在<span>{{data.summer_visit}}</span>照顾着历代星辰</p>
-  </h2>
-  <h2 wx:if="{{data.autumn_visit}}">
-    <p>在落叶亲吻地面的深秋</p>
-    <p>你在<span>{{data.autumn_visit}}</span>是否见到圆月又昼眠听雨</p>
-  </h2>
-  <h2 wx:if="{{data.winter_visit}}">
-    <p>在阳光珍贵、风很清澈的冬日</p>
-    <p>你到过的<span>{{data.winter_visit}}</span>下雪了吗？</p>
-  </h2>
 </main>

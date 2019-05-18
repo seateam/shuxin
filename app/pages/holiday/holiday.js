@@ -2,20 +2,20 @@ const app = getApp()
 const Sea = require('../../ku/bigsea.js')
 Page({
 	data: {
-		shareIndex: 1,
 		data: {},
 	},
 	onLoad() {
 		Sea.Ajax({
-			url: '/v1/card.share',
+			url: '/v1/card.show',
 		}).then(res => {
 			if (res.ok) {
-				const data = Object.assign(res.data[0], res.data[1])
+				const data = res.data[0]
 				for (const key in data) {
 					if (typeof data[key] === 'string') {
 						data[key] = Sea.formatCity(data[key])
 					}
 				}
+				console.log('🐸', data)
 				this.setData({
 					data: data,
 				})
@@ -23,16 +23,4 @@ Page({
 		})
 	},
 	onShow() {},
-	bindNext() {
-		let i = this.data.shareIndex + 1
-		if (i === 5) {
-			i = 1
-		}
-		this.setData({
-			shareIndex: i,
-		})
-	},
-	bindHoliday(){
-		Sea.path('/pages/holiday/holiday')
-	},
 })

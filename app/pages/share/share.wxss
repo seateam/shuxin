@@ -63,12 +63,12 @@ main {
 	padding: 0 62rpx;
 	color: #fff;
 	font-family: FangSong;
-	font-size: 36rpx;
+	font-size: 18px;
 }
 main h1 {
 	margin-top: 20rpx;
 	display: block;
-	font-size: 44rpx;
+	font-size: 22px;
 	margin-bottom: 60rpx;
 }
 main h2 {
