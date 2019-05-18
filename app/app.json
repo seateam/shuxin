@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/data/data",
     "pages/index/index",
     "pages/search/search",
+    "pages/data/data",
     "pages/card/card",
     "pages/cardAdd/cardAdd",
     "pages/cardLocation/cardLocation",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/holiday/holiday"
   ],
   "permission": {
     "scope.userLocation": {
@@ -18,9 +19,9 @@
   },
   "window": {
     "navigationBarTitleText": "蓝色潮汐",
+    "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#FFF",
     "backgroundTextStyle": "light",
-    "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
     "enablePullDownRefresh": false
   },
