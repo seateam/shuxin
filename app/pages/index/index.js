@@ -8,7 +8,12 @@ Page({
 		latitude: 39.90374,
 		longitude: 116.397827,
 		markers: [],
+		markersFilter: null,
 		onLoad: false,
+		colors: app.data.mark.arr,
+		colorNow: null,
+		colorTop: 114,
+		showColors: false,
 	},
 	onReady() {
 		this.mapCtx = wx.createMapContext('map')
@@ -17,6 +22,7 @@ Page({
 		const navBar = app.data.navBar
 		this.setData({
 			mapTop: navBar.marginTop + navBar.height,
+			colorTop: navBar.marginTop + navBar.height + 44,
 		})
 		this.initMarkers(() => {
 			this.bindPoints()
@@ -52,6 +58,7 @@ Page({
 						width: 26,
 						height: 26,
 						name: e.content,
+						mark_color: Number(e.mark_color),
 						iconPath: `./img/mark${e.mark_color}.png`,
 					}
 				})
@@ -93,5 +100,30 @@ Page({
 	},
 	bindShare() {
 		Sea.path('/pages/share/share')
+	},
+	bindEdit() {
+		this.setData({
+			showColors: !this.data.showColors,
+		})
+	},
+	bindColor(event) {
+		let i = event.target.dataset.i
+		let markersFilter = []
+		if (this.data.colorNow === i) {
+			i = null
+		} else {
+			for (const marker of this.data.markers) {
+				if (marker.mark_color === i) {
+					markersFilter.push(marker)
+				}
+			}
+		}
+		if (markersFilter.length === 0 || i === null) {
+			markersFilter = null
+		}
+		this.setData({
+			colorNow: i,
+			markersFilter: markersFilter,
+		})
 	},
 })

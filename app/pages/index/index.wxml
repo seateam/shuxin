@@ -3,11 +3,11 @@
   latitude="{{latitude}}"
   longitude="{{longitude}}"
   scale="{{scale}}"
-  markers="{{markers}}"
+  markers="{{markersFilter || markers}}"
   show-location>
   <cover-view class="top" style="top:{{mapTop}}px">
-    <cover-view  class="serach" bind:tap="bindSearch">{{keyword || '搜索国家、省份、城市'}}</cover-view>
-    <cover-image class="edit" src="./img/edit.png"></cover-image>
+    <cover-view bind:tap="bindSearch" class="serach">{{keyword || '搜索国家、省份、城市'}}</cover-view>
+    <cover-image bind:tap="bindEdit" class="edit" src="./img/edit.png"></cover-image>
   </cover-view>
   <cover-view class="left">
     <cover-image class="location" bind:tap="bindLocation" src="./img/location.png"></cover-image>
@@ -19,5 +19,8 @@
       <cover-view bind:tap="bindCard" class="btn card">打卡</cover-view>
       <cover-view bind:tap="bindShare" class="btn share">分享</cover-view>
     </cover-view>
+  </cover-view>
+  <cover-view class="right" wx:if="{{showColors}}" style="top:{{colorTop}}px">
+    <cover-view class="color {{colorNow === index ? 'active' : ''}}" bind:tap="bindColor" wx:for="{{colors}}" wx:key="{{index}}" data-i="{{index}}" style="background:{{item}};"></cover-view>
   </cover-view>
 </map>

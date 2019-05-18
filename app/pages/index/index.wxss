@@ -1,111 +1,137 @@
 page {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 #map {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+	position: relative;
+	width: 100%;
+	height: 100vh;
 }
 
 #map .top {
-  width: 100%;
-  position: absolute;
-  top: 144rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 100%;
+	position: absolute;
+	top: 144rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #map .top .serach {
-  width: 590rpx;
-  height: 72rpx;
-  line-height: 72rpx;
-  border: 1px solid #A0A0A0;
-  background: rgba(239, 239, 239, 0.86);
-  border-radius: 8px;
-  padding: 0 26rpx;
-  font-size: 32rpx;
-  font-family: FangSong;
-  color: #666;
+	width: 590rpx;
+	height: 72rpx;
+	line-height: 72rpx;
+	border: 1px solid #a0a0a0;
+	background: rgba(239, 239, 239, 0.86);
+	border-radius: 8px;
+	padding: 0 26rpx;
+	font-size: 32rpx;
+	font-family: FangSong;
+	color: #666;
 }
 
 #map .top cover-image.edit {
-  margin-left: 22rpx;
-  width: 68rpx;
-  height: 68rpx;
+	margin-left: 22rpx;
+	width: 68rpx;
+	height: 68rpx;
 }
 
 #map .bottom {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  bottom: 100rpx;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	bottom: 100rpx;
 }
 
 #map .bottom .btns {
-  position: relative;
-  width: 516rpx;
-  display: flex;
-  justify-content: center;
+	position: relative;
+	width: 516rpx;
+	display: flex;
+	justify-content: center;
 }
 
 #map .bottom .btn {
-  position: absolute;
-  padding: 20rpx;
+	position: absolute;
+	padding: 20rpx;
 }
 
 #map .bottom .btn.share,
 #map .bottom .btn.data {
-  top: 58rpx;
-  font-size: 34rpx;
-  font-family: SimHei;
-  color: rgba(220, 147, 127, 1);
-  text-shadow: 0px 8px 8px rgba(29, 45, 47, 0.84);
+	top: 58rpx;
+	font-size: 34rpx;
+	font-family: SimHei;
+	color: rgba(220, 147, 127, 1);
+	text-shadow: 0px 8px 8px rgba(29, 45, 47, 0.84);
 }
 
 #map .bottom .btn.data {
-  left: 84rpx;
+	left: 84rpx;
 }
 
 #map .bottom .btn.card {
-  top: 32rpx;
-  font-size: 48rpx;
-  font-family: SimHei;
-  color: rgba(220, 147, 127, 1);
-  text-shadow: 0 8rpx 4rpx rgba(103, 52, 18, 0.84);
+	top: 32rpx;
+	font-size: 48rpx;
+	font-family: SimHei;
+	color: rgba(220, 147, 127, 1);
+	text-shadow: 0 8rpx 4rpx rgba(103, 52, 18, 0.84);
 }
 
 #map .bottom .btn.share {
-  right: 84rpx;
+	right: 84rpx;
 }
 
 #map .bottom cover-image.planet {
-  width: 100%;
+	width: 100%;
 }
 
 #map .left {
-  width: 100%;
-  display: flex;
-  position: absolute;
-  left: 18rpx;
-  bottom: 298rpx;
+	width: 100%;
+	display: flex;
+	position: absolute;
+	left: 18rpx;
+	bottom: 298rpx;
 }
 
 #map .left cover-image.location {
-  width: 66rpx;
+	width: 66rpx;
 }
-
+#map .right {
+	position: absolute;
+	right: 28rpx;
+	top: 0;
+	width: 94rpx;
+	background: rgba(239, 239, 239, 0.86);
+	box-shadow: 0px 6rpx 12rpx 6rpx rgba(119, 129, 130, 0.67);
+	border-radius: 30rpx;
+}
+#map .right .color {
+	margin: 0 20rpx;
+	width: 54rpx;
+	height: 54rpx;
+	border-radius: 50%;
+}
+#map .right .color:first-child {
+	margin-top: 28rpx;
+}
+#map .right .color:last-child {
+	margin-bottom: 28rpx;
+}
+#map .right .color.active {
+	box-shadow: 0 8rpx 8rpx 0 rgba(0, 0, 0, 0.16), 0 0 0 8rpx rgba(0, 0, 0, 0.08);
+}
+#map .right .color + .color {
+	margin-top: 44rpx;
+}
 /* 临时样式 */
 .btns {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .btns button {
-  width: 50%;
+	width: 50%;
 }
