@@ -15,7 +15,6 @@ Page({
 						data[key] = Sea.formatCity(data[key])
 					}
 				}
-				console.log('🐸', data)
 				this.setData({
 					data: data,
 				})

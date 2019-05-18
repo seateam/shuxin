@@ -30,11 +30,11 @@ main .list .one {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 14rpx 0 70rpx;
+	padding: 0 14rpx 0 14rpx;
 	margin-bottom: 44rpx;
 }
 main .list .one .left {
-	font-size: 32rpx;
+	font-size: 16px;
 	font-family: KaiTi;
 	color: rgba(226, 225, 225, 1);
 }
@@ -45,7 +45,7 @@ main .list .one .left p + p {
 	margin-top: 12rpx;
 }
 main .list .one .left p span {
-	font-size: 48rpx;
+	font-size: 24px;
 	color: #956e11;
 }
 main .list .one .right {
