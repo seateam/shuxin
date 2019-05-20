@@ -1,25 +1,34 @@
 import * as echarts from './ec-canvas/echarts'
-import geoJson from './mapData.js'
+import geoJson from './china.js'
 
 const app = getApp()
 
-function initChart(canvas, width, height) {
+const initChart = function (canvas, width, height) {
 	const chart = echarts.init(canvas, null, {
 		width: width,
 		height: height,
 	})
 	canvas.setChart(chart)
 
-	echarts.registerMap('henan', geoJson)
+	echarts.registerMap('china', geoJson)
 
 	const option = {
+		title: {
+			text: 'iphone销量',
+			subtext: '纯属虚构',
+			left: 'center',
+		},
 		tooltip: {
 			trigger: 'item',
 		},
-
+		legend: {
+			orient: 'vertical',
+			left: 'left',
+			data: ['iphone3', 'iphone4', 'iphone5'],
+		},
 		visualMap: {
 			min: 0,
-			max: 100,
+			max: 2500,
 			left: 'left',
 			top: 'bottom',
 			text: ['高', '低'], // 文本，默认为数值文本
@@ -31,57 +40,117 @@ function initChart(canvas, width, height) {
 			left: 'right',
 			top: 'center',
 			feature: {
-				dataView: { readOnly: false },
-				restore: {},
-				saveAsImage: {},
+				mark: { show: true },
+				dataView: { show: true, readOnly: false },
+				restore: { show: true },
+				saveAsImage: { show: true },
 			},
 		},
 		series: [
 			{
+				name: 'iphone3',
 				type: 'map',
-				mapType: 'henan',
+				mapType: 'china',
+				roam: false,
 				label: {
 					normal: {
+						show: false,
+					},
+					emphasis: {
 						show: true,
 					},
-					emphasis: {
-						textStyle: {
-							color: '#fff',
-						},
-					},
 				},
-				itemStyle: {
-					normal: {
-						borderColor: '#389BB7',
-						areaColor: '#fff',
-					},
-					emphasis: {
-						areaColor: '#389BB7',
-						borderWidth: 0,
-					},
-				},
-				animation: false,
-
 				data: [
-					{ name: '郑州市', value: 100 },
-					{ name: '洛阳市', value: 10 },
-					{ name: '开封市', value: 20 },
-					{ name: '信阳市', value: 30 },
-					{ name: '驻马店市', value: 40 },
-					{ name: '南阳市', value: 41 },
-					{ name: '周口市', value: 15 },
-					{ name: '许昌市', value: 25 },
-					{ name: '平顶山市', value: 35 },
-					{ name: '新乡市', value: 35 },
-					{ name: '漯河市', value: 35 },
-					{ name: '商丘市', value: 35 },
-					{ name: '三门峡市', value: 35 },
-					{ name: '济源市', value: 35 },
-					{ name: '焦作市', value: 35 },
-					{ name: '安阳市', value: 35 },
-					{ name: '鹤壁市', value: 35 },
-					{ name: '濮阳市', value: 35 },
-					{ name: '开封市', value: 45 },
+					{ name: '北京', value: Math.round(Math.random() * 1000) },
+					{ name: '天津', value: Math.round(Math.random() * 1000) },
+					{ name: '上海', value: Math.round(Math.random() * 1000) },
+					{ name: '重庆', value: Math.round(Math.random() * 1000) },
+					{ name: '河北', value: Math.round(Math.random() * 1000) },
+					{ name: '河南', value: Math.round(Math.random() * 1000) },
+					{ name: '云南', value: Math.round(Math.random() * 1000) },
+					{ name: '辽宁', value: Math.round(Math.random() * 1000) },
+					{ name: '黑龙江', value: Math.round(Math.random() * 1000) },
+					{ name: '湖南', value: Math.round(Math.random() * 1000) },
+					{ name: '安徽', value: Math.round(Math.random() * 1000) },
+					{ name: '山东', value: Math.round(Math.random() * 1000) },
+					{ name: '新疆', value: Math.round(Math.random() * 1000) },
+					{ name: '江苏', value: Math.round(Math.random() * 1000) },
+					{ name: '浙江', value: Math.round(Math.random() * 1000) },
+					{ name: '江西', value: Math.round(Math.random() * 1000) },
+					{ name: '湖北', value: Math.round(Math.random() * 1000) },
+					{ name: '广西', value: Math.round(Math.random() * 1000) },
+					{ name: '甘肃', value: Math.round(Math.random() * 1000) },
+					{ name: '山西', value: Math.round(Math.random() * 1000) },
+					{ name: '内蒙古', value: Math.round(Math.random() * 1000) },
+					{ name: '陕西', value: Math.round(Math.random() * 1000) },
+					{ name: '吉林', value: Math.round(Math.random() * 1000) },
+					{ name: '福建', value: Math.round(Math.random() * 1000) },
+					{ name: '贵州', value: Math.round(Math.random() * 1000) },
+					{ name: '广东', value: Math.round(Math.random() * 1000) },
+					{ name: '青海', value: Math.round(Math.random() * 1000) },
+					{ name: '西藏', value: Math.round(Math.random() * 1000) },
+					{ name: '四川', value: Math.round(Math.random() * 1000) },
+					{ name: '宁夏', value: Math.round(Math.random() * 1000) },
+					{ name: '海南', value: Math.round(Math.random() * 1000) },
+					{ name: '台湾', value: Math.round(Math.random() * 1000) },
+					{ name: '香港', value: Math.round(Math.random() * 1000) },
+					{ name: '澳门', value: Math.round(Math.random() * 1000) },
+				],
+			},
+			{
+				name: 'iphone4',
+				type: 'map',
+				mapType: 'china',
+				label: {
+					normal: {
+						show: false,
+					},
+					emphasis: {
+						show: true,
+					},
+				},
+				data: [
+					{ name: '北京', value: Math.round(Math.random() * 1000) },
+					{ name: '天津', value: Math.round(Math.random() * 1000) },
+					{ name: '上海', value: Math.round(Math.random() * 1000) },
+					{ name: '重庆', value: Math.round(Math.random() * 1000) },
+					{ name: '河北', value: Math.round(Math.random() * 1000) },
+					{ name: '安徽', value: Math.round(Math.random() * 1000) },
+					{ name: '新疆', value: Math.round(Math.random() * 1000) },
+					{ name: '浙江', value: Math.round(Math.random() * 1000) },
+					{ name: '江西', value: Math.round(Math.random() * 1000) },
+					{ name: '山西', value: Math.round(Math.random() * 1000) },
+					{ name: '内蒙古', value: Math.round(Math.random() * 1000) },
+					{ name: '吉林', value: Math.round(Math.random() * 1000) },
+					{ name: '福建', value: Math.round(Math.random() * 1000) },
+					{ name: '广东', value: Math.round(Math.random() * 1000) },
+					{ name: '西藏', value: Math.round(Math.random() * 1000) },
+					{ name: '四川', value: Math.round(Math.random() * 1000) },
+					{ name: '宁夏', value: Math.round(Math.random() * 1000) },
+					{ name: '香港', value: Math.round(Math.random() * 1000) },
+					{ name: '澳门', value: Math.round(Math.random() * 1000) },
+				],
+			},
+			{
+				name: 'iphone5',
+				type: 'map',
+				mapType: 'china',
+				label: {
+					normal: {
+						show: false,
+					},
+					emphasis: {
+						show: true,
+					},
+				},
+				data: [
+					{ name: '北京', value: Math.round(Math.random() * 1000) },
+					{ name: '天津', value: Math.round(Math.random() * 1000) },
+					{ name: '上海', value: Math.round(Math.random() * 1000) },
+					{ name: '广东', value: Math.round(Math.random() * 1000) },
+					{ name: '台湾', value: Math.round(Math.random() * 1000) },
+					{ name: '香港', value: Math.round(Math.random() * 1000) },
+					{ name: '澳门', value: Math.round(Math.random() * 1000) },
 				],
 			},
 		],
@@ -93,19 +162,11 @@ function initChart(canvas, width, height) {
 }
 
 Page({
-	onShareAppMessage: function(res) {
-		return {
-			title: 'ECharts 可以在微信小程序中使用啦！',
-			path: '/pages/index/index',
-			success: function() {},
-			fail: function() {},
-		}
-	},
 	data: {
 		ec: {
 			onInit: initChart,
 		},
 	},
 
-	onReady() {},
+	onReady() { },
 })
