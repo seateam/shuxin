@@ -1,0 +1,96 @@
+#fixed .bottom {
+	position: fixed;
+	bottom: 40rpx;
+	left: 0;
+	right: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+#fixed .bottom .next {
+	width: 152rpx;
+	height: 46rpx;
+	background: rgba(20, 20, 20, 0.6);
+	border-radius: 20rpx;
+	font-size: 28rpx;
+	font-family: FangSong;
+	font-weight: 400;
+	color: rgba(253, 251, 251, 1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#fixed .bottom i {
+	font-size: 26rpx;
+	transform: rotate(180deg);
+}
+#fixed .right {
+	position: fixed;
+	bottom: 66rpx;
+	right: 36rpx;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#fixed .right .holiday {
+	border-radius: 50%;
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fff;
+	margin-top: 32rpx;
+}
+#fixed .right .holiday:active {
+	border-color:  rgba(20, 20, 20, 0.6);
+	color: rgba(20, 20, 20, 0.6);
+}
+#fixed .right button {
+	color: #fff;
+	transform: rotate(45deg);
+}
+#fixed .right button.button-hover {
+	color: rgba(20, 20, 20, 0.6);
+}
+#fixed .right i {
+	font-size: 66rpx;
+}
+
+main {
+	width: 100%;
+	padding: 0 62rpx;
+	color: #fff;
+	font-family: FangSong;
+	font-size: 18px;
+}
+main h1 {
+	margin-top: 20rpx;
+	display: block;
+	font-size: 22px;
+	margin-bottom: 60rpx;
+}
+main h2 {
+	display: block;
+	width: 100%;
+	margin-bottom: 70rpx;
+}
+main p {
+	display: block;
+}
+main p span {
+	color: #de560f;
+}
+main p + p {
+	margin-top: 12rpx;
+}
+#mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(11, 25, 105, 0.27);
+	z-index: -1;
+}
