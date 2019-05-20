@@ -1,44 +1,4 @@
-<image class="page-background" src="../../ku/img/share{{shareIndex}}.jpg" />
-<div id="mask"></div>
-<sea-nav-bar />
-<main>
-  <h1>在最近整整一年里</h1>
-  <h2 wx:if="{{data.clock_count && data.city_count}}">
-    <p>你一共打卡<span> {{data.clock_count}} </span>次</p>
-    <p>脚印留在<span> {{data.city_count}} </span>个城市</p>
-  </h2>
-  <h2>
-    <p><span>{{data.city_most}}</span>一定是一个特别的地方</p>
-    <p>你共计在这里标记多达<span> {{data.clock_most}} </span>次</p>
-  </h2>
-  <h2 wx:if="{{data.spring_visit}}">
-    <p>当春日被揉进夹着露水的清晨</p>
-    <p>你在<span>{{data.spring_visit}}</span>的蕴酝春风中醒来</p>
-  </h2>
-  <h2 wx:if="{{data.summer_visit}}">
-    <p>当夏日的树梢紧紧拥抱着绿叶</p>
-    <p>你在<span>{{data.summer_visit}}</span>照顾着历代星辰</p>
-  </h2>
-  <h2 wx:if="{{data.autumn_visit}}">
-    <p>在落叶亲吻地面的深秋</p>
-    <p>你在<span>{{data.autumn_visit}}</span>是否见到圆月又昼眠听雨</p>
-  </h2>
-  <h2 wx:if="{{data.winter_visit}}">
-    <p>在阳光珍贵、风很清澈的冬日</p>
-    <p>你到过的<span>{{data.winter_visit}}</span>下雪了吗？</p>
-  </h2>
-</main>
-<div id="fixed">
-  <div class="bottom">
-    <div class="next" bind:tap="bindNext">
-      <i class="iconfont icon-top"></i>
-      <text>下一组</text>
-    </div>
-  </div>
-  <div class="right">
-    <button open-type="share">
-      <i class="iconfont icon-top"></i>
-    </button>
-    <div class="holiday" bind:tap="bindHoliday">节</div>
-  </div>
-</div>
+<!-- index.wxml -->
+<view class="container">
+  <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
+</view>
