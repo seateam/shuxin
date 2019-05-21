@@ -71,6 +71,9 @@ main h1 {
 	font-size: 22px;
 	margin-bottom: 60rpx;
 }
+main h1 .year {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+}
 main h2 {
 	display: block;
 	width: 100%;
@@ -81,7 +84,7 @@ main p {
 }
 main p span {
 	color: #de560f;
-	font-size: 44rpx;
+	/* font-size: 40rpx; */
 }
 main p + p {
 	margin-top: 12rpx;

@@ -4,6 +4,8 @@ Page({
 	data: {
 		shareIndex: 1,
 		data: {},
+		yearsIndex: 0,
+		years: ['2019', '2018', '2016', '2014'],
 	},
 	onLoad() {
 		Sea.Ajax({
@@ -32,7 +34,16 @@ Page({
 			shareIndex: i,
 		})
 	},
-	bindHoliday(){
+	bindHoliday() {
 		Sea.path('/pages/holiday/holiday')
+	},
+	bindYear() {
+		let next = this.data.yearsIndex + 1
+		if (next === this.data.years.length) {
+			next = 0
+		}
+		this.setData({
+			yearsIndex: next,
+		})
 	},
 })
