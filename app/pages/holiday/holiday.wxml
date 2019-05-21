@@ -1,6 +1,6 @@
 <sea-nav-bar />
 <main>
-  <image class="background" mode="aspectFill" src="./bg.png"/>
+  <image class="background" mode="aspectFill" src="../../ku/img/holiday.png"/>
   <div class="list">
     <div class="one">
       <div class="left" style="opacity: {{data.Yuan_Dan_Visit ? '1' : '0'}};">
