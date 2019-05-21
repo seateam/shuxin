@@ -1,57 +1,84 @@
 <sea-nav-bar />
+<template name="none">
+  <div class="none">
+    <p>您未在该节日打卡，</p>
+    <p>快去试试，发现新功能吧！</p>
+  </div>
+</template>
 <main>
   <image class="background" mode="aspectFill" src="../../ku/img/holiday.png"/>
   <div class="list">
     <div class="one">
-      <div class="left" style="opacity: {{data.Yuan_Dan_Visit ? '1' : '0'}};">
-        <p>凡数之始为“元”,</p>
-        <p>日之始为“旦”</p>
-        <p>你在<span>{{data.Yuan_Dan_Visit}}</span>开启了b年的第一天；</p>
+      <div class="left">
+        <div wx:if="{{data.Yuan_Dan_Visit}}">
+          <p>凡数之始为“元”,</p>
+          <p>日之始为“旦”</p>
+          <p>你在<span>{{data.Yuan_Dan_Visit}}</span>开启了2019年的第一天；</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">元旦</div>
     </div>
-    <div class="one" style="opacity: {{data.New_Year_Eve_Visit ? '1' : '0'}};">
+    <div class="one">
       <div class="left">
-        <p>辞旧迎新更万象，春满人间</p>
-        <p>你在<span>{{data.New_Year_Eve_Visit}}</span>迎接新的一年；</p>
+        <div wx:if="{{data.New_Year_Eve_Visit}}">
+          <p>辞旧迎新更万象，春满人间</p>
+          <p>你在<span>{{data.New_Year_Eve_Visit}}</span>迎接新的一年；</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">春节</div>
     </div>
-    <div class="one" style="opacity: {{data.Qing_ming_Visit ? '1' : '0'}};">
+    <div class="one">
       <div class="left">
-        <p>况是清明好天气，</p>
-        <p>不妨游衍莫忘归</p>
-        <p><span>{{data.Qing_ming_Visit}}</span>的清明可有牡丹樱花？</p>
+        <div wx:if="{{data.Qing_ming_Visit}}">
+          <p>况是清明好天气，</p>
+          <p>不妨游衍莫忘归</p>
+          <p><span>{{data.Qing_ming_Visit}}</span>的清明可有牡丹樱花？</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">清明</div>
     </div>
-    <div class="one" style="opacity: {{data.Labour_Day_Visit ? '1' : '0'}};">
+    <div class="one">
       <div class="left">
-        <p>扶摇而上的风筝嵌入碧空, </p>
-        <p>杏花开遍的烂漫五月</p>
-        <p>你在<span>{{data.Labour_Day_Visit}}</span>度过五一假期；</p>
+        <div wx:if="{{data.Labour_Day_Visit}}">
+          <p>扶摇而上的风筝嵌入碧空, </p>
+          <p>杏花开遍的烂漫五月</p>
+          <p>你在<span>{{data.Labour_Day_Visit}}</span>度过五一假期；</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">劳动节</div>
     </div>
-    <div class="one" style="opacity: {{data.Dragon_Boat_Festival_Visit ? '1' : '0'}};">
+    <div class="one">
       <div class="left">
-        <p>碧艾香蒲处处忙</p>
-        <p>你在<span>{{data.Dragon_Boat_Festival_Visit}}</span>度过的端午可有甜粽；</p>
+        <div wx:if="{{data.Dragon_Boat_Festival_Visit}}">
+          <p>碧艾香蒲处处忙</p>
+          <p>你在<span>{{data.Dragon_Boat_Festival_Visit}}</span>度过的端午可有甜粽；</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">端午</div>
     </div>
-    <div class="one" style="opacity: {{data.Mid_Autumn_festival_Visit ? '1' : '0'}};">
+    <div class="one">
       <div class="left">
-        <p>每圆处即良宵，万里婵娟</p>
-        <p>你在<span>{{data.Mid_Autumn_festival_Visit}}</span>的中秋是否有所念人；</p>
+        <div wx:if="{{data.Mid_Autumn_festival_Visit}}">
+          <p>每圆处即良宵，万里婵娟</p>
+          <p>你在<span>{{data.Mid_Autumn_festival_Visit}}</span>的中秋是否有所念人；</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">中秋</div>
     </div>
-    <div class="one" style="opacity: {{data.National_Day_Visit ? '1' : '0'}};">
+    <div class="one">
       <div class="left">
-        <p>祖国是涌动的血液奔腾，</p>
-        <p>是跳动着五千年的心脏脉搏</p>
-        <p>你的国庆长假在<span>{{data.National_Day_Visit}}</span>度过。</p>
+        <div wx:if="{{data.National_Day_Visit}}">
+          <p>祖国是涌动的血液奔腾，</p>
+          <p>是跳动着五千年的心脏脉搏</p>
+          <p>你的国庆长假在<span>{{data.National_Day_Visit}}</span>度过。</p>
+        </div>
+        <template wx:else is="none"></template>
       </div>
       <div class="right">国庆</div>
     </div>

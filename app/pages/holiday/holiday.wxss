@@ -38,6 +38,9 @@ main .list .one .left {
 	font-family: KaiTi;
 	color: rgba(226, 225, 225, 1);
 }
+main .list .one .left .none {
+	color: #888;
+}
 main .list .one .left p {
 	display: block;
 }
