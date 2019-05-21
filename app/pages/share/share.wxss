@@ -81,6 +81,7 @@ main p {
 }
 main p span {
 	color: #de560f;
+	font-size: 44rpx;
 }
 main p + p {
 	margin-top: 12rpx;

@@ -111,6 +111,15 @@ main .cont .date .list {
 main .cont .date .list .year {
 	font-size: 24rpx;
 	margin-bottom: 40rpx;
+	display: flex;
+	align-items: center;
+}
+main .cont .date .list .year .line {
+	display: inline-block;
+	width: 12rpx;
+	height: 1px;
+	background: #FFF;
+	margin-right: 4rpx;
 }
 main .cont .date .list .month {
 	margin-bottom: 40rpx;

@@ -24,7 +24,7 @@
       <div class="all {{dateNow === 'all' ? 'active' : ''}}" bind:tap="bindAllMonth">全部</div>
       <scroll-view scroll-y class="list">
         <block wx:for="{{date}}" wx:key="index">
-          <div class="year">{{item.year}}</div>
+          <div class="year"><div class="line"></div>{{item.year}}</div>
           <block wx:for="{{item.month}}" wx:for-item="e" wx:for-index="i" wx:key="i">
             <div class="month {{index === dateNow[0] && i === dateNow[1] ? 'active' : ''}}" bind:tap="bindMonth" data-arr="{{[index, i]}}">
               <text>{{e}}</text>

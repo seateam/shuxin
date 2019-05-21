@@ -4,12 +4,12 @@
 <main>
   <h1>在最近整整一年里</h1>
   <h2 wx:if="{{data.clock_count && data.city_count}}">
-    <p>你一共打卡<span> {{data.clock_count}} </span>次</p>
-    <p>脚印留在<span> {{data.city_count}} </span>个城市</p>
+    <p>你一共打卡<span>{{data.clock_count}}</span>次</p>
+    <p>脚印留在<span>{{data.city_count}}</span>个城市</p>
   </h2>
   <h2>
     <p><span>{{data.city_most}}</span>一定是一个特别的地方</p>
-    <p>你共计在这里标记多达<span> {{data.clock_most}} </span>次</p>
+    <p>你共计在这里标记多达<span>{{data.clock_most}}</span>次</p>
   </h2>
   <h2 wx:if="{{data.spring_visit}}">
     <p>当春日被揉进夹着露水的清晨</p>
