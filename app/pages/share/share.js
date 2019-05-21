@@ -5,7 +5,7 @@ Page({
 		shareIndex: 1,
 		data: {},
 		yearsIndex: 0,
-		years: ['2019', '2018', '2016', '2014'],
+		years: ['2019', '2018', '2017', '2016'],
 	},
 	onLoad() {
 		Sea.Ajax({
@@ -39,11 +39,10 @@ Page({
 	},
 	bindYear() {
 		let next = this.data.yearsIndex + 1
-		if (next === this.data.years.length) {
-			next = 0
+		if (next < this.data.years.length) {
+			this.setData({
+				yearsIndex: next,
+			})
 		}
-		this.setData({
-			yearsIndex: next,
-		})
 	},
 })

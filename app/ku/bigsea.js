@@ -186,11 +186,11 @@ module.exports = {
 		}
 		return city
 	},
-	getMeters(lat1, lng1, lat2, lng2) {
+	getKilometers(A, B) {
 		const EARTH_RADIUS = 6378137.0 //单位 m
-		let f = (Math.PI * ((lat1 + lat2) / 2)) / 180.0
-		let g = (Math.PI * ((lat1 - lat2) / 2)) / 180.0
-		let l = (Math.PI * ((lng1 - lng2) / 2)) / 180.0
+		let f = (Math.PI * ((A.lat + B.lat) / 2)) / 180.0
+		let g = (Math.PI * ((A.lat - B.lat) / 2)) / 180.0
+		let l = (Math.PI * ((A.lng - B.lng) / 2)) / 180.0
 		let sg = Math.sin(g)
 		let sl = Math.sin(l)
 		let sf = Math.sin(f)
@@ -207,8 +207,7 @@ module.exports = {
 		d = 2 * w * a
 		h1 = (3 * r - 1) / 2 / c
 		h2 = (3 * r + 1) / 2 / s
-		let meter = d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg))
-		console.log('🐸', meter)
-		return meter || 0
+		let meter = d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) || 0
+		return parseInt(meter / 1000)
 	},
 }

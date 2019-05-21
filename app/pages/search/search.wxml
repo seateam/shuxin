@@ -6,7 +6,10 @@
         <i class="iconfont icon-location"></i>
         <div class="info">
             <div class="t1">{{e.title}}</div>
-            <div class="t2">{{e.address}}</div>
+            <div class="t2">
+                <text>{{e.address}}</text>
+                <text class="km">{{e.kilometers}}km</text>                
+            </div>
         </div>
     </div>
 </div>
