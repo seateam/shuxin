@@ -57,7 +57,7 @@ Page({
 						longitude: longitude,
 						width: 26,
 						height: 26,
-						name: e.content,
+						name: Sea.formatContent(e.content),
 						mark_color: Number(e.mark_color),
 						iconPath: `./img/mark${e.mark_color}.png`,
 					}

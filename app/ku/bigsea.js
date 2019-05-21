@@ -186,6 +186,24 @@ module.exports = {
 		}
 		return city
 	},
+	formatContent(content) {
+		let step = 0
+		let str = ''
+		for (let s of content) {
+			if (s === '\n') {
+				// 清零
+				step = 0
+			} else {
+				step++
+			}
+			if (step === 21) {
+				s = s + '\n'
+				step = 0
+			}
+			str = str + s
+		}
+		return str
+	},
 	getKilometers(A, B) {
 		const EARTH_RADIUS = 6378137.0 //单位 m
 		let f = (Math.PI * ((A.lat + B.lat) / 2)) / 180.0
