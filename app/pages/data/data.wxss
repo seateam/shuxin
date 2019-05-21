@@ -60,12 +60,17 @@ main .location .province {
 	display: flex;
 	align-items: center;
 	white-space: nowrap;
+	text-align: center;
 	overflow: hidden;
 }
 main .location .province .one {
 	display: inline-block;
-	margin: 0 30rpx;
-	margin-left: 0;
+}
+main .location .province .one + .one {
+	margin-left: 30rpx;
+}
+main .location .province .one:last-child {
+	margin-right: 30rpx;
 }
 main .location .province .one.active {
 	font-size: 43rpx;
