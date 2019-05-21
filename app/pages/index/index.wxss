@@ -112,9 +112,7 @@ page {
 	width: 54rpx;
 	height: 54rpx;
 	border-radius: 50%;
-}
-#map .right .color:first-child {
-	margin-top: 28rpx;
+	margin-top: 44rpx;
 }
 #map .right .color:last-child {
 	margin-bottom: 28rpx;
@@ -122,16 +120,8 @@ page {
 #map .right .color.active {
 	box-shadow: 0 8rpx 8rpx 0 rgba(0, 0, 0, 0.16), 0 0 0 8rpx rgba(0, 0, 0, 0.08);
 }
-#map .right .color + .color {
-	margin-top: 44rpx;
-}
-/* 临时样式 */
-.btns {
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.btns button {
-	width: 50%;
+#map .right .colorAll {
+	width: 60rpx;
+	height: 60rpx;
+	margin: 28rpx 20rpx 0;
 }

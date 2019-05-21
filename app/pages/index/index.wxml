@@ -21,6 +21,7 @@
     </cover-view>
   </cover-view>
   <cover-view class="right" wx:if="{{showColors}}" style="top:{{colorTop}}px">
+    <cover-image bind:tap="bindColorAll" class="colorAll" src="./img/colorAll.png"></cover-image>
     <cover-view class="color {{colorNow === index ? 'active' : ''}}" bind:tap="bindColor" wx:for="{{colors}}" wx:key="{{index}}" data-i="{{index}}" style="background:{{item}};"></cover-view>
   </cover-view>
 </map>

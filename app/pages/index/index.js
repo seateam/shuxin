@@ -110,7 +110,7 @@ Page({
 		let i = event.target.dataset.i
 		let markersFilter = []
 		if (this.data.colorNow === i) {
-			i = null
+			return
 		} else {
 			for (const marker of this.data.markers) {
 				if (marker.mark_color === i) {
@@ -118,12 +118,17 @@ Page({
 				}
 			}
 		}
-		if (markersFilter.length === 0 || i === null) {
-			markersFilter = null
-		}
 		this.setData({
 			colorNow: i,
 			markersFilter: markersFilter,
 		})
+	},
+	bindColorAll() {
+		if (this.data.colorNow !== null || this.data.markersFilter !== null) {
+			this.setData({
+				colorNow: null,
+				markersFilter: null,
+			})
+		}
 	},
 })
