@@ -1,4 +1,4 @@
-<image class="page-background" src="../../ku/img/share{{shareIndex}}.jpg" />
+<image class="page-background" src="https://cdn.bigc.cc//blue_tide/imgshare{{shareIndex}}.jpg" />
 <div id="mask"></div>
 <sea-nav-bar />
 <main>

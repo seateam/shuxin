@@ -6,7 +6,7 @@
   </div>
 </template>
 <main>
-  <image class="background" mode="aspectFill" src="../../ku/img/holiday.png"/>
+  <image class="background" mode="aspectFill" src="https://cdn.bigc.cc//blue_tide/imgholiday.png"/>
   <div class="list">
     <div class="one">
       <div class="left">
