@@ -1,46 +1,115 @@
 import * as echarts from './ec-canvas/echarts'
 import geoJson from './china.js'
+import WxCanvas from './ec-canvas/wx-canvas';
 
 const app = getApp()
 
 const initChart = function (canvas, width, height) {
-	const chart = echarts.init(canvas, null, {
-		width: width,
-		height: height,
-	})
-	canvas.setChart(chart)
+// const initChart = function (canvas, width, height, recordData) {
+	
+	const option = {
+		tooltip: {},
+		visualMap: {
+			min: 0,
+			max: 1500,
+			left: 'left',
+			top: 'bottom',
+			text: ['High', 'Low'],
+			seriesIndex: [1],
+			inRange: {
+				color: ['#e0ffff', '#006edd']
+			},
+			calculable: true
+		},
+		geo: {
+			map: 'china',
+			roam: true,
+			label: {
+				normal: {
+					show: true,
+					textStyle: {
+						color: 'rgba(0,0,0,0.4)'
+					}
+				}
+			},
+			itemStyle: {
+				normal: {
+					borderColor: 'rgba(0, 0, 0, 0.2)'
+				},
+				emphasis: {
+					areaColor: null,
+					shadowOffsetX: 0,
+					shadowOffsetY: 0,
+					shadowBlur: 20,
+					borderWidth: 0,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				}
+			}
+		},
+		series: [
+			{
+				type: 'scatter',
+				coordinateSystem: 'geo',
+				data: convertData(data),
+				symbolSize: 20,
+				symbol: 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
+				symbolRotate: 35,
+				label: {
+					normal: {
+						formatter: '{b}',
+						position: 'right',
+						show: false
+					},
+					emphasis: {
+						show: true
+					}
+				},
+				itemStyle: {
+					normal: {
+						color: '#F06C00'
+					}
+				}
+			},
+			{
+				// name: '您在此地走过',
+				type: 'map',
+				geoIndex: 0,
+				tooltip: {show: false},
 
-	echarts.registerMap('china', geoJson)
+				data:mydata
+			}]
+	};
+	
 	var data = [
-		{ name: '海门', value: 9 },
-		{ name: '鄂尔多斯', value: 12 },
-		{ name: '招远', value: 12 },
-		{ name: '舟山', value: 12 },
-		{ name: '齐齐哈尔', value: 14 },
-		{ name: '盐城', value: 15 },
-		{ name: '赤峰', value: 16 },
-		{ name: '青岛', value: 18 },
-		{ name: '乳山', value: 18 },
-		{ name: '金昌', value: 19 },
-		{ name: '泉州', value: 21 },
-		{ name: '南通', value: 23 },
-		{ name: '拉萨', value: 24 },
-		{ name: '云浮', value: 24 },
-		{ name: '上海', value: 25 },
-		{ name: '攀枝花', value: 25 },
-		{ name: '承德', value: 25 },
-		{ name: '汕尾', value: 26 },
-		{ name: '丹东', value: 27 },
-		{ name: '瓦房店', value: 30 },
-		{ name: '延安', value: 38 },
-		{ name: '咸阳', value: 43 },
-		{ name: '南昌', value: 54 },
-		{ name: '柳州', value: 54 },
-		{ name: '三亚', value: 54 },
-		{ name: '泸州', value: 57 },
-		{ name: '克拉玛依', value: 72 }
+		// { name: '海门', value: 9 },
+		// { name: '鄂尔多斯', value: 12 },
+		// { name: '招远', value: 12 },
+		// { name: '舟山', value: 12 },
+		// { name: '齐齐哈尔', value: 14 },
+		// { name: '盐城', value: 15 },
+		// { name: '赤峰', value: 16 },
+		// { name: '青岛', value: 18 },
+		// { name: '乳山', value: 18 },
+		// { name: '金昌', value: 19 },
+		// { name: '泉州', value: 21 },
+		// { name: '南通', value: 23 },
+		// { name: '拉萨', value: 24 },
+		// { name: '云浮', value: 24 },
+		// { name: '上海', value: 25 },
+		// { name: '攀枝花', value: 25 },
+		// { name: '承德', value: 25 },
+		// { name: '汕尾', value: 26 },
+		// { name: '丹东', value: 27 },
+		// { name: '瓦房店', value: 30 },
+		// { name: '延安', value: 38 },
+		// { name: '咸阳', value: 43 },
+		// { name: '南昌', value: 54 },
+		// { name: '柳州', value: 54 },
+		// { name: '三亚', value: 54 },
+		// { name: '泸州', value: 57 },
+		// { name: '克拉玛依', value: 72 }
 	];
-
+	
 	var geoCoordMap = {
 		// '海门': [121.15, 31.89],
 		// '鄂尔多斯': [109.781327, 39.608266],
@@ -232,137 +301,46 @@ const initChart = function (canvas, width, height) {
 		// '合肥': [117.27, 31.86],
 		// '武汉': [114.31, 30.52],
 		// '大庆': [125.03, 46.58]
-	}
-
+	};
+	
 	function convertData(data) {
-		var res = [];
-		for (var i = 0; i < data.length; i++) {
-			var geoCoord = geoCoordMap[data[i].name];
-			if (geoCoord) {
-				res.push({
-					name: data[i].name,
-					value: geoCoord.concat(data[i].value)
-				});
+		
+		echarts.registerMap('china', geoJson)
+		
+			var res = [];
+			for (var i = 0; i < data.length; i++) {
+				var geoCoord = geoCoordMap[data[i].name];
+				if (geoCoord) {
+					res.push({
+						name: data[i].name,
+						value: geoCoord.concat(data[i].value)
+					});
+				}
 			}
-		}
-		return res;
-	}
 
+			
+	var myChart = echarts.init(doucument.getElementById('main'));
+	myChart.setOption(optionMap)
+	// option.series[1].data=recordData;
+	// const chart = echarts.init(canvas, null, {
+	// 	width: width,
+	// 	height: height,
+	// })
+	// console.log(canvas)
+	
+		return res;
+	};
+	
 	function randomValue() {
 		return Math.round(Math.random() * 1000);
 	}
-
-	const option = {
-		// tooltip: {},
-		visualMap: {
-			min: 0,
-			max: 15,
-			left: 'left',
-			top: 'bottom',
-			text: ['High', 'Low'],
-			seriesIndex: [1],
-			inRange: {
-				color: ['#e0ffff', '#006edd']
-			},
-			calculable: true
-		},
-		geo: {
-			map: 'china',
-			roam: true,
-			label: {
-				normal: {
-					show: true,
-					textStyle: {
-						color: 'rgba(0,0,0,0.4)'
-					}
-				}
-			},
-			itemStyle: {
-				normal: {
-					borderColor: 'rgba(0, 0, 0, 0.2)'
-				},
-				emphasis: {
-					areaColor: null,
-					shadowOffsetX: 0,
-					shadowOffsetY: 0,
-					shadowBlur: 20,
-					borderWidth: 0,
-					shadowColor: 'rgba(0, 0, 0, 0.5)'
-				}
-			}
-		},
-		series: [
-			{
-				type: 'scatter',
-				coordinateSystem: 'geo',
-				data: convertData(data),
-				symbolSize: 20,
-				symbol: 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
-				symbolRotate: 35,
-				label: {
-					normal: {
-						formatter: '{b}',
-						position: 'right',
-						show: false
-					},
-					emphasis: {
-						show: true
-					}
-				},
-				itemStyle: {
-					normal: {
-						color: '#F06C00'
-					}
-				}
-			},
-			{
-				name: 'categoryA',
-				type: 'map',
-				geoIndex: 0,
-				// tooltip: {show: false},
-				data: [
-					{ name: '北京', value: randomValue() },
-					{ name: '天津', value: randomValue() },
-					{ name: '上海', value: randomValue() },
-					{ name: '重庆', value: randomValue() },
-					{ name: '河北', value: randomValue() },
-					{ name: '河南', value: randomValue() },
-					{ name: '云南', value: randomValue() },
-					{ name: '辽宁', value: randomValue() },
-					{ name: '黑龙江', value: randomValue() },
-					{ name: '湖南', value: randomValue() },
-					{ name: '安徽', value: randomValue() },
-					{ name: '山东', value: randomValue() },
-					{ name: '新疆', value: randomValue() },
-					{ name: '江苏', value: randomValue() },
-					{ name: '浙江', value: randomValue() },
-					{ name: '江西', value: randomValue() },
-					{ name: '湖北', value: randomValue() },
-					{ name: '广西', value: randomValue() },
-					{ name: '甘肃', value: randomValue() },
-					{ name: '山西', value: randomValue() },
-					{ name: '内蒙古', value: randomValue() },
-					{ name: '陕西', value: randomValue() },
-					{ name: '吉林', value: randomValue() },
-					{ name: '福建', value: randomValue() },
-					{ name: '贵州', value: randomValue() },
-					{ name: '广东', value: randomValue() },
-					{ name: '青海', value: randomValue() },
-					{ name: '西藏', value: randomValue() },
-					{ name: '四川', value: randomValue() },
-					{ name: '宁夏', value: randomValue() },
-					{ name: '海南', value: randomValue() },
-					{ name: '台湾', value: randomValue() },
-					{ name: '香港', value: randomValue() },
-					{ name: '澳门', value: randomValue() }
-				]
-			}
-		]
-	}
-
+	
+	canvas.setChart(chart)
 	chart.setOption(option)
-
-	return chart
+	
+	// echartInit(e){
+	
+		return chart
 }
 
 Page({
@@ -370,7 +348,35 @@ Page({
 		ec: {
 			onInit: initChart,
 		},
+	// 	recordData:[{
+	// 		value:9,
+	// 		name:'西藏'
+	// 	}
+	// ]
 	},
+	
+	// 	console.log(e)
+	// 	let recordData=e.target.dataset.record;
+	// 	initChart(e.shareMap.canvas,e.shareMap.width,e.shareMap.height,recordData)
+	// },
 
-	onReady() { },
+	// onLoad:function(options){
+	// 	this.setData({
+	// 		signature:app.globalData.accountInfo.signature
+	// 	});
+	// },
+	
+	onReady() { 
+		var recordData = [{
+			value: 9,
+			name: '西藏'
+		}];
+		option.series[0].data = recordData;
+	},
+	
+	// enlarge() {
+	// 	var myEchart = echarts.init(document.getElementById('myChart'));
+	// 	initChart(WxCanvas,450.0,1000.0);
+	// 	// console.log("点击放大");
+	// },
 })

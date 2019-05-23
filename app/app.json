@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/shareMap/shareMap",
+    "pages/index/index",
     "pages/share/share",
     "pages/search/search",
     "pages/data/data",
