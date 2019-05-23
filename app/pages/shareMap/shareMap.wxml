@@ -1,12 +1,4 @@
 <!-- index.wxml -->
 <view class="container">
-  <!-- <button bindtap="enlarge">放大</button> -->
-  <!-- <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas> -->
-<ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"  bind:init="echartInit" data-record="{{recordData}}"></ec-canvas>
-</view>
-<view class="mybtn">
-<view bind:tap="enlarge">放大</view>
-<!-- <cover-image class="planet" bind:tap="bindPoints" src="./img/planet.png"></cover-image> -->
-<!-- <cover-view bind:tap="bindCard" class="btn card">打卡</cover-view>
-      <cover-view bind:tap="bindShare" class="btn share">分享</cover-view> -->
+  <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
 </view>
