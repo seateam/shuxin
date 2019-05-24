@@ -60,7 +60,7 @@ Page({
 		const data = [
 			`h2#你一共打卡[span, 16 ]次`,
 			`脚印留在[span, 9 ]个城市#`,
-			`h2#[span,咸阳 ]一定是一个特别的地方`,
+			`h2#[span,咸阳]一定是一个特别的地方`,
 			`你共计在这里标记多达[span, 9 ]次#`,
 			`h2#当春日被揉进夹着露水的清晨`,
 			`你在[span,河南]的蕴酝春风中醒来#`,
@@ -73,7 +73,7 @@ Page({
 		]
 		let i = 1
 		const time = setInterval(() => {
-			if (i < data.length) {
+			if (i <= data.length) {
 				this.setData({
 					contents: this.initContents(data.slice(0, i)),
 				})
@@ -81,7 +81,7 @@ Page({
 			} else {
 				clearInterval(time)
 			}
-		}, 1000)
+		}, 2000)
 	},
 	initContents(data) {
 		const contents = []

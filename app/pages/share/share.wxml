@@ -9,7 +9,7 @@
   </h1>
   <block wx:for="{{contents}}" wx:for-item="content" wx:key="index">
     <h2 wx:if="{{content.type === 'h2'}}">
-      <p wx:for="{{content.div}}" wx:for-item="lines" wx:key="index">
+      <p class="contentShow" wx:for="{{content.div}}" wx:for-item="lines" wx:key="index">
         <block wx:for="{{lines}}" wx:for-item="line" wx:key="index">
           <span wx:if="{{line.type === 'span'}}">{{line.cont}}</span>
           <text wx:else>{{line.cont}}</text>
