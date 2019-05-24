@@ -40,9 +40,11 @@ Page({
 	bindYear() {
 		let next = this.data.yearsIndex + 1
 		if (next < this.data.years.length) {
-			this.setData({
-				yearsIndex: next,
-			})
+		} else {
+			next = 0
 		}
+		this.setData({
+			yearsIndex: next,
+		})
 	},
 })
