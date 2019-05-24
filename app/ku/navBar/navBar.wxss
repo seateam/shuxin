@@ -1,0 +1,33 @@
+/* 导航栏 */
+sea-nav-bar {
+	width: 100%;
+	z-index: 10;
+}
+sea-nav-bar cover-view {
+	box-sizing: initial;
+}
+sea-nav-bar .navBar {
+	padding-top: 20px;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: flex-start;
+	height: 44px;
+}
+sea-nav-bar .navBar.fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+sea-nav-bar .navBar .back {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 20rpx;
+	width: 32px;
+	height: 32px;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 50%;
+	color: #000;
+}

@@ -1,8 +1,8 @@
 <!-- 占位 -->
-<div class="navBar" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;"></div>
+<cover-view class="navBar" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;"></cover-view>
 <!-- 悬浮 -->
-<div class="navBar fixed" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;">
-    <div class="back" bind:tap="bindBack">
-        <div class="iconfont icon-back"></div>
-    </div>
-</div>
+<cover-view class="navBar fixed" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;">
+    <cover-view class="back" bind:tap="bindBack">
+        <cover-view class="iconfont icon-back"></cover-view>
+    </cover-view>
+</cover-view>

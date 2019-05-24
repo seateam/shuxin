@@ -7,7 +7,9 @@ Component({
 	data: {
 		navBar: app.data.navBar,
 	},
-	attached() {},
+	attached() {
+		console.log('🐸', this.data.navBar)
+	},
 	methods: {
 		bindBack() {
 			Sea.back()
