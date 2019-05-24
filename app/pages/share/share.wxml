@@ -7,61 +7,16 @@
     <text class="year" bind:tap="bindYear"> {{years[yearsIndex]}} </text>
     <text>年里</text>
   </h1>
-  <h2 wx:if="{{data.clock_count && data.city_count}}">
-    <p>
-      <text>你一共打卡</text>
-      <span> {{data.clock_count}} </span>
-      <text>次</text>
-    </p>
-    <p>
-      <text>脚印留在</text>
-      <span> {{data.city_count}} </span>
-      <text>个城市</text>
-    </p>
-  </h2>
-  <h2>
-    <p>
-      <span> {{data.city_most}} </span>
-      <text>一定是一个特别的地方</text>
-    </p>
-    <p>
-      <text>你共计在这里标记多达</text>
-      <span> {{data.clock_most}} </span>
-      <text>次</text>
-    </p>
-  </h2>
-  <h2 wx:if="{{data.spring_visit}}">
-    <p>当春日被揉进夹着露水的清晨</p>
-    <p>
-      <text>你在</text>
-      <span>{{data.spring_visit}}</span>
-      <text>的蕴酝春风中醒来</text>
-    </p>
-  </h2>
-  <h2 wx:if="{{data.summer_visit}}">
-    <p>当夏日的树梢紧紧拥抱着绿叶</p>
-    <p>
-      <text>你在</text>
-      <span>{{data.summer_visit}}</span>
-      <text>照顾着历代星辰</text>
-    </p>
-  </h2>
-  <h2 wx:if="{{data.autumn_visit}}">
-    <p>在落叶亲吻地面的深秋</p>
-    <p>
-      <text>你在</text>
-      <span>{{data.autumn_visit}}</span>
-      <text>是否见到圆月又昼眠听雨</text>
-    </p>
-  </h2>
-  <h2 wx:if="{{data.winter_visit}}">
-    <p>在阳光珍贵、风很清澈的冬日</p>
-    <p>
-      <text>你到过的</text>
-      <span>{{data.winter_visit}}</span>
-      <text>下雪了吗？</text>
-    </p>
-  </h2>
+  <block wx:for="{{contents}}" wx:for-item="content" wx:key="index">
+    <h2 wx:if="{{content.type === 'h2'}}">
+      <p wx:for="{{content.div}}" wx:for-item="lines" wx:key="index">
+        <block wx:for="{{lines}}" wx:for-item="line" wx:key="index">
+          <span wx:if="{{line.type === 'span'}}">{{line.cont}}</span>
+          <text wx:else>{{line.cont}}</text>
+        </block>
+      </p>
+    </h2>
+  </block>
 </main>
 <div id="fixed">
   <div class="bottom">

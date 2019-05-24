@@ -21,7 +21,7 @@ Page({
 		const randomValue = function () {
 			return Math.round(Math.random() * 15)
 		}
-		// $.ajax({
+		// Sea.ajax({
 		// 	url: '/v1/card.map',
 		// }).then((res) => {
 		// 	setTimeout(() => {
@@ -83,7 +83,6 @@ Page({
 			for (const e of res.data) {
 				arr.push(e.value)
 			}
-			console.log('🐸', arr)
 			return {
 				max: 15,
 				min: 1,

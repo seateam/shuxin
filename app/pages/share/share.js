@@ -6,6 +6,37 @@ Page({
 		data: {},
 		yearsIndex: 0,
 		years: ['2019', '2018', '2017', '2016'],
+		contents: [
+			// {
+			// 	type: 'h2',
+			// 	div: [
+			// 		[
+			// 			{
+			// 				cont: '你一共打卡',
+			// 			},
+			// 			{
+			// 				type: 'span',
+			// 				cont: ' 16 ',
+			// 			},
+			// 			{
+			// 				cont: '次',
+			// 			},
+			// 		],
+			// 		[
+			// 			{
+			// 				cont: '脚印留在',
+			// 			},
+			// 			{
+			// 				type: 'span',
+			// 				cont: ' 9 ',
+			// 			},
+			// 			{
+			// 				cont: '个城市',
+			// 			},
+			// 		],
+			// 	],
+			// },
+		],
 	},
 	onLoad() {
 		Sea.Ajax({
@@ -24,7 +55,74 @@ Page({
 			}
 		})
 	},
-	onShow() {},
+	onShow() {
+		// 保留字符 , # [ ]
+		const data = [
+			`h2#你一共打卡[span, 16 ]次`,
+			`脚印留在[span, 9 ]个城市#`,
+			`h2#[span,咸阳 ]一定是一个特别的地方`,
+			`你共计在这里标记多达[span, 9 ]次#`,
+			`h2#当春日被揉进夹着露水的清晨`,
+			`你在[span,河南]的蕴酝春风中醒来#`,
+			`h2#当夏日的树梢紧紧拥抱着绿叶`,
+			`你在[span,北京]照顾着历代星辰#`,
+			`h2#在落叶亲吻地面的深秋`,
+			`你在[span,深圳]是否见到圆月又昼眠听雨#`,
+			`h2#在阳光珍贵、风很清澈的冬日`,
+			`你到过的[span,厦门]下雪了吗？#`,
+		]
+		let i = 1
+		const time = setInterval(() => {
+			if (i < data.length) {
+				this.setData({
+					contents: this.initContents(data.slice(0, i)),
+				})
+				i++
+			} else {
+				clearInterval(time)
+			}
+		}, 1000)
+	},
+	initContents(data) {
+		const contents = []
+		let div = []
+		data.forEach((e, i) => {
+			const arr = e.split('#')
+			const s = arr[1] || arr[0]
+			if (arr[0] === 'h1') {
+				console.log('处理 h1')
+			} else {
+				s.split('，').forEach(e => {
+					const s2 = e.replace(/\[(.+)\]/, '|$1|').split('|')
+					const arr = []
+					s2.forEach(e => {
+						const arr2 = e.split(',')
+						const type = arr2[0]
+						if (type === 'span') {
+							arr.push({
+								type: 'span',
+								cont: arr2[1],
+							})
+						} else {
+							arr.push({
+								cont: arr2[0],
+							})
+						}
+					})
+					div.push(arr)
+				})
+				if (arr[arr.length - 1] === '' || i + 1 === data.length) {
+					contents.push({
+						type: 'h2',
+						div: div,
+					})
+					// 清空
+					div = []
+				}
+			}
+		})
+		return contents
+	},
 	bindNext() {
 		let i = this.data.shareIndex + 1
 		if (i === 5) {

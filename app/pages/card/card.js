@@ -26,7 +26,6 @@ Page({
 				id: option.cardID,
 			},
 		}).then(res => {
-			console.log('🐸', res)
 			if (res.ok) {
 				this.setData({
 					card: this.initCard(res),
