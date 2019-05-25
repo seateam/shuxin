@@ -3,9 +3,9 @@
 <sea-nav-bar />
 <main>
   <h1>
-    <text>在</text>
-    <text class="year" bind:tap="bindYear"> {{years[yearsIndex]}} </text>
-    <text>年里</text>
+    <text>在 </text>
+    <text class="year" bind:tap="bindYear">{{years[yearsIndex]}}</text>
+    <text> 年里</text>
   </h1>
   <block wx:for="{{contents}}" wx:for-item="content" wx:key="index">
     <h2 wx:if="{{content.type === 'h2'}}">

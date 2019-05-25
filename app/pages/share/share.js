@@ -1,10 +1,12 @@
 const app = getApp()
 const Sea = require('../../ku/bigsea.js')
+let Countdown = null
 Page({
 	data: {
 		shareIndex: 1,
 		yearsIndex: 0,
 		years: ['2019', '2018', '2017', '2016'],
+		data: [],
 		contents: [
 			// {
 			// 	type: 'h2',
@@ -42,8 +44,12 @@ Page({
 			url: '/v1/card.share',
 		}).then(res => {
 			if (res.ok) {
-				const data = Object.assign(res.data[0], res.data[1])
-				this.initData(data)
+				this.setData({
+					data: res.data,
+					years: res.data.map(e => e.year).reverse(),
+				}, () => {
+					this.initData(res.data[this.data.yearsIndex])
+				})
 			}
 		})
 	},
@@ -82,14 +88,14 @@ Page({
 			arr.push(`你到过的[span,${data.winter_visit}]下雪了吗？#`)
 		}
 		let i = 1
-		const time = setInterval(() => {
+		Countdown = setInterval(() => {
 			if (i <= arr.length) {
 				this.setData({
 					contents: this.initContents(arr.slice(0, i)),
 				})
 				i++
 			} else {
-				clearInterval(time)
+				clearInterval(Countdown)
 			}
 		}, 2000)
 	},
@@ -147,6 +153,10 @@ Page({
 		Sea.path('/pages/holiday/holiday')
 	},
 	bindYear() {
+		this.setData({
+			contents: [],
+		})
+		clearInterval(Countdown)
 		let next = this.data.yearsIndex + 1
 		if (next < this.data.years.length) {
 		} else {
@@ -154,6 +164,8 @@ Page({
 		}
 		this.setData({
 			yearsIndex: next,
+		}, () => {
+			this.initData(this.data.data[next])
 		})
 	},
 })

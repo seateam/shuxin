@@ -178,7 +178,7 @@ module.exports = {
 		return province
 	},
 	formatCity(city) {
-		const arr = ['市', '自治州', '州', '地区', '盟', '县']
+		const arr = ['市', '自治州', '地区', '盟', '县']
 		for (const e of arr) {
 			if (city.endsWith(e)) {
 				return city.replace(e, '')
