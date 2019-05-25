@@ -3,6 +3,6 @@
 <!-- 悬浮 -->
 <cover-view class="navBar fixed" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;">
     <cover-view class="back" bind:tap="bindBack">
-        <cover-view class="iconfont icon-back"></cover-view>
+        <cover-image src="./back.png"></cover-image>
     </cover-view>
 </cover-view>

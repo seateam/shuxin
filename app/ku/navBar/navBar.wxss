@@ -25,9 +25,13 @@ sea-nav-bar .navBar .back {
 	justify-content: center;
 	align-items: center;
 	margin-left: 20rpx;
-	width: 32px;
-	height: 32px;
-	background-color: rgba(255, 255, 255, 0.7);
+	width: 64rpx;
+	height: 64rpx;
+	background-color: rgba(255, 255, 255, 0.6);
 	border-radius: 50%;
 	color: #000;
+}
+sea-nav-bar .navBar .back cover-image {
+	width: 34rpx;
+	height: 34rpx;
 }
