@@ -1,8 +1,15 @@
-<image class="page-background" src="http://cdn.bigc.cc//blue_tide/img/share{{shareIndex}}.jpg" />
+<swiper vertical current="{{shareIndex}}" bindchange="bindChange"  easing-function="linear">
+  <block wx:for="{{imgUrls}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item}}" mode="aspectFill"/>
+    </swiper-item>
+  </block>
+</swiper>
+
 <div id="mask"></div>
 <sea-nav-bar />
 <main>
-  <h1>
+  <h1 wx:if="{{years.length}}">
     <text>在 </text>
     <text class="year" bind:tap="bindYear">{{years[yearsIndex]}}</text>
     <text> 年里</text>

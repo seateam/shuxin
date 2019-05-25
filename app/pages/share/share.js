@@ -3,10 +3,16 @@ const Sea = require('../../ku/bigsea.js')
 let Countdown = null
 Page({
 	data: {
-		shareIndex: 1,
+		shareIndex: 0,
 		yearsIndex: 0,
-		years: ['2019', '2018', '2017', '2016'],
+		years: [],
 		data: [],
+		imgUrls: [
+			'http://cdn.bigc.cc//blue_tide/img/share1.jpg',
+			'http://cdn.bigc.cc//blue_tide/img/share2.jpg',
+			'http://cdn.bigc.cc//blue_tide/img/share3.jpg',
+			'http://cdn.bigc.cc//blue_tide/img/share4.jpg',
+		],
 		contents: [
 			// {
 			// 	type: 'h2',
@@ -44,23 +50,31 @@ Page({
 			url: '/v1/card.share',
 		}).then(res => {
 			if (res.ok) {
+				// 处理省份
+				const data = this.initCity(res.data)
+				const years = data.map(e => e.year).reverse()
+				this.data.data = data
 				this.setData({
-					data: res.data,
-					years: res.data.map(e => e.year).reverse(),
+					years: years,
 				}, () => {
-					this.initData(res.data[this.data.yearsIndex])
+					this.initData(data[this.data.yearsIndex])
 				})
 			}
 		})
 	},
 	onShow() {},
-	initData(data) {
+	initCity(data) {
 		// 处理省份
-		for (const key in data) {
-			if (typeof data[key] === 'string') {
-				data[key] = Sea.formatCity(data[key])
+		for (const e of data) {
+			for (const key in e) {
+				if (typeof e[key] === 'string') {
+					e[key] = Sea.formatCity(e[key])
+				}
 			}
 		}
+		return data
+	},
+	initData(data) {
 		// 保留字符 , # [ ]
 		const arr = []
 		if (data.clock_count && data.city_count) {
@@ -142,12 +156,15 @@ Page({
 	},
 	bindNext() {
 		let i = this.data.shareIndex + 1
-		if (i === 5) {
-			i = 1
+		if (i === this.data.imgUrls.length) {
+			i = 0
 		}
 		this.setData({
 			shareIndex: i,
 		})
+	},
+	bindChange(event) {
+		this.data.shareIndex = event.detail.current
 	},
 	bindHoliday() {
 		Sea.path('/pages/holiday/holiday')
