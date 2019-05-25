@@ -9,7 +9,12 @@ Page({
 			url: '/v1/card.show',
 		}).then(res => {
 			if (res.ok) {
-				const data = res.data[0]
+				let data = res.data[0]
+				res.data.forEach(e => {
+					if (e.year === Sea.shareYear) {
+						data = e
+					}
+				})
 				for (const key in data) {
 					if (typeof data[key] === 'string') {
 						data[key] = Sea.formatCity(data[key])

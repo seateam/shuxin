@@ -53,6 +53,7 @@ Page({
 				// 处理省份
 				const data = this.initCity(res.data)
 				const years = data.map(e => e.year).reverse()
+				Sea.shareYear = years[0]
 				this.data.data = data
 				this.setData({
 					years: years,
@@ -179,6 +180,8 @@ Page({
 		} else {
 			next = 0
 		}
+		// 分享页年份
+		Sea.shareYear = this.data.years[next]
 		this.setData({
 			yearsIndex: next,
 		}, () => {
