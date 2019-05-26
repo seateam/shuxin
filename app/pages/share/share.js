@@ -45,21 +45,30 @@ Page({
 			// },
 		],
 	},
-	onLoad() {
+	onLoad(option) {
+		if (option.friendToken) {
+			Sea.friendToken = option.friendToken
+		}
 		Sea.Ajax({
 			url: '/v1/card.share',
+			data: {
+				openid: Sea.friendToken,
+			},
 		}).then(res => {
-			if (res.ok) {
+			if (res.ok && res.data && res.data.length) {
 				// 处理省份
 				const data = this.initCity(res.data)
 				const years = data.map(e => e.year).reverse()
 				Sea.shareYear = years[0]
 				this.data.data = data
-				this.setData({
-					years: years,
-				}, () => {
-					this.initData(data[this.data.yearsIndex])
-				})
+				this.setData(
+					{
+						years: years,
+					},
+					() => {
+						this.initData(data[this.data.yearsIndex])
+					},
+				)
 			}
 		})
 	},
@@ -112,7 +121,7 @@ Page({
 			} else {
 				clearInterval(Countdown)
 			}
-		}, 2000)
+		}, 1500)
 	},
 	initContents(data) {
 		// 处理数组
@@ -182,10 +191,20 @@ Page({
 		}
 		// 分享页年份
 		Sea.shareYear = this.data.years[next]
-		this.setData({
-			yearsIndex: next,
-		}, () => {
-			this.initData(this.data.data[next])
-		})
+		this.setData(
+			{
+				yearsIndex: next,
+			},
+			() => {
+				this.initData(this.data.data[next])
+			},
+		)
+	},
+	onShareAppMessage() {
+		const token = wx.getStorageSync('token')
+		return {
+			title: '组长！不圆！这里的文案',
+			path: '/pages/share/share?friendToken=' + token,
+		}
 	},
 })

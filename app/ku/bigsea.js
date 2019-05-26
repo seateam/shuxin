@@ -17,12 +17,11 @@ module.exports = {
 			data: request.data || {},
 			header: request.header || {},
 			method: (request.method || 'GET').toUpperCase(),
-			token: request.token,
 		}
 		if (!req.url.startsWith('http')) {
 			req.url = config.host + req.url
 		}
-		if (req.token !== false) {
+		if (!req.data.openid) {
 			req.data.openid = wx.getStorageSync('token')
 		}
 		req.header['Content-Type'] = 'application/json'
@@ -178,7 +177,7 @@ module.exports = {
 		return province
 	},
 	formatCity(city) {
-		const arr = ['市', '自治州', '地区', '盟', '县']
+		const arr = ['市', '自治州', '州', '地区', '盟', '县']
 		for (const e of arr) {
 			if (city.endsWith(e)) {
 				return city.replace(e, '')

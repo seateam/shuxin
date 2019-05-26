@@ -4,9 +4,15 @@ Page({
 	data: {
 		data: {},
 	},
-	onLoad() {
+	onLoad(option) {
+		if (option.friendToken) {
+			Sea.friendToken = option.friendToken
+		}
 		Sea.Ajax({
 			url: '/v1/card.show',
+			data: {
+				openid: Sea.friendToken,
+			},
 		}).then(res => {
 			if (res.ok) {
 				let data = res.data[0]

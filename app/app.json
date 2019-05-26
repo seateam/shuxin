@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/shareMap/shareMap",
-    "pages/data/data",
     "pages/index/index",
-    "pages/share/share",
+    "pages/data/data",
     "pages/search/search",
     "pages/card/card",
     "pages/cardAdd/cardAdd",
     "pages/cardLocation/cardLocation",
+    "pages/share/share",
+    "pages/shareMap/shareMap",
     "pages/holiday/holiday"
   ],
   "permission": {
