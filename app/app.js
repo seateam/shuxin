@@ -32,29 +32,27 @@ App({
 	},
 	initToken() {
 		const token = wx.getStorageSync('token')
-		if (token) {
-			wx.login({
-				success(res) {
-					if (res.code) {
-						// 发起网络请求
-						Sea.Ajax({
-							url: '/v1/login',
-							data: {
-								js_code: res.code,
-							},
-							token: false,
-						}).then(res => {
-							if (res.ok) {
-								console.log('登陆成功!')
-								wx.setStorageSync('token', res.openid)
-							}
-						})
-					} else {
-						console.log('登录失败!' + res.errMsg)
-					}
-				},
-			})
-		}
+		wx.login({
+			success(res) {
+				if (res.code) {
+					// 发起网络请求
+					Sea.Ajax({
+						url: '/v1/login',
+						data: {
+							js_code: res.code,
+						},
+						token: false,
+					}).then(res => {
+						if (res.ok) {
+							console.log('登陆成功!')
+							wx.setStorageSync('token', res.openid)
+						}
+					})
+				} else {
+					console.log('登录失败!' + res.errMsg)
+				}
+			},
+		})
 	},
 	变身(name) {
 		const dict = {

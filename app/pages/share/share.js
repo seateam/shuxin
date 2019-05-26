@@ -75,6 +75,9 @@ Page({
 			}
 		})
 	},
+	onUnload() {
+		delete Sea.friendToken
+	},
 	onShow() {},
 	initCity(data) {
 		// 处理省份
@@ -209,7 +212,7 @@ Page({
 	onShareAppMessage() {
 		const token = wx.getStorageSync('token')
 		return {
-			title: '组长！不圆！这里的文案',
+			title: '蓝色潮汐 点击进入我的地图记忆！',
 			path: '/pages/share/share?friendToken=' + token,
 		}
 	},

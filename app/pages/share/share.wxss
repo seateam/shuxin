@@ -116,7 +116,6 @@ main h1 {
 	display: block;
 	font-size: 22px;
 	margin-bottom: 60rpx;
-	color: rgba(255, 255, 255, 0.27);
 }
 main h1 .year {
 	border-bottom: 1px solid rgba(255, 255, 255, 0.27);

@@ -64,10 +64,11 @@ Page({
 				})
 				this.setData({
 					markers: markers,
+				}, () => {
+					if (typeof callback === 'function') {
+						callback()
+					}
 				})
-				if (typeof callback === 'function') {
-					callback()
-				}
 			}
 		})
 	},
