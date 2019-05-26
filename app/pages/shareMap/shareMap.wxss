@@ -1,3 +1,6 @@
+page {
+	background: #fff;
+}
 .container {
 	position: absolute;
 	top: 0;
