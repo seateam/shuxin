@@ -1,12 +1,9 @@
 /* 导航栏 */
-sea-nav-bar {
-	width: 100%;
-	z-index: 10;
-}
-sea-nav-bar cover-view {
+.div {
 	box-sizing: initial;
 }
-sea-nav-bar .navBar {
+.navBar {
+	z-index: 10;
 	padding-top: 20px;
 	display: flex;
 	width: 100%;
@@ -14,13 +11,13 @@ sea-nav-bar .navBar {
 	justify-content: flex-start;
 	height: 44px;
 }
-sea-nav-bar .navBar.fixed {
+.navBar.fixed {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 }
-sea-nav-bar .navBar .back {
+.navBar .back {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -31,7 +28,7 @@ sea-nav-bar .navBar .back {
 	border-radius: 50%;
 	color: #000;
 }
-sea-nav-bar .navBar .back cover-image {
+.navBar .back .img {
 	width: 34rpx;
 	height: 34rpx;
 }

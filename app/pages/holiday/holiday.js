@@ -14,7 +14,7 @@ Page({
 				openid: Sea.friendToken,
 			},
 		}).then(res => {
-			if (res.ok) {
+			if (res.ok && res.data && res.data.length) {
 				let data = res.data[0]
 				res.data.forEach(e => {
 					if (e.year === Sea.shareYear) {
@@ -29,6 +29,9 @@ Page({
 				this.setData({
 					data: data,
 				})
+			} else {
+				console.log('🐸', res)
+				Sea.alert('您还没有打卡')
 			}
 		})
 	},

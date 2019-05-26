@@ -57,8 +57,8 @@ Page({
 		}).then(res => {
 			if (res.ok && res.data && res.data.length) {
 				// 处理省份
-				const data = this.initCity(res.data)
-				const years = data.map(e => e.year).reverse()
+				const data = this.initCity(res.data).reverse()
+				const years = data.map(e => e.year)
 				Sea.shareYear = years[0]
 				this.data.data = data
 				this.setData(
@@ -69,6 +69,9 @@ Page({
 						this.initData(data[this.data.yearsIndex])
 					},
 				)
+			} else {
+				console.log('🐸', res)
+				Sea.alert('您还没有打卡')
 			}
 		})
 	},
