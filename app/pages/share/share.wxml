@@ -1,11 +1,10 @@
-<swiper vertical current="{{shareIndex}}" bindchange="bindChange"  easing-function="linear">
+<swiper vertical current="{{shareIndex}}" bindchange="bindChange" easing-function="linear">
   <block wx:for="{{imgUrls}}" wx:key="index">
     <swiper-item>
-      <image src="{{item}}" mode="aspectFill"/>
+      <image src="{{item}}" mode="aspectFill" />
     </swiper-item>
   </block>
 </swiper>
-
 <div id="mask"></div>
 <sea-nav-bar />
 <main>
@@ -33,9 +32,15 @@
     </div>
   </div>
   <div class="right">
-    <button open-type="share">
-      <i class="iconfont icon-top"></i>
-    </button>
-    <div class="holiday" bind:tap="bindHoliday">节</div>
+    <div class="top"></div>
+    <div>
+      <i bind:tap="bindMap" class="map iconfont icon-arrow"></i>
+    </div>
+    <div>
+      <button open-type="share">
+        <i class="iconfont icon-top"></i>
+      </button>
+      <div class="holiday" bind:tap="bindHoliday">节</div>
+    </div>
   </div>
 </div>

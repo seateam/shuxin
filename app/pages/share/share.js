@@ -203,6 +203,9 @@ Page({
 			},
 		)
 	},
+	bindMap() {
+		Sea.path('/pages/shareMap/shareMap')
+	},
 	onShareAppMessage() {
 		const token = wx.getStorageSync('token')
 		return {
