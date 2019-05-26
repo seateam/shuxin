@@ -46,6 +46,7 @@ Page({
 		],
 	},
 	onLoad(option) {
+		console.log('🐸', option)
 		if (option.friendToken) {
 			Sea.friendToken = option.friendToken
 		}
@@ -55,6 +56,7 @@ Page({
 				openid: Sea.friendToken,
 			},
 		}).then(res => {
+			console.log('🐘', res)
 			if (res.ok && res.data && res.data.length) {
 				// 处理省份
 				const data = this.initCity(res.data).reverse()
@@ -77,6 +79,7 @@ Page({
 	},
 	onUnload() {
 		delete Sea.friendToken
+		clearInterval(Countdown)
 	},
 	onShow() {},
 	initCity(data) {
@@ -117,6 +120,7 @@ Page({
 			arr.push(`h2#在阳光珍贵、风很清澈的冬日`)
 			arr.push(`你到过的[span,${data.winter_visit}]下雪了吗？#`)
 		}
+		console.log('🐘', arr)
 		let i = 1
 		Countdown = setInterval(() => {
 			if (i <= arr.length) {
