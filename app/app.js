@@ -17,8 +17,8 @@ App({
 	onLaunch() {
 		this.initNavBar()
 		// 大海 不圆 崔婷 鱼雷
-		// this.变身('不圆')
-		this.initToken()
+		this.变身('不圆')
+		// this.initToken()
 	},
 	onShow() { },
 	onHide() { },

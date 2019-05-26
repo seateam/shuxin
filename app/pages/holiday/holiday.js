@@ -4,10 +4,7 @@ Page({
 	data: {
 		data: {},
 	},
-	onLoad(option) {
-		if (option.friendToken) {
-			Sea.friendToken = option.friendToken
-		}
+	onLoad() {
 		Sea.Ajax({
 			url: '/v1/card.show',
 			data: {

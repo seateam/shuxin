@@ -2,7 +2,7 @@ import * as echarts from './ec-canvas/echarts'
 import geoJson from './china.js'
 import Sea from '../../ku/bigsea.js'
 let chart = {}
-const chartInit = function (canvas, width, height) {
+const chartInit = function(canvas, width, height) {
 	chart = echarts.init(canvas, null, {
 		width: width,
 		height: height,
@@ -14,102 +14,105 @@ const chartInit = function (canvas, width, height) {
 Page({
 	data: {
 		ec: {
-			onInit: chartInit
-		}
+			onInit: chartInit,
+		},
 	},
 	onShow() {
-		const randomValue = function () {
-			return Math.round(Math.random() * 15)
-		}
-		// Sea.ajax({
-		// 	url: '/v1/card.map',
-		// }).then((res) => {
-		// 	setTimeout(() => {
-		// 		this.render(this.initData(res), this.initOption(res))
-		// 	}, 500)
-		// })
-		const res = {
-			ok: true,
-			message: '我拿到啦！',
-			data: [
-				{ name: '北京', value: randomValue() },
-				{ name: '天津', value: randomValue() },
-				{ name: '上海', value: randomValue() },
-				{ name: '重庆', value: randomValue() },
-				{ name: '河北', value: randomValue() },
-				{ name: '河南', value: randomValue() },
-				{ name: '云南', value: randomValue() },
-				{ name: '辽宁', value: randomValue() },
-				{ name: '黑龙江', value: randomValue() },
-				{ name: '湖南', value: randomValue() },
-				{ name: '安徽', value: randomValue() },
-				{ name: '山东', value: randomValue() },
-				{ name: '新疆', value: randomValue() },
-				{ name: '江苏', value: randomValue() },
-				{ name: '浙江', value: randomValue() },
-				{ name: '江西', value: randomValue() },
-				{ name: '湖北', value: randomValue() },
-				{ name: '广西', value: randomValue() },
-				{ name: '甘肃', value: randomValue() },
-				{ name: '山西', value: randomValue() },
-				{ name: '内蒙古', value: randomValue() },
-				{ name: '陕西', value: randomValue() },
-				{ name: '吉林', value: randomValue() },
-				{ name: '福建', value: randomValue() },
-				{ name: '贵州', value: randomValue() },
-				{ name: '广东', value: randomValue() },
-				{ name: '青海', value: randomValue() },
-				{ name: '西藏', value: randomValue() },
-				{ name: '四川', value: randomValue() },
-				{ name: '宁夏', value: randomValue() },
-				{ name: '海南', value: randomValue() },
-				{ name: '台湾', value: randomValue() },
-				{ name: '香港', value: randomValue() },
-				{ name: '澳门', value: randomValue() }
-			]
-		}
-		setTimeout(() => {
-			this.render(this.initData(res), this.initOption(res))
-		}, 500)
+		Sea.Ajax({
+			url: '/v1/card.map',
+			data: {
+				openid: Sea.friendToken,
+			},
+		}).then(res => {
+			if (res.ok) {
+				setTimeout(() => {
+					this.render(this.initData(res), this.initOption(res))
+				}, 500)
+			}
+		})
 	},
 	initData: function(res) {
-		if (res.ok) {
-			return res.data
+		const o = res.data[0]
+		const arr = []
+		for (const key in o) {
+			arr.push({
+				name: Sea.formatProvince(key),
+				value: o[key],
+			})
 		}
+		return arr
+		// const randomValue = function() {
+		// 	return Math.round(Math.random() * 15)
+		// }
+		// return [
+		// 	{ name: '北京', value: randomValue() },
+		// 	{ name: '天津', value: randomValue() },
+		// 	{ name: '上海', value: randomValue() },
+		// 	{ name: '重庆', value: randomValue() },
+		// 	{ name: '河北', value: randomValue() },
+		// 	{ name: '河南', value: randomValue() },
+		// 	{ name: '云南', value: randomValue() },
+		// 	{ name: '辽宁', value: randomValue() },
+		// 	{ name: '黑龙江', value: randomValue() },
+		// 	{ name: '湖南', value: randomValue() },
+		// 	{ name: '安徽', value: randomValue() },
+		// 	{ name: '山东', value: randomValue() },
+		// 	{ name: '新疆', value: randomValue() },
+		// 	{ name: '江苏', value: randomValue() },
+		// 	{ name: '浙江', value: randomValue() },
+		// 	{ name: '江西', value: randomValue() },
+		// 	{ name: '湖北', value: randomValue() },
+		// 	{ name: '广西', value: randomValue() },
+		// 	{ name: '甘肃', value: randomValue() },
+		// 	{ name: '山西', value: randomValue() },
+		// 	{ name: '内蒙古', value: randomValue() },
+		// 	{ name: '陕西', value: randomValue() },
+		// 	{ name: '吉林', value: randomValue() },
+		// 	{ name: '福建', value: randomValue() },
+		// 	{ name: '贵州', value: randomValue() },
+		// 	{ name: '广东', value: randomValue() },
+		// 	{ name: '青海', value: randomValue() },
+		// 	{ name: '西藏', value: randomValue() },
+		// 	{ name: '四川', value: randomValue() },
+		// 	{ name: '宁夏', value: randomValue() },
+		// 	{ name: '海南', value: randomValue() },
+		// 	{ name: '台湾', value: randomValue() },
+		// 	{ name: '香港', value: randomValue() },
+		// 	{ name: '澳门', value: randomValue() },
+		// ]
 	},
 	initOption(res) {
-		if (res.ok) {
-			const arr = []
-			for (const e of res.data) {
-				arr.push(e.value)
-			}
-			return {
-				max: 15,
-				min: 1,
-			}
+		const o = res.data[0]
+		const arr = []
+		for (const key in o) {
+			arr.push(o[key])
+		}
+		return {
+			max: Math.max(...arr),
+			min: Math.min(...arr),
 		}
 	},
 	render(data, option) {
-		const convertData = function (data) {
+		const convertData = function(data) {
 			const res = []
 			for (var i = 0; i < data.length; i++) {
-				var geoCoord = geoCoordMap[data[i].name];
+				var geoCoord = geoCoordMap[data[i].name]
 				if (geoCoord) {
 					res.push({
 						name: data[i].name,
-						value: geoCoord.concat(data[i].value)
+						value: geoCoord.concat(data[i].value),
 					})
 				}
 			}
 			return res
 		}
 		const geoCoordMap = {
-			'海门': [121.15, 31.89],
-			'鄂尔多斯': [109.781327, 39.608266],
-			'招远': [120.38, 37.35],
-			'舟山': [122.207216, 29.985295],
-			'齐齐哈尔': [123.97, 47.33],
-			'盐城': [120.13, 33.38],
+			海门: [121.15, 31.89],
+			鄂尔多斯: [109.781327, 39.608266],
+			招远: [120.38, 37.35],
+			舟山: [122.207216, 29.985295],
+			齐齐哈尔: [123.97, 47.33],
+			盐城: [120.13, 33.38],
 			// '赤峰': [118.87, 42.28],
 			// '青岛': [120.33, 36.07],
 			// '乳山': [121.52, 36.89],
@@ -306,9 +309,9 @@ Page({
 				text: ['High', 'Low'],
 				seriesIndex: [1],
 				inRange: {
-					color: ['#e0ffff', '#006edd']
+					color: ['#e0ffff', '#006edd'],
 				},
-				calculable: true
+				calculable: true,
 			},
 			geo: {
 				map: 'china',
@@ -317,13 +320,13 @@ Page({
 					normal: {
 						show: true,
 						textStyle: {
-							color: 'rgba(0,0,0,0.4)'
-						}
-					}
+							color: 'rgba(0,0,0,0.4)',
+						},
+					},
 				},
 				itemStyle: {
 					normal: {
-						borderColor: 'rgba(0, 0, 0, 0.2)'
+						borderColor: 'rgba(0, 0, 0, 0.2)',
 					},
 					emphasis: {
 						areaColor: 'rgba(223, 151, 124, 1)',
@@ -331,9 +334,9 @@ Page({
 						shadowOffsetY: 0,
 						shadowBlur: 20,
 						borderWidth: 0,
-						shadowColor: 'rgba(0, 0, 0, 0.5)'
-					}
-				}
+						shadowColor: 'rgba(0, 0, 0, 0.5)',
+					},
+				},
 			},
 			series: [
 				{
@@ -341,34 +344,34 @@ Page({
 					coordinateSystem: 'geo',
 					data: convertData(data),
 					symbolSize: 20,
-					symbol: 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
+					symbol:
+						'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
 					symbolRotate: 35,
 					label: {
 						normal: {
 							formatter: '{b}',
 							position: 'right',
-							show: false
+							show: false,
 						},
 						emphasis: {
-							show: true
-						}
+							show: true,
+						},
 					},
 					itemStyle: {
 						normal: {
-							color: '#F06C00'
-						}
-					}
+							color: '#F06C00',
+						},
+					},
 				},
 				{
 					name: 'categoryA',
 					type: 'map',
 					geoIndex: 0,
 					// tooltip: {show: false},
-					data: data
-				}
-			]
+					data: data,
+				},
+			],
 		}
 		chart.setOption(options)
-	}
+	},
 })
-
