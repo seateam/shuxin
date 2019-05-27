@@ -7,12 +7,17 @@ page {
 	border-top: 1px solid rgba(19, 19, 19, 1);
 }
 .list i {
+	position: absolute;
+	right: 0;
+	padding-right: 6rpx;
+	padding-bottom: 40rpx;
 	color: transparent;
 }
 .list i.active {
 	color: #e88536;
 }
 .list .one {
+	position: relative;
 	border-bottom: 1px solid rgba(19, 19, 19, 1);
 	display: flex;
 	align-items: center;
@@ -20,7 +25,7 @@ page {
 	padding: 34rpx 0;
 }
 .list .one .info {
-	margin-right: 100rpx;
+	width: 100%;
 }
 .list .one .info .t1 {
 	font-size: 32rpx;
@@ -28,4 +33,11 @@ page {
 .list .one .info .t2 {
 	font-size: 24rpx;
 	color: #363333;
+	width: 100%;
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list .one .info .t2 .km {
+	margin-left: 10rpx;
 }

@@ -225,6 +225,11 @@ module.exports = {
 		h1 = (3 * r - 1) / 2 / c
 		h2 = (3 * r + 1) / 2 / s
 		let meter = d * (1 + fl * (h1 * sf * (1 - sg) - h2 * (1 - sf) * sg)) || 0
-		return parseInt(meter / 1000)
+		meter = Math.round(meter)
+		if (meter < 1000) {
+			return String(meter) + 'm'
+		} else {
+			return String(parseFloat((meter / 1000).toFixed(1))) + 'km'
+		}
 	},
 }

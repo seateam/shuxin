@@ -23,6 +23,10 @@ Page({
 			success: res => {
 				const lat = res.latitude
 				const lng = res.longitude
+				Sea.myLocation = {
+					lat: lat,
+					lng: lng,
+				}
 				const meter = 500
 				Sea.Ajax({
 					url: 'https://apis.map.qq.com/ws/place/v1/search',

@@ -27,7 +27,6 @@ Page({
 					data: data,
 				})
 			} else {
-				console.log('🐸', res)
 				Sea.alert('您还没有打卡')
 			}
 		})
