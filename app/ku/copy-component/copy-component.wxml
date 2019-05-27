@@ -1,5 +1,0 @@
-<div class="copy-component">
-  <div class="tip">{{info.title}}</div>
-  <div class="url">{{info.url}}</div>
-  <div class="copy" bind:tap="bindCopy">一键复制</div>
-</div>

@@ -16,8 +16,7 @@
     }
   },
   "usingComponents": {
-    "sea-nav-bar": "./ku/navBar/navBar",
-    "copy-component": "./ku/copy-component/copy-component"
+    "sea-nav-bar": "./ku/navBar/navBar"
   },
   "window": {
     "navigationBarTitleText": "蓝色潮汐",
