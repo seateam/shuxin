@@ -95,17 +95,28 @@ Page({
 		}
 	},
 	render(data, option) {
+		// https://echarts.baidu.com/option.html
 		const options = {
 			visualMap: {
-				min: option.min,
-				max: option.max,
-				left: 'right',
-				top: 'bottom',
-				text: ['打卡次数', ''],
+				show: false,
+				// min: option.min,
+				// max: option.max,
+				// left: '0',
+				// bottom: '0',
+				// padding: [5,5,10,5],
+				// textStyle: {
+				// 	fontSize: 14,
+				// },
 			},
 			geo: {
 				map: 'china',
+				// 是否开启鼠标缩放和平移漫游。默认不开启。如果只想要开启缩放或者平移，可以设置成 'scale' 或者 'move'。设置成 true 为都开启
 				roam: true,
+				zoom: 1,
+				scaleLimit: {
+					max: 4,
+					min: 1,
+				},
 			},
 			series: [
 				{
