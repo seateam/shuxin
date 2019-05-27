@@ -23,6 +23,15 @@ Page({
 				myLocation.lng = res.longitude
 				this.initSug(keyword)
 			},
+			fail: () => {
+				Sea.alert('需要使用地理位置', () => {
+					wx.openSetting({
+						success:(res) => {
+							// 自动触发 onShow
+						},
+					})
+				})
+			},
 		})
 	},
 	initSug(keyword) {

@@ -7,12 +7,26 @@ Page({
 		location: null,
 	},
 	onLoad() {
+		this.initLocation()
+	},
+	onShow() {
+		if (Sea.cardLocationNow !== undefined) {
+			this.setData({
+				location: Sea.cardLocation[Sea.cardLocationNow],
+			})
+		}
+	},
+	initLocation() {
 		// 获取周边位置
 		wx.getLocation({
 			type: 'gcj02',
 			success: res => {
 				const lat = res.latitude
 				const lng = res.longitude
+				Sea.myLocation = {
+					lat: lat,
+					lng: lng,
+				}
 				const meter = 500
 				Sea.Ajax({
 					url: 'https://apis.map.qq.com/ws/place/v1/search',
@@ -28,14 +42,16 @@ Page({
 					})
 				})
 			},
+			fail: () => {
+				Sea.alert('需要使用地理位置', () => {
+					wx.openSetting({
+						success: res => {
+							this.initLocation()
+						},
+					})
+				})
+			},
 		})
-	},
-	onShow() {
-		if (Sea.cardLocationNow !== undefined) {
-			this.setData({
-				location: Sea.cardLocation[Sea.cardLocationNow],
-			})
-		}
 	},
 	bindColor(event) {
 		const i = event.target.dataset.i
