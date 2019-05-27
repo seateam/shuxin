@@ -7,6 +7,16 @@ Page({
 		location: null,
 	},
 	onLoad() {
+		this.initLocation()
+	},
+	onShow() {
+		if (Sea.cardLocationNow !== undefined) {
+			this.setData({
+				location: Sea.cardLocation[Sea.cardLocationNow],
+			})
+		}
+	},
+	initLocation() {
 		// 获取周边位置
 		wx.getLocation({
 			type: 'gcj02',
@@ -28,14 +38,16 @@ Page({
 					})
 				})
 			},
+			fail: () => {
+				Sea.alert('需要使用地理位置', () => {
+					wx.openSetting({
+						success: res => {
+							this.initLocation()
+						},
+					})
+				})
+			},
 		})
-	},
-	onShow() {
-		if (Sea.cardLocationNow !== undefined) {
-			this.setData({
-				location: Sea.cardLocation[Sea.cardLocationNow],
-			})
-		}
 	},
 	bindColor(event) {
 		const i = event.target.dataset.i
