@@ -95,13 +95,18 @@ Page({
 		}
 	},
 	render(data, option) {
+		// https://echarts.baidu.com/option.html
 		const options = {
 			visualMap: {
-				min: option.min,
-				max: option.max,
-				left: 'right',
-				top: 'bottom',
-				text: ['打卡次数', ''],
+				show: false,
+				// min: option.min,
+				// max: option.max,
+				// left: '0',
+				// bottom: '0',
+				// padding: [5,5,10,5],
+				// textStyle: {
+				// 	fontSize: 14,
+				// },
 			},
 			geo: {
 				map: 'china',
