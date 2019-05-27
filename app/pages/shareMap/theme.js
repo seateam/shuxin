@@ -198,7 +198,7 @@ export default {
 				borderWidth: 0.5,
 			},
 			emphasis: {
-				areaColor: 'rgba(230,182,0,1)',
+				areaColor: 'rgba(34,41,98,1)',
 				borderColor: '#dddddd',
 				borderWidth: 1,
 			},
@@ -206,12 +206,12 @@ export default {
 		label: {
 			normal: {
 				textStyle: {
-					color: '#c12e34',
+					color: '#eab087',
 				},
 			},
 			emphasis: {
 				textStyle: {
-					color: 'rgb(193,46,52)',
+					color: 'rgb(231,123,30)',
 				},
 			},
 		},
@@ -221,23 +221,23 @@ export default {
 			normal: {
 				areaColor: '#dddddd',
 				borderColor: '#eeeeee',
-				borderWidth: 0.5,
+				borderWidth: 0.2,
 			},
 			emphasis: {
-				areaColor: 'rgba(230,182,0,1)',
-				borderColor: '#dddddd',
-				borderWidth: 1,
+				areaColor: 'rgba(75,84,187,1)',
+				borderColor: '#261a50',
+				borderWidth: 0.9,
 			},
 		},
 		label: {
 			normal: {
 				textStyle: {
-					color: '#c12e34',
+					color: '#eab087',
 				},
 			},
 			emphasis: {
 				textStyle: {
-					color: 'rgb(193,46,52)',
+					color: 'rgb(231,123,30)',
 				},
 			},
 		},
@@ -441,7 +441,7 @@ export default {
 		},
 	},
 	visualMap: {
-		color: ['#1790cf', '#a2d4e6'],
+		color: ['#424eba', '#e0e7f5'],
 	},
 	dataZoom: {
 		backgroundColor: 'rgba(47,69,84,0)',

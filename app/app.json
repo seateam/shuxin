@@ -6,8 +6,8 @@
     "pages/card/card",
     "pages/cardAdd/cardAdd",
     "pages/cardLocation/cardLocation",
-    "pages/share/share",
     "pages/shareMap/shareMap",
+    "pages/share/share",
     "pages/holiday/holiday"
   ],
   "permission": {
