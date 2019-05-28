@@ -21,6 +21,7 @@ footer {
 }
 header {
 	text-align: center;
+	padding: 0 20rpx;
 }
 header div {
 	margin-bottom: 36rpx;
@@ -30,6 +31,9 @@ footer div {
 }
 footer div.city {
 	line-height: 50rpx;
+}
+footer div.city text {
+	margin-right: 8rpx;
 }
 span {
 	font-size: 48rpx;

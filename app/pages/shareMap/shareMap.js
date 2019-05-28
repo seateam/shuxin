@@ -15,9 +15,12 @@ const chartInit = function(canvas, width, height) {
 }
 Page({
 	data: {
+		res: null,
+		info: {},
 		ec: {
 			onInit: chartInit,
 		},
+		citys: [],
 	},
 	onLoad() {
 		Sea.Ajax({
@@ -27,17 +30,34 @@ Page({
 			},
 		}).then(res => {
 			if (res.ok) {
+				this.data.res = res
 				setTimeout(() => {
 					this.render(res)
 				}, 500)
 			}
 		})
 	},
+	onReady() {
+		setTimeout(() => {
+			chart.on('mousedown', event => {
+				const { data, dataIndex } = event
+				let citys = []
+				if (data && dataIndex && this.data.res) {
+					const province = this.data.res.data[1]
+					citys = province[data.key].map(e => Sea.formatCity(e))
+				}
+				this.setData({
+					citys: citys,
+				})
+			})
+		}, 500)
+	},
 	initData(res) {
 		const o = res.data[2]
 		const arr = []
 		for (const key in o) {
 			arr.push({
+				key: key,
 				name: Sea.formatProvince(key),
 				value: o[key],
 			})
@@ -83,7 +103,25 @@ Page({
 		// 	{ name: '澳门', value: randomValue() },
 		// ]
 	},
+	initInfo(res) {
+		let info = res.data[0]
+		let clock_count = 0
+		for (const key in res.data[2]) {
+			const e = res.data[2][key]
+			clock_count += e
+		}
+		info = Object.assign(info, {
+			year: new Date().getFullYear(),
+			clock_count: clock_count,
+			proportion_string: parseFloat((info.proportion * 100).toFixed(2)),
+		})
+		console.log('🐸', info)
+		this.setData({
+			info: info,
+		})
+	},
 	render(res) {
+		this.initInfo(res)
 		const data = this.initData(res)
 		// https://echarts.baidu.com/option.html
 		const options = {

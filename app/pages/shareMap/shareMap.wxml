@@ -7,16 +7,16 @@
     </span>
   </div>
   <div>
-    <text>2019 </text>
+    <text>{{info.year}} </text>
     <text>您走过</text>
-    <span> 9 </span>
+    <span> {{info.province_count}} </span>
     <text>个省，</text>
-    <span>16 </span>
+    <span>{{info.city_count}} </span>
     <text>个城市</text>
   </div>
   <div>
     <text>超过了</text>
-    <span> 80.02% </span>
+    <span> {{info.proportion_string}}% </span>
     <text>的用户</text>
   </div>
 </header>
@@ -26,8 +26,10 @@
 <footer>
   <div>
     <text>累计打卡</text>
-    <span> 17 </span>
+    <span> {{info.clock_count}} </span>
     <text>次</text>
   </div>
-  <div class="city">安阳 信阳 洛阳 开封 郑州 驻马店 鹤壁 漯河 商丘</div>
+  <div class="city">
+    <text wx:for="{{citys}}" wx:key="index">{{item}}</text>
+  </div>
 </footer>
