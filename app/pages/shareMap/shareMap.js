@@ -16,7 +16,14 @@ const chartInit = function(canvas, width, height) {
 Page({
 	data: {
 		res: null,
-		info: {},
+		info: {
+			city_count: 0,
+			clock_count: 0,
+			proportion: 0,
+			proportion_string: 0,
+			province_count: 0,
+			year: 1999,
+		},
 		ec: {
 			onInit: chartInit,
 		},
