@@ -1,6 +1,6 @@
 import * as echarts from './ec-canvas/echarts'
 import geoJson from './china.js'
-import Sea from '../../#/bigsea.js'
+import Sea from '../../ku/bigsea.js'
 import Theme from './theme'
 let chart = {}
 const chartInit = function(canvas, width, height) {

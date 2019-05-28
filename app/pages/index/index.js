@@ -1,4 +1,4 @@
-const Sea = require('../../#/bigsea.js')
+const Sea = require('../../ku/bigsea.js')
 const app = getApp()
 Page({
 	data: {
