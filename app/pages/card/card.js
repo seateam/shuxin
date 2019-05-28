@@ -1,6 +1,6 @@
 const app = getApp()
-const Sea = require('../../ku/bigsea.js')
-const moment = require('../../ku/moment.js')
+const Sea = require('../../packages/bigsea.js')
+const moment = require('../../packages/moment.js')
 Page({
 	data: {
 		colors: app.data.mark.arr,

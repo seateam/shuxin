@@ -1,4 +1,4 @@
-const Sea = require('./ku/bigsea.js')
+const Sea = require('./packages/bigsea.js')
 App({
 	data: {
 		navBar: {

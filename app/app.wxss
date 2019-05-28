@@ -1,5 +1,5 @@
 /* 图标库 */
-@import '/ku/iconfont.wxss';
+@import './packages/iconfont.wxss';
 
 div,
 header,
