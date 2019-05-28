@@ -1,5 +1,33 @@
 <image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg4.jpg" />
 <sea-nav-bar />
+<header>
+  <div>
+    <span>
+      <open-data type="userNickName"></open-data>
+    </span>
+  </div>
+  <div>
+    <text>2019 </text>
+    <text>您走过</text>
+    <span> 9 </span>
+    <text>个省，</text>
+    <span>16 </span>
+    <text>个城市</text>
+  </div>
+  <div>
+    <text>超过了</text>
+    <span> 80.02% </span>
+    <text>的用户</text>
+  </div>
+</header>
 <view class="container">
   <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
 </view>
+<footer>
+  <div>
+    <text>累计打卡</text>
+    <span> 17 </span>
+    <text>次</text>
+  </div>
+  <div class="city">安阳 信阳 洛阳 开封 郑州 驻马店 鹤壁 漯河 商丘</div>
+</footer>

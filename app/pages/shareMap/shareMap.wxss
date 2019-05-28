@@ -1,13 +1,37 @@
 page {
 	background: #9c91b6;
+	color: #888;
+	font-size: 36rpx;
+	font-family: KaiTi;
 }
 .container {
 	width: 708rpx;
 	height: 460rpx;
-	border: 1px solid #fff;
+	border: 1px solid #888;
 	border-radius: 4rpx;
 }
 ec-canvas {
 	width: 110%;
 	height: 110%;
+}
+header,
+footer {
+	width: 100%;
+	padding: 0 90rpx;
+}
+header {
+	text-align: center;
+}
+header div {
+	margin-bottom: 36rpx;
+}
+footer div {
+	margin-top: 36rpx;
+}
+footer div.city {
+	line-height: 50rpx;
+}
+span {
+	font-size: 48rpx;
+	color: #6e3408;
 }
