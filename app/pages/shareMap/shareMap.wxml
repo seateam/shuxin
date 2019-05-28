@@ -1,3 +1,4 @@
+<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg4.jpg" />
 <sea-nav-bar />
 <view class="container">
   <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>

@@ -28,13 +28,13 @@ Page({
 		}).then(res => {
 			if (res.ok) {
 				setTimeout(() => {
-					this.render(this.initData(res), this.initOption(res))
+					this.render(res)
 				}, 500)
 			}
 		})
 	},
 	initData(res) {
-		const o = res.data[0]
+		const o = res.data[2]
 		const arr = []
 		for (const key in o) {
 			arr.push({
@@ -83,30 +83,12 @@ Page({
 		// 	{ name: '澳门', value: randomValue() },
 		// ]
 	},
-	initOption(res) {
-		const o = res.data[0]
-		const arr = []
-		for (const key in o) {
-			arr.push(o[key])
-		}
-		return {
-			max: Math.max(...arr),
-			min: Math.min(...arr),
-		}
-	},
-	render(data, option) {
+	render(res) {
+		const data = this.initData(res)
 		// https://echarts.baidu.com/option.html
 		const options = {
 			visualMap: {
 				show: false,
-				// min: option.min,
-				// max: option.max,
-				// left: '0',
-				// bottom: '0',
-				// padding: [5,5,10,5],
-				// textStyle: {
-				// 	fontSize: 14,
-				// },
 			},
 			geo: {
 				map: 'china',

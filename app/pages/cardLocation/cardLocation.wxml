@@ -1,4 +1,4 @@
-<image class="page-background" src="http://cdn.bigc.cc//blue_tide/img/bg2.png" />
+<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg2.png" />
 <sea-nav-bar />
 <div class="list">
   <div class="one" bind:tap="bindOne" data-i="{{index}}" wx:for="{{list}}" wx:key="index">

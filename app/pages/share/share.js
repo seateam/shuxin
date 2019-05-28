@@ -8,10 +8,10 @@ Page({
 		years: [],
 		data: [],
 		imgUrls: [
-			'http://cdn.bigc.cc//blue_tide/img/share1.jpg',
-			'http://cdn.bigc.cc//blue_tide/img/share2.jpg',
-			'http://cdn.bigc.cc//blue_tide/img/share3.jpg',
-			'http://cdn.bigc.cc//blue_tide/img/share4.jpg',
+			'https://cdn.bigc.cc//blue_tide/img/share1.jpg',
+			'https://cdn.bigc.cc//blue_tide/img/share2.jpg',
+			'https://cdn.bigc.cc//blue_tide/img/share3.jpg',
+			'https://cdn.bigc.cc//blue_tide/img/share4.jpg',
 		],
 		contents: [
 			// {

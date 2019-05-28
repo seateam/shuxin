@@ -1,4 +1,4 @@
-<image class="page-background" src="http://cdn.bigc.cc//blue_tide/img/bg1.jpg" />
+<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg1.jpg" />
 <sea-nav-bar />
 <input bindinput="bindInput" focus value="{{keyword}}" placeholder="搜索国家、省份、城市" confirm-type="search" />
 <div class="list">

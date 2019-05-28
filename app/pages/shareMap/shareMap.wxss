@@ -2,12 +2,9 @@ page {
 	background: #9c91b6;
 }
 .container {
-	background: #fff;
-	margin-top: 220rpx;
-	width: 700rpx;
-	height: 500rpx;
-	border: 0.8px solid black;
-	border-color: #aaaaaa;
+	width: 708rpx;
+	height: 460rpx;
+	border: 1px solid #fff;
 	border-radius: 4rpx;
 }
 ec-canvas {
