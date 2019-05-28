@@ -1,7 +1,7 @@
-import * as echarts from './ec-canvas/echarts'
+import * as echarts from '../../packages/ec-canvas/echarts'
 import geoJson from './china.js'
 import Sea from '../../packages/bigsea.js'
-import Theme from './theme'
+import Theme from './theme.js'
 let chart = {}
 const chartInit = function(canvas, width, height) {
 	echarts.registerTheme('shine', Theme)
