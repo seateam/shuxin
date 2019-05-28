@@ -1,6 +1,6 @@
 const app = getApp()
-const Sea = require('../../ku/bigsea.js')
-const QQMapWX = require('../../ku/qqmap-wx-jssdk.js')
+const Sea = require('../../#/bigsea.js')
+const QQMapWX = require('../../#/qqmap-wx-jssdk.js')
 const QQMap = new QQMapWX({
 	key: '7FXBZ-CJRKF-L7KJI-J4RNO-YZ372-IYFDP',
 })

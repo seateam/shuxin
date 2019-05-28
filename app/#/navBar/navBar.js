@@ -1,4 +1,4 @@
-const Sea = require('../../ku/bigsea.js')
+const Sea = require('../../#/bigsea.js')
 const app = getApp()
 Component({
 	options: {
