@@ -90,13 +90,24 @@ page {
 #map .left {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
 	left: 18rpx;
+	width: 88rpx;
+	height: 188rpx;
+	background: rgba(197, 195, 195, 1);
+	border-radius: 44rpx;
 	bottom: 298rpx;
 }
 
 #map .left cover-image.location {
 	width: 66rpx;
+	height: 66rpx;
+}
+#map .left .location + .location {
+	margin-top: 24rpx;
 }
 #map .right {
 	position: absolute;

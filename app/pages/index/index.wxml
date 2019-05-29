@@ -11,10 +11,11 @@
   </cover-view>
   <cover-view class="left">
     <cover-image class="location" bind:tap="bindLocation" src="./img/location.png"></cover-image>
+    <cover-image class="location" bind:tap="bindPoints" src="./img/look.png"></cover-image>
   </cover-view>
   <cover-view class="bottom">
     <cover-view class="btns">
-      <cover-image class="planet" bind:tap="bindPoints" src="./img/planet.png"></cover-image>
+      <cover-image class="planet" src="./img/planet.png"></cover-image>
       <cover-view bind:tap="bindData" class="btn data">数据</cover-view>
       <cover-view bind:tap="bindCard" class="btn card">打卡</cover-view>
       <cover-view bind:tap="bindShare" class="btn share">分享</cover-view>
