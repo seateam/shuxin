@@ -30,6 +30,7 @@ Page({
 		province_count: 1,
 	},
 	onLoad() {
+		Sea.loading('正在加载')
 		Sea.Ajax({
 			url: '/v1/card.map',
 			data: {
@@ -40,7 +41,7 @@ Page({
 				this.data.res = res
 				setTimeout(() => {
 					this.render(res)
-				}, 500)
+				}, 1000)
 			}
 		})
 	},
@@ -61,7 +62,7 @@ Page({
 					province_count: province_count,
 				})
 			})
-		}, 500)
+		}, 1000)
 	},
 	initData(res) {
 		const o = res.data[2]
@@ -74,45 +75,6 @@ Page({
 			})
 		}
 		return arr
-		// const randomValue = function() {
-		// 	return Math.round(Math.random() * 15)
-		// }
-		// return [
-		// 	{ name: '北京', value: randomValue() },
-		// 	{ name: '天津', value: randomValue() },
-		// 	{ name: '上海', value: randomValue() },
-		// 	{ name: '重庆', value: randomValue() },
-		// 	{ name: '河北', value: randomValue() },
-		// 	{ name: '河南', value: randomValue() },
-		// 	{ name: '云南', value: randomValue() },
-		// 	{ name: '辽宁', value: randomValue() },
-		// 	{ name: '黑龙江', value: randomValue() },
-		// 	{ name: '湖南', value: randomValue() },
-		// 	{ name: '安徽', value: randomValue() },
-		// 	{ name: '山东', value: randomValue() },
-		// 	{ name: '新疆', value: randomValue() },
-		// 	{ name: '江苏', value: randomValue() },
-		// 	{ name: '浙江', value: randomValue() },
-		// 	{ name: '江西', value: randomValue() },
-		// 	{ name: '湖北', value: randomValue() },
-		// 	{ name: '广西', value: randomValue() },
-		// 	{ name: '甘肃', value: randomValue() },
-		// 	{ name: '山西', value: randomValue() },
-		// 	{ name: '内蒙古', value: randomValue() },
-		// 	{ name: '陕西', value: randomValue() },
-		// 	{ name: '吉林', value: randomValue() },
-		// 	{ name: '福建', value: randomValue() },
-		// 	{ name: '贵州', value: randomValue() },
-		// 	{ name: '广东', value: randomValue() },
-		// 	{ name: '青海', value: randomValue() },
-		// 	{ name: '西藏', value: randomValue() },
-		// 	{ name: '四川', value: randomValue() },
-		// 	{ name: '宁夏', value: randomValue() },
-		// 	{ name: '海南', value: randomValue() },
-		// 	{ name: '台湾', value: randomValue() },
-		// 	{ name: '香港', value: randomValue() },
-		// 	{ name: '澳门', value: randomValue() },
-		// ]
 	},
 	initInfo(res) {
 		let info = res.data[0]
@@ -123,13 +85,26 @@ Page({
 			info: info,
 		})
 	},
+	initOption(res) {
+		const arr = []
+		for (const key in res.data[2]) {
+			arr.push(res.data[2][key])
+		}
+		return {
+			max: Math.max(...arr),
+			min: Math.min(...arr),
+		}
+	},
 	render(res) {
 		this.initInfo(res)
+		const option = this.initOption(res)
 		const data = this.initData(res)
 		// https://echarts.baidu.com/option.html
 		const options = {
 			visualMap: {
 				show: false,
+				min: option.min === option.max ? 0 : option.min,
+				max: option.max,
 			},
 			geo: {
 				map: 'china',
@@ -151,5 +126,6 @@ Page({
 			],
 		}
 		chart.setOption(options)
+		Sea.loading()
 	},
 })

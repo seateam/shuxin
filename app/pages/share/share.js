@@ -46,6 +46,7 @@ Page({
 		],
 	},
 	onLoad(option) {
+		Sea.loading('正在加载')
 		console.log('🐸', option)
 		if (option.friendToken) {
 			Sea.friendToken = option.friendToken
@@ -68,6 +69,7 @@ Page({
 						years: years,
 					},
 					() => {
+						Sea.loading()
 						this.initData(data[this.data.yearsIndex])
 					},
 				)
