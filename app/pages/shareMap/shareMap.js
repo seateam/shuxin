@@ -22,12 +22,12 @@ Page({
 			proportion: 0,
 			proportion_string: 0,
 			province_count: 0,
-			year: 1999,
 		},
 		ec: {
 			onInit: chartInit,
 		},
 		citys: [],
+		province_count: 1,
 	},
 	onLoad() {
 		Sea.Ajax({
@@ -47,14 +47,18 @@ Page({
 	onReady() {
 		setTimeout(() => {
 			chart.on('mousedown', event => {
-				const { data, dataIndex } = event
+				const { data } = event
 				let citys = []
-				if (data && dataIndex && this.data.res) {
+				let province_count = 1
+				if (data && this.data.res) {
 					const province = this.data.res.data[1]
 					citys = province[data.key].map(e => Sea.formatCity(e))
+					const province2 = this.data.res.data[2]
+					province_count = province2[data.key]
 				}
 				this.setData({
 					citys: citys,
+					province_count: province_count,
 				})
 			})
 		}, 500)
@@ -112,17 +116,9 @@ Page({
 	},
 	initInfo(res) {
 		let info = res.data[0]
-		let clock_count = 0
-		for (const key in res.data[2]) {
-			const e = res.data[2][key]
-			clock_count += e
-		}
 		info = Object.assign(info, {
-			year: new Date().getFullYear(),
-			clock_count: clock_count,
 			proportion_string: parseFloat((info.proportion * 100).toFixed(2)),
 		})
-		console.log('🐸', info)
 		this.setData({
 			info: info,
 		})

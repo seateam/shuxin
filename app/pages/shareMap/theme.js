@@ -195,7 +195,7 @@ export default {
 			normal: {
 				areaColor: '#dddddd',
 				borderColor: '#eeeeee',
-				borderWidth: 0.5,
+				borderWidth: 1,
 			},
 			emphasis: {
 				areaColor: 'rgba(34,41,98,1)',
@@ -221,12 +221,12 @@ export default {
 			normal: {
 				areaColor: '#dddddd',
 				borderColor: '#eeeeee',
-				borderWidth: 0.2,
+				borderWidth: 1,
 			},
 			emphasis: {
 				areaColor: 'rgba(75,84,187,1)',
 				borderColor: '#261a50',
-				borderWidth: 0.9,
+				borderWidth: 1,
 			},
 		},
 		label: {
@@ -415,12 +415,12 @@ export default {
 			normal: {
 				color: '#005eaa',
 				borderColor: '#005eaa',
-				borderWidth: 0.5,
+				borderWidth: 1,
 			},
 			emphasis: {
 				color: '#005eaa',
 				borderColor: '#005eaa',
-				borderWidth: 0.5,
+				borderWidth: 1,
 			},
 		},
 		checkpointStyle: {

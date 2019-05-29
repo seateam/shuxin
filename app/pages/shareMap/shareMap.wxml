@@ -7,7 +7,6 @@
     </span>
   </div>
   <div>
-    <text>{{info.year}} </text>
     <text>您走过</text>
     <span> {{info.province_count}} </span>
     <text>个省，</text>
@@ -23,10 +22,10 @@
 <view class="container">
   <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
 </view>
-<footer>
+<footer wx:if="{{citys.length}}">
   <div>
     <text>累计打卡</text>
-    <span> {{info.clock_count}} </span>
+    <span> {{province_count}} </span>
     <text>次</text>
   </div>
   <div class="city">
