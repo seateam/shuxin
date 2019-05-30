@@ -19,6 +19,27 @@ Page({
 		this.mapCtx = wx.createMapContext('map')
 	},
 	onLoad() {
+		this.init()
+		wx.showModal({
+			title: '尊敬的评委:',
+			content: '我们为您准备了一个体验用户，是否变身成为体验用户？',
+			cancelText: '不用了',
+			cancelColor: '#E88536',
+			confirmText: '好的',
+			confirmColor: '#448ACA',
+			success: res => {
+				if (res.confirm) {
+					app.变身('不圆')
+					this.init()
+				}
+			},
+		})
+	},
+	onShow() {
+		this.initSearch()
+		this.initMarkers()
+	},
+	init() {
 		const navBar = app.data.navBar
 		this.setData({
 			mapTop: navBar.marginTop + navBar.height,
@@ -27,10 +48,6 @@ Page({
 		this.initMarkers(() => {
 			this.bindPoints()
 		})
-	},
-	onShow() {
-		this.initSearch()
-		this.initMarkers()
 	},
 	initSearch() {
 		const search = app.data.search
