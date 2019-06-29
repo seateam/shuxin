@@ -1,5 +1,5 @@
 <image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg1.jpg" />
-<sea-nav-bar theme="light"/>
+<sea-nav-bar />
 <header>
   <div></div>
   <div class="post" bind:tap="bindPost">发布</div>
