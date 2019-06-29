@@ -1,0 +1,147 @@
+@keyframes contentShow {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes breathe {
+	0% {
+		opacity: 0.1;
+	}
+
+	100% {
+		opacity: 0.2;
+	}
+}
+swiper {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -2;
+}
+
+#fixed .bottom {
+	position: fixed;
+	bottom: 40rpx;
+	left: 0;
+	right: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+#fixed .bottom .next {
+	width: 152rpx;
+	height: 46rpx;
+	background: rgba(20, 20, 20, 0.6);
+	border-radius: 20rpx;
+	font-size: 28rpx;
+	font-family: FangSong;
+	font-weight: 400;
+	color: rgba(253, 251, 251, 1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#fixed .bottom i {
+	font-size: 26rpx;
+	transform: rotate(180deg);
+}
+#fixed .right {
+	position: fixed;
+	bottom: 0;
+	right: 36rpx;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+}
+#fixed .right .top {
+	height: 111rpx;
+}
+#fixed .right .map {
+	font-size: 60rpx;
+	animation: ease-in-out breathe 1.5s infinite alternate;
+}
+#fixed .right .holiday {
+	border-radius: 50%;
+	width: 60rpx;
+	height: 60rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #fff;
+	margin-top: 32rpx;
+	margin-bottom: 66rpx;
+}
+#fixed .right .holiday:active {
+	border-color: rgba(20, 20, 20, 0.6);
+	color: rgba(20, 20, 20, 0.6);
+}
+#fixed .right button {
+	color: #fff;
+	transform: rotate(45deg);
+}
+#fixed .right button.button-hover {
+	color: rgba(20, 20, 20, 0.6);
+}
+#fixed .right i {
+	font-size: 66rpx;
+}
+
+#mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(11, 25, 105, 0.27);
+	z-index: -1;
+	pointer-events: none;
+}
+
+main {
+	width: 100%;
+	padding: 0 62rpx;
+	color: #fff;
+	font-family: FangSong;
+	font-size: 18px;
+}
+main h1 {
+	margin-top: 20rpx;
+	display: block;
+	font-size: 22px;
+	margin-bottom: 60rpx;
+}
+main h1 .year {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+}
+main h2 {
+	display: block;
+	width: 100%;
+	margin-bottom: 70rpx;
+}
+main p {
+	display: block;
+}
+main p span {
+	color: #de560f;
+	/* font-size: 40rpx; */
+}
+main p.contentShow {
+	visibility: visible;
+	-webkit-transition-delay: 2s;
+	-moz-transition-delay: 2s;
+	-ms-transition-delay: 2s;
+	-o-transition-delay: 2s;
+	transition-delay: 2s;
+	-webkit-animation: contentShow 2s ease forwards;
+	animation: contentShow 2s ease forwards;
+}
+main p + p {
+	margin-top: 12rpx;
+}

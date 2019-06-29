@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/withYou/withYou",
     "pages/data/data",
     "pages/search/search",
     "pages/card/card",
-    "pages/cardAdd/cardAdd",
-    "pages/cardLocation/cardLocation",
+    "pages/card/cardAdd",
+    "pages/card/cardLocation",
     "pages/share/share",
     "pages/shareMap/shareMap",
     "pages/holiday/holiday"

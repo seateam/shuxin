@@ -63,7 +63,7 @@ Page({
     })
   },
   bindLocation() {
-    Sea.path('/pages/cardLocation/cardLocation')
+    Sea.path('/pages/card/cardLocation')
   },
   bindInput(event) {
     const v = event.detail.value

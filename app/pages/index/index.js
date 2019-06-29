@@ -150,7 +150,7 @@ Page({
     Sea.path('/pages/data/data')
   },
   bindCard() {
-    Sea.path('/pages/cardAdd/cardAdd')
+    Sea.path('/pages/card/cardAdd')
   },
   bindShare() {
     Sea.path('/pages/share/share')
