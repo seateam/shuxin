@@ -20,6 +20,10 @@ Page({
   },
   onLoad() {
     this.init()
+    // this.initOpenID()
+    // this.init评委()
+  },
+  init评委() {
     wx.showModal({
       title: '尊敬的评委:',
       content: '我们为您准备了一个体验用户，是否变身成为体验用户？',
@@ -32,6 +36,35 @@ Page({
           app.变身('不圆')
           this.init()
         }
+      },
+    })
+  },
+  initOpenID() {
+    wx.login({
+      success: res => {
+        let code = res.code
+        // 发起网络请求
+        Sea.Ajax({
+          url: '/v1/login',
+          data: {
+            js_code: code,
+            openid: false,
+          },
+        }).then(res => {
+          let openid = res.openid
+          wx.showModal({
+            title: '复制 openID 发给大海',
+            content: openid,
+            showCancel: false,
+            success: res => {
+              if (res.confirm) {
+                wx.setClipboardData({
+                  data: openid,
+                })
+              }
+            },
+          })
+        })
       },
     })
   },

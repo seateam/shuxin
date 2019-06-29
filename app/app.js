@@ -18,7 +18,7 @@ App({
   onLaunch() {
     wx.setStorageSync('token', '')
     this.initNavBar()
-    // 大海 不圆 崔婷 鱼雷
+    // 大海 不圆 组长 鱼雷
     // this.变身('不圆')
   },
   onShow() {},
@@ -61,10 +61,10 @@ App({
   },
   变身(name) {
     const dict = {
-      大海: 'oHUM44xF1kqrQbZ-EiFoFfWrpw2Y',
-      不圆: 'oHUM448TtvDSSoiXB1WRlgthPWoU',
-      崔婷: 'oHUM449BmVwkMCjBfCur9G4zv_tM',
-      鱼雷: 'oHUM441Lx1-pPIlSyUGMvnr2Hdq8',
+      组长: 'o6iD25X_2wwl5CnLnoHsmLYPHJ3s',
+      大海: 'o6iD25b9G_ORHJiGWm4uhnjGafkc',
+      不圆: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
+      鱼雷: 'o6iD25fqF5FKDQ--9bMJP9zXs3Y4',
     }
     wx.setStorageSync('token', dict[name])
   },

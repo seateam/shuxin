@@ -85,6 +85,7 @@ Page({
     }
   },
   postUserInfo(userInfo) {
+    console.log(userInfo)
     // Sea.Ajax({
     //   url: '/v1/user.info.set',
     //   data: {
