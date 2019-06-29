@@ -13,6 +13,7 @@ App({
       arr: ['#F82727', '#E88536', '#F9EE33', '#32B16C', '#448ACA', '#8957A1'],
       now: 0,
     },
+    userInfo: null,
   },
   onLaunch() {
     wx.setStorageSync('token', '')
@@ -33,7 +34,7 @@ App({
   initToken() {
     return new Promise(success => {
       wx.login({
-        success(res) {
+        success: res => {
           if (res.code) {
             // 发起网络请求
             Sea.Ajax({
@@ -45,6 +46,7 @@ App({
             }).then(res => {
               if (res.ok) {
                 wx.setStorageSync('token', res.openid)
+                this.data.userInfo = res.userInfo
                 success()
               } else {
                 console.log('登录失败!')
