@@ -1,0 +1,8 @@
+<!-- 占位 -->
+<cover-view class="div navBar" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;"></cover-view>
+<!-- 悬浮 -->
+<cover-view class="div navBar fixed" style="padding-top:{{navBar.marginTop}}px;height:{{navBar.height}}px;">
+    <cover-view class="div back" bind:tap="bindBack">
+        <cover-image class="div img" src="./back.png"></cover-image>
+    </cover-view>
+</cover-view>

@@ -9,6 +9,7 @@
     "pages/card/cardLocation",
     "pages/share/share",
     "pages/shareMap/shareMap",
+    "pages/group/group",
     "pages/holiday/holiday"
   ],
   "permission": {
@@ -17,7 +18,8 @@
     }
   },
   "usingComponents": {
-    "sea-nav-bar": "./packages/navBar/navBar"
+    "sea-nav-bar": "./packages/sea-nav-bar/nav-bar",
+    "sea-group-comment": "./packages/sea-group-comment/group-comment"
   },
   "window": {
     "navigationBarTitleText": "蓝色潮汐",
