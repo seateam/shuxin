@@ -1,2 +1,13 @@
-<div>精选留言</div>
-<div>最新留言</div>
+<template is="leaveMessage" data="{{new: false}}"></template>
+<template is="leaveMessage" data="{{new: true}}"></template>
+
+<template name="leaveMessage">
+  <div class="leaveMessage">
+    <div class="line"></div>
+    <div class="center">
+      <div class="img"></div>
+      <span>{{new ? '最新留言' : '精选留言'}}</span>
+    </div>
+    <div class="line"></div>
+  </div>
+</template>
