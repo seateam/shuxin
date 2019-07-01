@@ -8,7 +8,7 @@
   <div class="t2">
     <div wx:for="{{card.contents}}" wx:key="index">{{item}}</div>
   </div>
-  <i class="iconfont icon-flag"  style="color: {{colors[colorNow]}}"> </i>
+  <i class="iconfont icon-flag" style="color: {{colors[colorNow]}}"></i>
 </main>
 <footer>
   <div></div>
@@ -16,7 +16,14 @@
     <text bind:tap="bindEdit">修改</text>
     <div class="colors" wx:if="{{showColors}}">
       <div class="close" bind:tap="bindClose">×</div>
-      <div bind:tap="bindColor" data-i="{{index}}" class="color {{colorNow === index ? 'active' : ''}}" wx:for="{{colors}}" wx:key="index" style="background:{{item}}"></div>
+      <div
+        bind:tap="bindColor"
+        data-i="{{index}}"
+        class="color {{colorNow === index ? 'active' : ''}}"
+        wx:for="{{colors}}"
+        wx:key="index"
+        style="background:{{item}}"
+      ></div>
     </div>
   </div>
 </footer>

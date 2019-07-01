@@ -1,0 +1,61 @@
+<image class="page-background" src="https://cdn.bigc.cc/blue_tide/img/withYou.jpg" />
+<sea-nav-bar />
+<div class="page-top">
+  <div class="btns">
+    <div>伴你同行</div>
+    <div bind:tap="bindTopTip">匹配规则</div>
+  </div>
+  <div wx:if="{{topTip}}" class="tip">根据用户的打卡省份及频率计算相似度，每周更新。</div>
+</div>
+<block wx:if="{{users.length > 0}}">
+  <!-- 相似度 -->
+  <div class="suitability">
+    <div class="number">{{users[userNow].Similarity}}%</div>
+    <div class="number-tip">
+      <i class="iconfont icon-location"></i>
+      <span>
+        地 图 记 忆 相 似 度
+      </span>
+    </div>
+    <div class="his his-paper">
+      <div class="dot"></div>
+      <div>Ta的最新打卡纸条</div>
+      <div class="city">{{users[userNow].city}}</div>
+    </div>
+    <div class="his his-map">
+      <div class="dot"></div>
+      <div>查看Ta的地图</div>
+    </div>
+  </div>
+  <!-- 摩天轮 -->
+  <div class="ferris-wheel">
+    <image class="oval" mode="aspectFill" src="./oval.png" />
+    <div class="info">
+      <div>{{users[userNow].name}}</div>
+      <!-- <div class="gender">{{users[userNow].gender}}</div> -->
+    </div>
+    <div class="heads">
+      <block wx:for="{{users}}" wx:key="{{index}}">
+        <div
+          bind:tap="bindOne"
+          data-index="{{index}}"
+          wx:if="{{item.head}}"
+          class="one {{userNow === index ? 'active' : ''}}"
+          style="background-image: url('{{item.head}}')"
+        ></div>
+        <div wx:else class="one null"></div>
+      </block>
+    </div>
+  </div>
+</block>
+<block wx:else>
+  <div class="his his-special">
+    <div class="dot"></div>
+    <div class="title">第二人生</div>
+    <div class="cont">
+      由 于 你 过 于 特 别 ， 蓝 色 潮 汐 已 无 法 匹 配 到 相 似 度 高 于 50% 的 旅 途 之 友。 请
+      继 续 驰 骋 江 湖 吧 ， 给 别 人 一 个 欣 赏 你 的 机 会 ， 你 也 可 开 启 属 于 自 己 的 惊
+      喜 页 面 。
+    </div>
+  </div>
+</block>

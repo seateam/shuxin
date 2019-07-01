@@ -1,7 +1,4 @@
-<image
-  class="page-background"
-  src="https://cdn.bigc.cc//blue_tide/img/bg1.jpg"
-/>
+<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg1.jpg" />
 <sea-nav-bar />
 <header>
   <div></div>

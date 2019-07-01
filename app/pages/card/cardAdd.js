@@ -81,7 +81,7 @@ Page({
       // 发布
       this.bindPost()
     } else {
-      Sea.tip('需要登陆才能发布')
+      Sea.tip('未授权无法发布信息')
     }
   },
   postUserInfo(userInfo) {
