@@ -135,6 +135,7 @@ module.exports = {
   },
   // 对象 判断
   has(obj, path) {
+    path = path.replace(/\[(.+)\]\./, '.$1.')
     if (obj && path) {
       const arr = path.split('.')
       for (const k of arr) {
