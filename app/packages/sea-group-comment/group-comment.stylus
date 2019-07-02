@@ -1,4 +1,4 @@
-@import './group-icon.css';
+@import './group-icon.wxss';
 
 // 留言
 .leave-message {
@@ -145,5 +145,8 @@
 	}
 
 	.right {
+		.iconfont + .iconfont {
+			margin-left: 32rpx;
+		}
 	}
 }
