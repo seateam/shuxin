@@ -24,9 +24,9 @@ Component({
           'http://statics01.qingmang.mobi/FjuLuRCxNtV06IA7yCS6MkmilPJU',
           'http://qiniuimg.qingmang.mobi/image/orion/3e0d6732a1f7bc273f2f4b6c7ceea3b4_945_628.jpeg?imageView2/2/w/750',
           'http://qiniuimg.qingmang.mobi/image/orion/06a7b91f1103407fdb0bfeb7994d37d1_1080_703.jpeg?imageView2/2/w/750',
-          'http://qiniuimg.qingmang.mobi/image/orion/aa08370f4fcf79e7ca097946d36eec77_900_500.jpeg?imageView2/2/w/750',
-          'http://qiniuimg.qingmang.mobi/image/orion/105f710672bc2d2c055008a7a1c779f7_1024_768.jpeg?imageView2/2/w/750',
-          'http://qiniuimg.qingmang.mobi/image/orion/6c2e0a49f0912224d0047dbbcb5752b9_640_396.jpeg',
+          // 'http://qiniuimg.qingmang.mobi/image/orion/aa08370f4fcf79e7ca097946d36eec77_900_500.jpeg?imageView2/2/w/750',
+          // 'http://qiniuimg.qingmang.mobi/image/orion/105f710672bc2d2c055008a7a1c779f7_1024_768.jpeg?imageView2/2/w/750',
+          // 'http://qiniuimg.qingmang.mobi/image/orion/6c2e0a49f0912224d0047dbbcb5752b9_640_396.jpeg',
         ],
         like: [
           'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',

@@ -16,7 +16,7 @@
         <div class="text">{{e.text}}</div>
         <div class="imgs">
           <block wx:for="{{e.imgs}}" wx:for-item="src">
-            <image class="img" mode="aspectFill" wx:key="{{index}}" src="{{src}}" />
+            <image class="img img{{e.imgs.length}}" mode="aspectFill" wx:key="{{index}}" src="{{src}}" />
           </block>
         </div>
       </div>

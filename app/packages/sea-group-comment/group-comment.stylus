@@ -75,9 +75,36 @@
 			}
 
 			.imgs {
+				display: flex;
+				flex-wrap: wrap;
+
 				.img {
 					width: 160rpx;
 					height: 160rpx;
+					margin-top: 24rpx;
+					margin-right: 24rpx;
+				}
+
+				.img:nth-of-type(3n) {
+					margin-right: 0;
+				}
+
+				.img1 {
+					width: 240rpx;
+					height: 300rpx;
+				}
+
+				.img4 {
+					width: 240rpx;
+					height: 240rpx;
+				}
+
+				.img4:nth-of-type(3n) {
+					margin-right: 24rpx;
+				}
+
+				.img4:nth-of-type(2n) {
+					margin-right: 0;
 				}
 			}
 		}
