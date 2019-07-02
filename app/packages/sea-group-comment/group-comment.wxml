@@ -3,13 +3,21 @@
 <div class="list">
   <block wx:for="{{featuredList}}" wx:for-index="i" wx:for-item="e" wx:key="{{i}}">
     <div class="one">
-      <div class="user">
-        <div class="info">
-          <image class="head" mode="aspectFill" src="{{e.user.head}}" />
-          <text class="name">{{e.user.name}}</text>
+      <div class="head">
+        <image mode="aspectFill" src="{{e.user.head}}" />
+      </div>
+      <div class="main">
+        <div class="user">
+          <div class="info">
+            <text class="name">{{e.user.name}}</text>
+          </div>
+          <i class="more iconfont icon-misc"></i>
         </div>
-        <div class="more">
-          <i class="iconfont icon-misc"></i>
+        <div class="text">{{e.text}}</div>
+        <div class="imgs">
+          <block wx:for="{{e.imgs}}" wx:for-item="src">
+            <image class="img" mode="aspectFill" wx:key="{{index}}" src="{{src}}" />
+          </block>
         </div>
       </div>
     </div>
