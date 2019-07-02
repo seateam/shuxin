@@ -1,11 +1,28 @@
 <template is="leaveMessage" data="{{new: false}}"></template>
+
+<div class="list">
+  <block wx:for="{{featuredList}}" wx:for-index="i" wx:for-item="e" wx:key="{{i}}">
+    <div class="one">
+      <div class="user">
+        <div class="info">
+          <image class="head" mode="aspectFill" src="{{e.user.head}}" />
+          <text class="name">{{e.user.name}}</text>
+        </div>
+        <div class="more">
+          <i class="iconfont icon-misc"></i>
+        </div>
+      </div>
+    </div>
+  </block>
+</div>
+
 <template is="leaveMessage" data="{{new: true}}"></template>
 
 <template name="leaveMessage">
   <div class="leaveMessage">
     <div class="line"></div>
     <div class="center">
-      <div class="img"></div>
+      <image class="img" src="./img/{{new ? 'new' : 'featured'}}.svg" />
       <span>{{new ? '最新留言' : '精选留言'}}</span>
     </div>
     <div class="line"></div>

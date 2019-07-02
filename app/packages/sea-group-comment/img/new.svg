@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Group 10</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="radialGradient-1">
+            <stop stop-color="#6DBBDC" offset="0.09765625%"></stop>
+            <stop stop-color="#5F84E5" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Community" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Detail" transform="translate(-145.000000, -1578.000000)">
+            <g id="Group-11" transform="translate(0.000000, 626.000000)">
+                <g id="Group-6" transform="translate(0.000000, 953.000000)">
+                    <g id="Group-10" transform="translate(147.000000, 1.000000)">
+                        <circle id="Oval" stroke="#FFFFFF" stroke-width="2" fill="url(#radialGradient-1)" cx="10" cy="10" r="11"></circle>
+                        <path d="M10,2 C14.4,2 18,5.6 18,10 C18,14.4 14.4,18 10,18 C5.6,18 2,14.4 2,10 C2,5.6 5.6,2 10,2 Z M10,16.4 C13.52,16.4 16.4,13.52 16.4,10 C16.4,6.48 13.52,3.6 10,3.6 C6.48,3.6 3.6,6.48 3.6,10 C3.6,13.52 6.48,16.4 10,16.4 Z M10.4,6 L10.4,10.16 L14,12.32 L13.36,13.36 L9.2,10.8 L9.2,6 L10.4,6 Z" id="Combined-Shape" fill-opacity="0.9" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
