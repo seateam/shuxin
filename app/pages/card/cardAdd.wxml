@@ -1,4 +1,7 @@
-<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg1.jpg" />
+<image
+  class="page-background"
+  src="https://cdn.bigc.cc//blue_tide/img/bg1.jpg"
+/>
 <sea-nav-bar />
 <header>
   <div></div>
@@ -25,6 +28,12 @@
       <text>{{location.title}}</text>
     </view>
     <i class="iconfont icon-go" />
+  </div>
+  <div class="public">
+    <div class="switch {{public ? '' : 'right'}}" bind:tap="bindPublic">
+      <div class="block"></div>
+      <span>{{public ? '公开' : '私密'}}</span>
+    </div>
   </div>
 </main>
 <footer>

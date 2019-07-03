@@ -6,6 +6,7 @@ Page({
     userInfo: app.data.userInfo,
     content: '',
     location: null,
+    public: true,
   },
   onLoad() {
     this.initLocation()
@@ -21,7 +22,7 @@ Page({
     // 获取周边位置
     wx.getLocation({
       type: 'gcj02',
-      success: res => {
+      success: (res) => {
         const lat = res.latitude
         const lng = res.longitude
         Sea.myLocation = {
@@ -35,7 +36,7 @@ Page({
             boundary: `nearby(${lat},${lng},${meter})`,
             key: 'IHRBZ-RVWWQ-FHC5D-GGHIX-WPIGS-MABL6',
           },
-        }).then(res => {
+        }).then((res) => {
           Sea.cardLocation = res.data
           const location = res.data[0]
           this.setData({
@@ -46,12 +47,17 @@ Page({
       fail: () => {
         Sea.alert('需要使用地理位置', () => {
           wx.openSetting({
-            success: res => {
+            success: (res) => {
               this.initLocation()
             },
           })
         })
       },
+    })
+  },
+  bindPublic() {
+    this.setData({
+      public: !this.data.public,
     })
   },
   bindColor(event) {
@@ -107,7 +113,7 @@ Page({
           time_stamp: Date.now(),
           location_text: location.title,
         },
-      }).then(res => {
+      }).then((res) => {
         Sea.loading()
         if (res && res.ok) {
           Sea.tip('发布成功')

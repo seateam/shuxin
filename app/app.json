@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/group/group",
     "pages/index/index",
+    "pages/group/group",
     "pages/withYou/withYou",
     "pages/data/data",
     "pages/search/search",
@@ -18,8 +18,7 @@
     }
   },
   "usingComponents": {
-    "sea-nav-bar": "./packages/nav-bar/nav-bar",
-    "sea-group-comment": "./packages/group-comment/group-comment"
+    "sea-nav-bar": "./packages/nav-bar/nav-bar"
   },
   "window": {
     "navigationBarTitleText": "蓝色潮汐",

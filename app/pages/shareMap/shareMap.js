@@ -42,6 +42,9 @@ Page({
 				setTimeout(() => {
 					this.render(res)
 				}, 1000)
+			} else {
+				Sea.alert('您还没有打卡')
+				Sea.loading()
 			}
 		})
 	},

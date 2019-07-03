@@ -43,6 +43,7 @@ Page({
           },
         )
       } else {
+        Sea.loading()
         Sea.alert('您还没有打卡')
       }
     })
