@@ -11,6 +11,12 @@ Component({
   },
   observers: {},
   data: {
+    userInfo: {
+      name: '露姐',
+      isAdmin: true,
+      head:
+        'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
+    },
     listFeatured: [
       {
         user: {
@@ -96,6 +102,7 @@ Component({
       {
         user: {
           name: '大海',
+          isMine: true,
           head:
             'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUlJN2EwY2ZIYVpmTDNiQ2pYbzF5WDFURzNSaWMxU3ZEOUdpY3VYR2ljemN3bk9ham9IR2plZGJ3bDlKRHBhQlFhTkpnUEIwaFFkcUJiOFEvMTMy',
         },
@@ -177,14 +184,38 @@ Component({
       },
     ],
   },
-  attached() {},
+  attached() {
+    wx.showModal({
+      title: '尊敬的产品，请选择您要测试的账号：',
+      content: '露姐（Admin）/ 大海（User）',
+      cancelText: '露姐',
+      cancelColor: '#E88536',
+      confirmText: '大海',
+      confirmColor: '#448ACA',
+      success: (res) => {
+        if (res.confirm) {
+          this.setData({
+            userInfo: {
+              name: '大海',
+              head:
+                'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
+            },
+          })
+        }
+      },
+    })
+  },
   methods: {
     bindMore(event) {
       const i = event.currentTarget.dataset.i
       const typeNew = event.currentTarget.dataset.new
+      const isAdmin = event.currentTarget.dataset.isAdmin
       const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
       const itemList = ['删除']
-      itemList.push(typeNew ? '精选' : '取消精选')
+      if (isAdmin) {
+        itemList.push(typeNew ? '精选' : '取消精选')
+        itemList.push('禁言')
+      }
       wx.showActionSheet({
         itemList: itemList,
         success: (res) => {
@@ -209,15 +240,35 @@ Component({
             } else {
               util.tip('取消精选成功')
             }
+          } else if (res.tapIndex === 2) {
+            util.tip('已禁言')
           }
         },
       })
     },
     bindComment(event) {
       const i = event.currentTarget.dataset.i
+      const i2 = event.currentTarget.dataset.i2
       const typeNew = event.currentTarget.dataset.new
       const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
-      console.log('🐸', e)
+      if (i2 !== undefined) {
+        console.log('🐸', e.comments[i2].who)
+      }
+      util.tip('去评论页')
+    },
+    initLike(like, type) {
+      let head = this.data.userInfo.head
+      let i = like.findIndex((e) => e === head)
+      if (type === 'add') {
+        if (i === -1) {
+          like.push(head)
+        }
+      } else if (type === 'del') {
+        if (i !== -1) {
+          like.splice(i, 1)
+        }
+      }
+      return like
     },
     bindHeart(event) {
       const i = event.currentTarget.dataset.i
@@ -225,8 +276,10 @@ Component({
       const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
       if (e.likeHeart) {
         e.likePerson = e.likePerson - 1
+        e.like = this.initLike(e.like, 'del')
       } else {
         e.likePerson = e.likePerson + 1
+        e.like = this.initLike(e.like, 'add')
       }
       e.likeHeart = !e.likeHeart
       if (typeNew) {

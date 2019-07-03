@@ -1,5 +1,5 @@
-<template is="list" data="{{list: listFeatured, new: false}}"></template>
-<template is="list" data="{{list: listNew, new: true}}"></template>
+<template is="list" data="{{list: listFeatured, new: false, userInfo}}"></template>
+<template is="list" data="{{list: listNew, new: true, userInfo}}"></template>
 
 <!-- 列表 -->
 <template name="list">
@@ -18,9 +18,11 @@
               >
             </div>
             <i
+              wx:if="{{e.user.isMine || userInfo.isAdmin}}"
               bind:tap="bindMore"
               data-i="{{i}}"
               data-new="{{new}}"
+              data-isAdmin="{{e.user.isMine}}"
               class="more iconfont icon-misc"
             ></i>
           </div>
@@ -35,7 +37,7 @@
             </block>
           </div>
           <template is="comments-like" data="{{e, i, new}}"></template>
-          <template is="comments" data="{{e}}"></template>
+          <template is="comments" data="{{e, i, new}}"></template>
         </div>
       </div>
     </block>
@@ -55,7 +57,15 @@
 <!-- 评论 -->
 <template name="comments">
   <div class="comments" wx:if="{{e.comments && e.comments[0]}}">
-    <div class="comment" wx:for="{{e.comments}}" wx:key="index">
+    <div
+      bind:tap="bindComment"
+      data-i="{{i}}"
+      data-i2="{{index}}"
+      data-new="{{new}}"
+      class="comment"
+      wx:for="{{e.comments}}"
+      wx:key="index"
+    >
       <div class="who {{item.who.isAdmin ? 'isAdmin' : ''}}">
         {{item.who.name}}{{item.who.isAdmin ? '（发起人）' : ''}}
       </div>
