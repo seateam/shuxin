@@ -148,11 +148,11 @@
 
 	.who {
 		font-weight: bold;
-		margin-right: 6rpx;
+		margin-right: 12rpx;
 	}
 
 	.at {
-		margin-right: 6rpx;
+		margin-right: 12rpx;
 		color: rgba(0, 0, 0, 0.4);
 	}
 
@@ -191,6 +191,12 @@
 	}
 
 	.right {
+		color: rgba(0, 0, 0, 0.4);
+
+		.icon-comm-liked {
+			color: rgba(234, 51, 35, 0.6);
+		}
+
 		.iconfont + .iconfont {
 			margin-left: 32rpx;
 		}

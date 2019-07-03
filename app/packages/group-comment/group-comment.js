@@ -17,7 +17,7 @@ Component({
           name: '露姐',
           sponsor: true,
           head:
-            'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUlJN2EwY2ZIYVpmTDNiQ2pYbzF5WDFURzNSaWMxU3ZEOUdpY3VYR2ljemN3bk9ham9IR2plZGJ3bDlKRHBhQlFhTkpnUEIwaFFkcUJiOFEvMTMy',
+            'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
         },
         text: '两年老员工报以礼貌的微笑~',
         imgs: ['http://statics01.qingmang.mobi/FuY-Srn-SOeREBBxzcdQ1QL0LEHx'],
@@ -32,11 +32,12 @@ Component({
       },
       {
         user: {
-          name: '大海',
+          name: '渔舟唱晚',
           head:
-            'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUlJN2EwY2ZIYVpmTDNiQ2pYbzF5WDFURzNSaWMxU3ZEOUdpY3VYR2ljemN3bk9ham9IR2plZGJ3bDlKRHBhQlFhTkpnUEIwaFFkcUJiOFEvMTMy',
+            'http://statics03.qingmang.mobi/image/proxy/aHR0cCUzQS8vdGhpcmR3eC5xbG9nby5jbi9tbW9wZW4vdmlfMzIvRFlBSU9ncTgzZXBSNXI2eG53MWJXVm1rNno4NUNMRmpjMUhmOUV3Y1NhVkFQcWliZ3ljZmFYYnF2ZW90T2RCVVhNeWtkcGFjY0hOWGZtV1lOcG92OHVnLzEzMg==',
         },
-        text: '两年老员工报以礼貌的微笑~',
+        text:
+          '两年老员工报前几天无意中看到的，立马关注，如同发现了新大陆，一有空就阅读学习，收获满满。同时有感于“做这个时代的知识守护者，解决年轻人在成长路上会遇到的问题，也许就是我们的使命”，以后条件允许一定做个师者，传道受业解惑。以礼貌的微笑~',
         imgs: [
           'http://statics01.qingmang.mobi/FuY-Srn-SOeREBBxzcdQ1QL0LEHx',
           'http://statics01.qingmang.mobi/FjuLuRCxNtV06IA7yCS6MkmilPJU',
@@ -100,48 +101,85 @@ Component({
             'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUlJN2EwY2ZIYVpmTDNiQ2pYbzF5WDFURzNSaWMxU3ZEOUdpY3VYR2ljemN3bk9ham9IR2plZGJ3bDlKRHBhQlFhTkpnUEIwaFFkcUJiOFEvMTMy',
         },
         text: '学校的体育馆为啥不给用？留着发霉吗？',
-        imgs: ['http://statics01.qingmang.mobi/FuY-Srn-SOeREBBxzcdQ1QL0LEHx'],
+        imgs: [
+          'http://statics01.qingmang.mobi/FjuLuRCxNtV06IA7yCS6MkmilPJU',
+          'http://qiniuimg.qingmang.mobi/image/orion/aa08370f4fcf79e7ca097946d36eec77_900_500.jpeg?imageView2/2/w/750',
+          'http://qiniuimg.qingmang.mobi/image/orion/105f710672bc2d2c055008a7a1c779f7_1024_768.jpeg?imageView2/2/w/750',
+          'http://qiniuimg.qingmang.mobi/image/orion/6c2e0a49f0912224d0047dbbcb5752b9_640_396.jpeg',
+        ],
         like: [
           'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
           'http://statics03.qingmang.mobi/image/proxy/aHR0cCUzQS8vdGhpcmR3eC5xbG9nby5jbi9tbW9wZW4vdmlfMzIvRFlBSU9ncTgzZXBSNXI2eG53MWJXVm1rNno4NUNMRmpjMUhmOUV3Y1NhVkFQcWliZ3ljZmFYYnF2ZW90T2RCVVhNeWtkcGFjY0hOWGZtV1lOcG92OHVnLzEzMg==',
           'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcWVPWTZDQUdRb1l3bFlUZklZNExCdFh6cHFDcmljNEIzMkU2bUw0dE15WE9zdWlidWlidmV0SHRkQWljYXBQMUR1M1BNY09BWnZVRVZHSFEvMTMy',
         ],
         likePerson: 3,
-        likeHeart: true,
+        likeHeart: false,
         comments: [
           {
             who: {
-              name: '露姐',
-              sponsor: true,
+              name: 'dameng',
             },
-            text: '做最酷的年轻人',
+            text: '一群年轻人的热情',
           },
           {
             who: {
               name: '渔舟唱晚 ',
             },
             at: {
-              name: '露姐',
-              sponsor: true,
-            },
-            text: '也给轻芒也打',
-          },
-          {
-            who: {
-              name: '露姐',
-              sponsor: true,
-            },
-            at: {
               name: 'dameng',
             },
             text:
-              '嗯 这个话题来眠的夜晚，似乎我们都是不同程度的『麻烦制造者』。当然学校也里有很多让人觉得麻烦的事：为什么宿舍要断电断网、为什么大学还要早读、为什么不允许我们自由表达？ 这是一个长期讨论的话题，欢迎在留言里写下任何你的想法或思考。我们会探索不同的呈现形式，把这些内容呈现出来，比如：表情包、四格漫画、插图等。 #壹周编辑部 ',
+              '深有同感！特别是抢课的时间安排在期末考试的前几天......影响 考试心情不止一点点.....',
           },
+        ],
+      },
+      {
+        user: {
+          name: '学习使我快乐（备考中',
+          head:
+            'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcWVPWTZDQUdRb1l3bFlUZklZNExCdFh6cHFDcmljNEIzMkU2bUw0dE15WE9zdWlidWlidmV0SHRkQWljYXBQMUR1M1BNY09BWnZVRVZHSFEvMTMy',
+        },
+        text:
+          '想到被两早一晚支配的恐惧 零下二十多度的十二月早上六点起床 去打一套太极拳 然后集合回教室上半个点早自习 晚上七点到八点半晚自习 回寝室的时候伴着漫天呛人的雾霾 说不下去了π_π都是眼泪…',
+        imgs: [],
+        like: [
+          'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
+        ],
+        likePerson: 1,
+        likeHeart: true,
+        comments: [
           {
             who: {
               name: 'dameng',
             },
-            text: '嗯，也给轻芒也打电话',
+            text: '早起一点就好了',
+          },
+        ],
+      },
+      {
+        user: {
+          name: '清清還在。',
+          head:
+            'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9RMGo0VHdHVGZUSlBoTkhZeUJMNWt0U09KUjBWVEMzUHdTVU1QYm5kdVZrdE5vUjNHcWMwSlJZdldUNXpHaWFuQVZIZ3REYTFMRWZGclBkZnA3M2NvNkEvMTMy',
+        },
+        text: '现在大部分大学都在山脚下，只有不分老牌学校在市里，主要还是没地',
+        imgs: [
+          'http://qiniuimg.qingmang.mobi/image/orion/06a7b91f1103407fdb0bfeb7994d37d1_1080_703.jpeg?imageView2/2/w/750',
+          'http://qiniuimg.qingmang.mobi/image/orion/aa08370f4fcf79e7ca097946d36eec77_900_500.jpeg?imageView2/2/w/750',
+        ],
+        like: [
+          'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUlJN2EwY2ZIYVpmTDNiQ2pYbzF5WDFURzNSaWMxU3ZEOUdpY3VYR2ljemN3bk9ham9IR2plZGJ3bDlKRHBhQlFhTkpnUEIwaFFkcUJiOFEvMTMy',
+          'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9RMGo0VHdHVGZUSlBoTkhZeUJMNWt0U09KUjBWVEMzUHdTVU1QYm5kdVZrdE5vUjNHcWMwSlJZdldUNXpHaWFuQVZIZ3REYTFMRWZGclBkZnA3M2NvNkEvMTMy',
+          'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
+        ],
+        likePerson: 9,
+        likeHeart: false,
+        comments: [
+          {
+            who: {
+              name: 'dameng',
+            },
+            text: '早起一点就好了',
           },
         ],
       },

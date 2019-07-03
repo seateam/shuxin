@@ -69,7 +69,8 @@
     </div>
     <div class="right">
       <i class="iconfont icon-comm_cmts"></i>
-      <i class="iconfont icon-comm-like"></i>
+      <i wx:if="{{e.likeHeart}}" class="iconfont icon-comm-liked"></i>
+      <i wx:else class="iconfont icon-comm-like"></i>
     </div>
   </div>
 </template>
