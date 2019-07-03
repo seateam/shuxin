@@ -189,9 +189,17 @@ Component({
       const i = event.currentTarget.dataset.i
       const typeNew = event.currentTarget.dataset.new
       const e = typeNew ? this.data.newList[i] : this.data.featuredList[i]
-      if (e.user.sponsor) {
-        
-      }
+      const itemList = ['删除']
+      itemList.push(typeNew ? '置顶' : '取消置顶')
+      wx.showActionSheet({
+        itemList: itemList,
+        success(res) {
+          console.log(res.tapIndex)
+        },
+        fail(res) {
+          console.log(res.errMsg)
+        },
+      })
     },
     bindComment(event) {
       const i = event.currentTarget.dataset.i
