@@ -35,8 +35,7 @@ Component({
           'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUxyY2lhOUQ1NHJmQUIycXphRFlqb1ZJRXlpY2ljczRUdHFGcXJoNXgwaWN2NlA4R090OWxKazZpYmdxNXA1UmVNUlU2RzR5VHNZNlVQM0h1dy8xMzI=',
         ],
         likePerson: 4,
-        likeI
-         : true,
+        likeHeart: true,
         comments: [
           {
             who: {

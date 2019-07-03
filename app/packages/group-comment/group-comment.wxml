@@ -28,17 +28,13 @@
             </div>
             <i class="more iconfont icon-misc"></i>
           </div>
-          <div class="text">{{e.text}}</div>
+          <div class="text-content">{{e.text}}</div>
           <div class="imgs">
-            <block wx:for="{{e.imgs}}" wx:for-item="src">
-              <image
-                class="img img{{e.imgs.length}}"
-                mode="aspectFill"
-                wx:key="{{index}}"
-                src="{{src}}"
-              />
+            <block wx:for="{{e.imgs}}" wx:for-item="src" wx:key="{{index}}">
+              <image class="img img{{e.imgs.length}}" mode="aspectFill" src="{{src}}" />
             </block>
           </div>
+          <template is="comments-like" data="{{e}}"></template>
           <template is="comments" data="{{e}}"></template>
         </div>
       </div>
@@ -48,7 +44,12 @@
 <!-- 评论 -->
 <template name="comments">
   <div class="comments">
-    <template is="comments-like" data="{{e}}"></template>
+    <div class="comment" wx:for="{{e.comments}}" wx:key="index">
+      <div wx:if="{{item.who.sponsor}}" class="who sponsor">{{item.who.name}}（发起人）</div>
+      <div wx:else class="who">{{item.who.name}}</div>
+      <div class="at" wx:if="{{item.at}}">{{item.at.name}}</div>
+      <div class="text">{{item.text}}</div>
+    </div>
   </div>
 </template>
 <!-- 喜欢 -->
@@ -56,8 +57,8 @@
   <div class="comments-like">
     <div class="left">
       <div class="heads">
-        <block wx:for="{{e.like}}" wx:for-item="src">
-          <image class="head" mode="aspectFill" src="{{src}}" wx:key="{{index}}" />
+        <block wx:for="{{e.like}}" wx:for-item="src" wx:key="{{index}}">
+          <image class="head" mode="aspectFill" src="{{src}}" />
         </block>
       </div>
       <div>{{e.likePerson}} 人点赞</div>
