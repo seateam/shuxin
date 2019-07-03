@@ -1,4 +1,7 @@
-<template is="list" data="{{list: listFeatured, new: false, userInfo}}"></template>
+<template
+  is="list"
+  data="{{list: listFeatured, new: false, userInfo}}"
+></template>
 <template is="list" data="{{list: listNew, new: true, userInfo}}"></template>
 
 <!-- 列表 -->
@@ -30,6 +33,9 @@
           <div class="imgs">
             <block wx:for="{{e.imgs}}" wx:for-item="src" wx:key="{{index}}">
               <image
+                bind:tap="bindImg"
+                data-src="{{src}}"
+                data-imgs="{{e.imgs}}"
                 class="img img{{e.imgs.length}}"
                 mode="aspectFill"
                 src="{{src}}"
@@ -66,12 +72,10 @@
       wx:for="{{e.comments}}"
       wx:key="index"
     >
-      <div class="who {{item.who.isAdmin ? 'isAdmin' : ''}}">
-        {{item.who.name}}{{item.who.isAdmin ? '（发起人）' : ''}}
-      </div>
-      <div class="at {{item.at.isAdmin ? 'isAdmin' : ''}}" wx:if="{{item.at}}">
-        @{{item.at.name}}{{item.at.isAdmin ? '（发起人）' : ''}}
-      </div>
+      <!-- prettier-ignore -->
+      <div class="who {{item.who.isAdmin ? 'isAdmin' : ''}}">{{item.who.name}}{{item.who.isAdmin ? '（发起人）' : ''}}</div>
+      <!-- prettier-ignore -->
+      <div class="at {{item.at.isAdmin ? 'isAdmin' : ''}}" wx:if="{{item.at}}">@{{item.at.name}}{{item.at.isAdmin ? '（发起人）' : ''}}</div>
       <div class="text">{{item.text}}</div>
     </div>
   </div>

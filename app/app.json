@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/group/group",
     "pages/index/index",
     "pages/withYou/withYou",
     "pages/data/data",
@@ -9,7 +10,6 @@
     "pages/card/cardLocation",
     "pages/share/share",
     "pages/shareMap/shareMap",
-    "pages/group/group",
     "pages/holiday/holiday"
   ],
   "permission": {

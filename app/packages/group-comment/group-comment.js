@@ -206,10 +206,17 @@ Component({
     })
   },
   methods: {
+    bindImg(event) {
+      let data = event.currentTarget.dataset
+      wx.previewImage({
+        current: data.src, // 当前显示图片的http链接
+        urls: data.imgs // 需要预览的图片http链接列表
+      })
+    },
     bindMore(event) {
       const i = event.currentTarget.dataset.i
       const typeNew = event.currentTarget.dataset.new
-      const isAdmin = event.currentTarget.dataset.isAdmin
+      const isAdmin = this.data.userInfo.isAdmin
       const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
       const itemList = ['删除']
       if (isAdmin) {
