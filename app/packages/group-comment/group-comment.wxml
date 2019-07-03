@@ -45,9 +45,12 @@
 <template name="comments">
   <div class="comments">
     <div class="comment" wx:for="{{e.comments}}" wx:key="index">
-      <div wx:if="{{item.who.sponsor}}" class="who sponsor">{{item.who.name}}（发起人）</div>
-      <div wx:else class="who">{{item.who.name}}</div>
-      <div class="at" wx:if="{{item.at}}">{{item.at.name}}</div>
+      <div class="who {{item.who.sponsor ? 'sponsor' : ''}}">
+        {{item.who.name}}{{item.who.sponsor ? '（发起人）' : ''}}
+      </div>
+      <div class="at {{item.at.sponsor ? 'sponsor' : ''}}" wx:if="{{item.at}}">
+        @{{item.at.name}}{{item.at.sponsor ? '（发起人）' : ''}}
+      </div>
       <div class="text">{{item.text}}</div>
     </div>
   </div>

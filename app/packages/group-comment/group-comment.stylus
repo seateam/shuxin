@@ -113,9 +113,37 @@
 
 // 评论
 .comments {
+	padding: 24rpx 24rpx 24rpx 32rpx;
+	margin-top: 54rpx;
+	margin-bottom: 48rpx;
+	background: rgba(0, 0, 0, 0.04);
+	font-size: 28rpx;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.6);
+	line-height: 44rpx;
+
 	.comment {
 		display: flex;
 		flex-wrap: wrap;
+	}
+
+	.who {
+		font-weight: bold;
+		margin-right: 6rpx;
+	}
+
+	.at {
+		margin-right: 6rpx;
+		color: rgba(0, 0, 0, 0.4);
+	}
+
+	.text {
+		text-align: justify;
+	}
+
+	.sponsor {
+		font-size: 28rpx;
+		color: rgba(234, 51, 35, 0.6);
 	}
 }
 
