@@ -9,6 +9,11 @@ const request = {
 }
 Page({
 	data: {
+		heads: [
+			'./head.svg',
+			'./head.svg',
+			'./head.svg',
+		],
 		colors: app.data.mark.arr,
 		province: [],
 		provinceNow: 'all',
@@ -120,6 +125,9 @@ Page({
 		this.setData({
 			dateNow: 'all',
 		})
+	},
+	bindWithYou() {
+Sea.path('pages/withYou/withYou')
 	},
 	bindAllProvince() {
 		request.province = null

@@ -34,11 +34,13 @@ gaze.on('all', (name, filepath) => {
     const str = fs.readFileSync(filepath, 'utf8')
     stylus(str)
       .render((err, css) => {
-        if (typeof css === 'string') {
+        if (err) {
+          console.log('>>>', err.message)
+        } else {
           let path = filepath.replace('.stylus', '.wxss')
           css = css.replace('.css', '.wxss')
           fs.writeFileSync(path, compress(css), 'utf8')
-          console.log(path.split('\\').slice(-1)[0])
+          console.log(path.split('\\').slice(-1)[0], Date.now())
         }
       })
   }

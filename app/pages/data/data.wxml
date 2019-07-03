@@ -1,32 +1,65 @@
-<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg3.jpg" />
+<image
+  class="page-background"
+  src="https://cdn.bigc.cc//blue_tide/img/bg3.jpg"
+/>
 <sea-nav-bar />
 <header>
-  <div>“蓝色潮汐”已陪您走过</div>
-  <div>{{cardLength}}</div>
-  <div>个地方啦</div>
-  <image src="./person.png" mode="aspectFit" />
+  <div class="div">“蓝色潮汐”已陪您走过</div>
+  <div class="div">{{cardLength}}</div>
+  <div class="div">个地方啦</div>
+  <image class="image" src="./person.png" mode="aspectFit" />
+  <view class="heads" bind:tap="bindWithYou">
+    <block wx:for="{{heads}}" wx:key="{{index}}">
+      <image src="{{item}}" mode="aspectFill" />
+    </block>
+    <i class="iconfont icon-go"></i>
+  </view>
 </header>
 <main>
   <div class="location">
     <scroll-view scroll-x class="province">
       <block wx:for="{{provinceShow}}" wx:key="index">
-        <div class="one {{index ===  provinceNow ? 'active' : ''}}" bind:tap="bindProvince" data-i="{{index}}">
+        <div
+          class="one {{index ===  provinceNow ? 'active' : ''}}"
+          bind:tap="bindProvince"
+          data-i="{{index}}"
+        >
           {{item}}
         </div>
       </block>
     </scroll-view>
-    <div class="province-all {{provinceNow === 'all' ? 'active' : ''}}" bind:tap="bindAllProvince">
+    <div
+      class="province-all {{provinceNow === 'all' ? 'active' : ''}}"
+      bind:tap="bindAllProvince"
+    >
       全部
     </div>
   </div>
   <div class="cont">
     <div class="date">
-      <div class="all {{dateNow === 'all' ? 'active' : ''}}" bind:tap="bindAllMonth">全部</div>
+      <div
+        class="all {{dateNow === 'all' ? 'active' : ''}}"
+        bind:tap="bindAllMonth"
+      >
+        全部
+      </div>
       <scroll-view scroll-y class="list">
         <block wx:for="{{date}}" wx:key="index">
-          <div class="year"><div class="line"></div>{{item.year}}</div>
-          <block wx:for="{{item.month}}" wx:for-item="e" wx:for-index="i" wx:key="i">
-            <div class="month {{index === dateNow[0] && i === dateNow[1] ? 'active' : ''}}" bind:tap="bindMonth" data-arr="{{[index, i]}}">
+          <div class="year">
+            <div class="line"></div>
+            {{item.year}}
+          </div>
+          <block
+            wx:for="{{item.month}}"
+            wx:for-item="e"
+            wx:for-index="i"
+            wx:key="i"
+          >
+            <div
+              class="month {{index === dateNow[0] && i === dateNow[1] ? 'active' : ''}}"
+              bind:tap="bindMonth"
+              data-arr="{{[index, i]}}"
+            >
               <text>{{e}}</text>
               <span>月</span>
             </div>
@@ -35,11 +68,21 @@
       </scroll-view>
     </div>
     <div class="cards">
-      <div class="card" bind:tap="bindCard" data-id="{{card.id}}" wx:for="{{cards}}" wx:key="index" wx:for-item="card">
+      <div
+        class="card"
+        bind:tap="bindCard"
+        data-id="{{card.id}}"
+        wx:for="{{cards}}"
+        wx:key="index"
+        wx:for-item="card"
+      >
         <div class="content">{{card.content}}</div>
         <div class="card-date">{{card.date}}</div>
         <div class="city">
-          <i class="iconfont icon-city" style="color: {{colors[card.mark_color]}}"></i>
+          <i
+            class="iconfont icon-city"
+            style="color: {{colors[card.mark_color]}}"
+          ></i>
           <text>{{card.city}}</text>
         </div>
       </div>
