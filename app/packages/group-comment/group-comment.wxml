@@ -1,6 +1,7 @@
 <template is="leave-message" data="{{new: false}}"></template>
 <template is="list" data="{{list: featuredList}}"></template>
 <template is="leave-message" data="{{new: true}}"></template>
+<template is="list" data="{{list: newList}}"></template>
 
 <!-- 留言标识 -->
 <template name="leave-message">
@@ -24,7 +25,7 @@
         <div class="main">
           <div class="user">
             <div class="info">
-              <text class="name">{{e.user.name}}</text>
+              <text class="name {{e.user.sponsor ? 'sponsor' : ''}}">{{e.user.name}}{{e.user.sponsor ? '（发起人）' : ''}}</text>
             </div>
             <i class="more iconfont icon-misc"></i>
           </div>
@@ -43,7 +44,7 @@
 </template>
 <!-- 评论 -->
 <template name="comments">
-  <div class="comments">
+  <div class="comments" wx:if="{{e.comments && e.comments[0]}}">
     <div class="comment" wx:for="{{e.comments}}" wx:key="index">
       <div class="who {{item.who.sponsor ? 'sponsor' : ''}}">
         {{item.who.name}}{{item.who.sponsor ? '（发起人）' : ''}}
