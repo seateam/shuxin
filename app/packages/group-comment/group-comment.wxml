@@ -1,7 +1,7 @@
 <template is="leave-message" data="{{new: false}}"></template>
-<template is="list" data="{{list: featuredList}}"></template>
+<template is="list" data="{{list: featuredList, new: false}}"></template>
 <template is="leave-message" data="{{new: true}}"></template>
-<template is="list" data="{{list: newList}}"></template>
+<template is="list" data="{{list: newList, new: true}}"></template>
 
 <!-- 留言标识 -->
 <template name="leave-message">
@@ -25,9 +25,16 @@
         <div class="main">
           <div class="user">
             <div class="info">
-              <text class="name {{e.user.sponsor ? 'sponsor' : ''}}">{{e.user.name}}{{e.user.sponsor ? '（发起人）' : ''}}</text>
+              <text class="name {{e.user.sponsor ? 'sponsor' : ''}}"
+                >{{e.user.name}}{{e.user.sponsor ? '（发起人）' : ''}}</text
+              >
             </div>
-            <i class="more iconfont icon-misc"></i>
+            <i
+              bind:tap="bindMore"
+              data-i="{{i}}"
+              data-new="{{new}}"
+              class="more iconfont icon-misc"
+            ></i>
           </div>
           <div class="text-content">{{e.text}}</div>
           <div class="imgs">
@@ -35,7 +42,7 @@
               <image class="img img{{e.imgs.length}}" mode="aspectFill" src="{{src}}" />
             </block>
           </div>
-          <template is="comments-like" data="{{e}}"></template>
+          <template is="comments-like" data="{{e, i, new}}"></template>
           <template is="comments" data="{{e}}"></template>
         </div>
       </div>
@@ -68,9 +75,18 @@
       <div>{{e.likePerson}} 人点赞</div>
     </div>
     <div class="right">
-      <i class="iconfont icon-comm_cmts"></i>
-      <i wx:if="{{e.likeHeart}}" class="iconfont icon-comm-liked"></i>
-      <i wx:else class="iconfont icon-comm-like"></i>
+      <i
+        bind:tap="bindComment"
+        data-i="{{i}}"
+        data-new="{{new}}"
+        class="iconfont icon-comm_cmts"
+      ></i>
+      <i
+        bind:tap="bindHeart"
+        data-i="{{i}}"
+        data-new="{{new}}"
+        class="iconfont icon-comm-like{{e.likeHeart ? 'd' : ''}}"
+      ></i>
     </div>
   </div>
 </template>

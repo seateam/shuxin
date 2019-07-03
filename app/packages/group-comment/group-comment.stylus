@@ -92,6 +92,7 @@
 					height: 160rpx;
 					margin-top: 24rpx;
 					margin-right: 24rpx;
+					background: #eee;
 				}
 
 				.img:nth-of-type(3n) {
