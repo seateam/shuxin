@@ -1,3 +1,4 @@
+const util = require('../../packages/bigsea.js')
 const app = getApp()
 Component({
   options: {
@@ -10,11 +11,11 @@ Component({
   },
   observers: {},
   data: {
-    featuredList: [
+    listFeatured: [
       {
         user: {
           name: '露姐',
-          sponsor: true,
+          isAdmin: true,
           head:
             'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9EWUFJT2dxODNlcEd4Y29SaWI5aWE3SGdXNWN3akdEbEZrdDhUVExxRmxKaHJtMm5oTmJaQUpkdUMzMlJpYjV1M29RTHBHWlEzSXMyQ09weFh3aWNjUmdNNEEvMTMy',
         },
@@ -57,7 +58,7 @@ Component({
           {
             who: {
               name: '露姐',
-              sponsor: true,
+              isAdmin: true,
             },
             text: '做最酷的年轻人',
           },
@@ -67,14 +68,14 @@ Component({
             },
             at: {
               name: '露姐',
-              sponsor: true,
+              isAdmin: true,
             },
             text: '也给轻芒也打',
           },
           {
             who: {
               name: '露姐',
-              sponsor: true,
+              isAdmin: true,
             },
             at: {
               name: 'dameng',
@@ -91,7 +92,7 @@ Component({
         ],
       },
     ],
-    newList: [
+    listNew: [
       {
         user: {
           name: '大海',
@@ -172,14 +173,7 @@ Component({
         ],
         likePerson: 9,
         likeHeart: false,
-        comments: [
-          {
-            who: {
-              name: 'dameng',
-            },
-            text: '早起一点就好了',
-          },
-        ],
+        comments: [],
       },
     ],
   },
@@ -188,29 +182,47 @@ Component({
     bindMore(event) {
       const i = event.currentTarget.dataset.i
       const typeNew = event.currentTarget.dataset.new
-      const e = typeNew ? this.data.newList[i] : this.data.featuredList[i]
+      const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
       const itemList = ['删除']
-      itemList.push(typeNew ? '置顶' : '取消置顶')
+      itemList.push(typeNew ? '精选' : '取消精选')
       wx.showActionSheet({
         itemList: itemList,
-        success(res) {
-          console.log(res.tapIndex)
-        },
-        fail(res) {
-          console.log(res.errMsg)
+        success: (res) => {
+          if (res.tapIndex === 0) {
+            if (typeNew) {
+              // 最新留言
+              this.data.listNew.splice(i, 1)
+              this.setData({
+                listNew: this.data.listNew,
+              })
+            } else {
+              // 精选留言
+              this.data.listFeatured.splice(i, 1)
+              this.setData({
+                listFeatured: this.data.listFeatured,
+              })
+            }
+            util.tip('删除成功')
+          } else if (res.tapIndex === 1) {
+            if (typeNew) {
+              util.tip('精选成功')
+            } else {
+              util.tip('取消精选成功')
+            }
+          }
         },
       })
     },
     bindComment(event) {
       const i = event.currentTarget.dataset.i
       const typeNew = event.currentTarget.dataset.new
-      const e = typeNew ? this.data.newList[i] : this.data.featuredList[i]
+      const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
       console.log('🐸', e)
     },
     bindHeart(event) {
       const i = event.currentTarget.dataset.i
       const typeNew = event.currentTarget.dataset.new
-      const e = typeNew ? this.data.newList[i] : this.data.featuredList[i]
+      const e = typeNew ? this.data.listNew[i] : this.data.listFeatured[i]
       if (e.likeHeart) {
         e.likePerson = e.likePerson - 1
       } else {
@@ -219,11 +231,11 @@ Component({
       e.likeHeart = !e.likeHeart
       if (typeNew) {
         this.setData({
-          newList: this.data.newList,
+          listNew: this.data.listNew,
         })
       } else {
         this.setData({
-          featuredList: this.data.featuredList,
+          listFeatured: this.data.listFeatured,
         })
       }
     },

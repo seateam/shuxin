@@ -1,21 +1,9 @@
-<template is="leave-message" data="{{new: false}}"></template>
-<template is="list" data="{{list: featuredList, new: false}}"></template>
-<template is="leave-message" data="{{new: true}}"></template>
-<template is="list" data="{{list: newList, new: true}}"></template>
+<template is="list" data="{{list: listFeatured, new: false}}"></template>
+<template is="list" data="{{list: listNew, new: true}}"></template>
 
-<!-- 留言标识 -->
-<template name="leave-message">
-  <div class="leave-message">
-    <div class="line"></div>
-    <div class="center">
-      <image class="img" src="./img/{{new ? 'new' : 'featured'}}.svg" />
-      <span>{{new ? '最新留言' : '精选留言'}}</span>
-    </div>
-    <div class="line"></div>
-  </div>
-</template>
 <!-- 列表 -->
 <template name="list">
+  <template is="leave-message" data="{{new}}"></template>
   <div class="list">
     <block wx:for="{{list}}" wx:for-index="i" wx:for-item="e" wx:key="{{i}}">
       <div class="one">
@@ -25,8 +13,8 @@
         <div class="main">
           <div class="user">
             <div class="info">
-              <text class="name {{e.user.sponsor ? 'sponsor' : ''}}"
-                >{{e.user.name}}{{e.user.sponsor ? '（发起人）' : ''}}</text
+              <text class="name {{e.user.isAdmin ? 'isAdmin' : ''}}"
+                >{{e.user.name}}{{e.user.isAdmin ? '（发起人）' : ''}}</text
               >
             </div>
             <i
@@ -39,7 +27,11 @@
           <div class="text-content">{{e.text}}</div>
           <div class="imgs">
             <block wx:for="{{e.imgs}}" wx:for-item="src" wx:key="{{index}}">
-              <image class="img img{{e.imgs.length}}" mode="aspectFill" src="{{src}}" />
+              <image
+                class="img img{{e.imgs.length}}"
+                mode="aspectFill"
+                src="{{src}}"
+              />
             </block>
           </div>
           <template is="comments-like" data="{{e, i, new}}"></template>
@@ -49,15 +41,26 @@
     </block>
   </div>
 </template>
+<!-- 留言标识 -->
+<template name="leave-message">
+  <div class="leave-message">
+    <div class="line"></div>
+    <div class="center">
+      <image class="img" src="./img/{{new ? 'new' : 'featured'}}.svg" />
+      <span>{{new ? '最新留言' : '精选留言'}}</span>
+    </div>
+    <div class="line"></div>
+  </div>
+</template>
 <!-- 评论 -->
 <template name="comments">
   <div class="comments" wx:if="{{e.comments && e.comments[0]}}">
     <div class="comment" wx:for="{{e.comments}}" wx:key="index">
-      <div class="who {{item.who.sponsor ? 'sponsor' : ''}}">
-        {{item.who.name}}{{item.who.sponsor ? '（发起人）' : ''}}
+      <div class="who {{item.who.isAdmin ? 'isAdmin' : ''}}">
+        {{item.who.name}}{{item.who.isAdmin ? '（发起人）' : ''}}
       </div>
-      <div class="at {{item.at.sponsor ? 'sponsor' : ''}}" wx:if="{{item.at}}">
-        @{{item.at.name}}{{item.at.sponsor ? '（发起人）' : ''}}
+      <div class="at {{item.at.isAdmin ? 'isAdmin' : ''}}" wx:if="{{item.at}}">
+        @{{item.at.name}}{{item.at.isAdmin ? '（发起人）' : ''}}
       </div>
       <div class="text">{{item.text}}</div>
     </div>

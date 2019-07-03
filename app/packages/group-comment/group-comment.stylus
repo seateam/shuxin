@@ -34,8 +34,8 @@
 .list {
 	margin-top: 32rpx;
 
-	// 发起人
-	.sponsor {
+	// 管理员
+	.isAdmin {
 		color: rgba(234, 51, 35, 0.6) !important;
 		margin-right: 0 !important;
 	}
