@@ -141,8 +141,8 @@
 	line-height: 44rpx;
 
 	.comment {
-		display: flex;
-		flex-wrap: wrap;
+		// display: flex;
+		// flex-wrap: wrap;
 	}
 
 	.who {
