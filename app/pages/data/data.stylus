@@ -45,14 +45,8 @@ header {
 			margin-left: -10rpx;
 			width: 40rpx;
 			height: 40rpx;
-			background: rgba(98, 98, 98, 1);
 			border-radius: 50%;
 		}
-
-		image:nth-of-type(2n) {
-			background: rgba(49, 49, 49, 1);
-		}
-
 		i {
 			margin-left: 4rpx;
 			color: rgba(8, 13, 11, 0.41);

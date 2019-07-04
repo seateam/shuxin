@@ -9,7 +9,7 @@ const request = {
 }
 Page({
   data: {
-    heads: ['./head.svg', './head.svg', './head.svg'],
+    heads: ['./head.png', './head.png', './head.png'],
     colors: app.data.mark.arr,
     province: [],
     provinceNow: 'all',
