@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/group/group",
     "pages/withYou/withYou",
     "pages/data/data",
     "pages/search/search",

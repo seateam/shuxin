@@ -16,8 +16,8 @@ App({
     userInfo: null,
   },
   onLaunch() {
-    wx.setStorageSync('token', '')
     this.initNavBar()
+    wx.setStorageSync('token', '')
     // 大海 不圆 组长 鱼雷
     // this.变身('不圆')
   },
