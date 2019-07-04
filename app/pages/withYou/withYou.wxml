@@ -10,7 +10,7 @@
 <block wx:if="{{users.length > 0}}">
   <!-- 相似度 -->
   <div class="suitability">
-    <div class="number">{{users[userNow].Similarity}}%</div>
+    <div class="number">{{users[userNow].similarity}}%</div>
     <div class="number-tip">
       <i class="iconfont icon-location"></i>
       <span>

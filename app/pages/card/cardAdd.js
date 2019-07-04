@@ -76,28 +76,32 @@ Page({
     this.data.content = v
   },
   bindUserInfo(res) {
-    const userInfo = res.detail.userInfo
+    const rawData = res.detail.rawData
+    const userInfo = JSON.parse(rawData)
     if (userInfo) {
-      // 更新 userInfo
-      app.data.userInfo = userInfo
-      this.setData({
-        userInfo: userInfo,
-      })
-      this.postUserInfo(userInfo)
+      // 存储 userInfo
+      this.postUserInfo(rawData)
       // 发布
       this.bindPost()
     } else {
       Sea.tip('未授权无法发布信息')
     }
   },
-  postUserInfo(userInfo) {
-    console.log(userInfo)
-    // Sea.Ajax({
-    //   url: '/v1/user.info.set',
-    //   data: {
-    //     userInfo: userInfo,
-    //   },
-    // })
+  postUserInfo(rawData) {
+    Sea.Ajax({
+      url: '/v1/card.store',
+      data: {
+        rawData: rawData,
+      },
+    }).then((res) => {
+      if (res.ok) {
+        // 更新 userInfo
+        app.data.userInfo = userInfo
+        this.setData({
+          userInfo: userInfo,
+        })
+      }
+    })
   },
   bindPost() {
     const { location, mark, content } = this.data

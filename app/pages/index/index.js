@@ -20,8 +20,8 @@ Page({
   },
   onLoad() {
     this.init()
-    // this.initOpenID()
-    // this.init评委()
+    // this.init复制openID()
+    this.init评委()
   },
   init评委() {
     wx.showModal({
@@ -39,7 +39,7 @@ Page({
       },
     })
   },
-  initOpenID() {
+  init复制openID() {
     wx.login({
       success: res => {
         let code = res.code
