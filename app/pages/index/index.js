@@ -20,7 +20,7 @@ Page({
   },
   onLoad() {
     this.init()
-    // this.init复制openID()
+    // app.init复制openID()
     // this.init评委()
   },
   init评委() {
@@ -36,35 +36,6 @@ Page({
           app.变身('不圆')
           this.init()
         }
-      },
-    })
-  },
-  init复制openID() {
-    wx.login({
-      success: res => {
-        let code = res.code
-        // 发起网络请求
-        Sea.Ajax({
-          url: '/v1/login',
-          data: {
-            js_code: code,
-            openid: false,
-          },
-        }).then(res => {
-          let openid = res.openid
-          wx.showModal({
-            title: '复制 openID 发给大海',
-            content: openid,
-            showCancel: false,
-            success: res => {
-              if (res.confirm) {
-                wx.setClipboardData({
-                  data: openid,
-                })
-              }
-            },
-          })
-        })
       },
     })
   },

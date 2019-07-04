@@ -4,7 +4,7 @@
 />
 <sea-nav-bar />
 <header>
-  <div class="div">“蓝色潮汐”已陪您走过</div>
+  <div class="div" bind:tap="bindGetOpenID">“蓝色潮汐”已陪您走过</div>
   <div class="div">{{cardLength}}</div>
   <div class="div">个地方啦</div>
   <image class="image" src="./person.png" mode="aspectFit" />

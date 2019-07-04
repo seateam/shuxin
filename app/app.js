@@ -31,10 +31,39 @@ App({
       height: ios ? 44 : 48,
     }
   },
+  init复制openID() {
+    wx.login({
+      success: (res) => {
+        let code = res.code
+        // 发起网络请求
+        Sea.Ajax({
+          url: '/v1/login',
+          data: {
+            js_code: code,
+            openid: false,
+          },
+        }).then((res) => {
+          let openid = res.openid
+          wx.showModal({
+            title: '复制 openID 发给大海',
+            content: openid,
+            showCancel: false,
+            success: (res) => {
+              if (res.confirm) {
+                wx.setClipboardData({
+                  data: openid,
+                })
+              }
+            },
+          })
+        })
+      },
+    })
+  },
   initToken() {
-    return new Promise(success => {
+    return new Promise((success) => {
       wx.login({
-        success: res => {
+        success: (res) => {
           if (res.code) {
             // 发起网络请求
             Sea.Ajax({
@@ -43,7 +72,7 @@ App({
                 js_code: res.code,
                 openid: false,
               },
-            }).then(res => {
+            }).then((res) => {
               if (res.ok) {
                 wx.setStorageSync('token', res.openid)
                 this.data.userInfo = res.userInfo

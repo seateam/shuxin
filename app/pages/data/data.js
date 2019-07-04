@@ -9,7 +9,7 @@ const request = {
 }
 Page({
   data: {
-    heads: ['./head.png', './head.png', './head.png'],
+    heads: ['./head.png', './head2.png', './head.png'],
     colors: app.data.mark.arr,
     province: [],
     provinceNow: 'all',
@@ -42,6 +42,9 @@ Page({
   },
   onShow() {
     this.render()
+  },
+  bindGetOpenID() {
+    app.init复制openID()
   },
   initProvince(res) {
     const arr = ['省', '自治区']
