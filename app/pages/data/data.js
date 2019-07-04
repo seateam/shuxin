@@ -34,11 +34,11 @@ Page({
         })
       }
     })
-    Sea.Ajax({
-      url: '/v1/card.matcher',
-    }).then((res) => {
-      console.log('🐸', res)
-    })
+    // Sea.Ajax({
+    //   url: '/v1/card.matcher',
+    // }).then((res) => {
+    //   console.log('🐸card.matcher', res)
+    // })
   },
   onShow() {
     this.render()

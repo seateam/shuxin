@@ -40,11 +40,11 @@ Page({
     userNow: 0,
   },
   onLoad() {
-    Sea.Ajax({
-      url: '/v1/card.matcher',
-    }).then((res) => {
-      console.log('🐸', res)
-    })
+    // Sea.Ajax({
+    //   url: '/v1/card.matcher',
+    // }).then((res) => {
+    //   console.log('🐸card.matcher', res)
+    // })
   },
   bindTopTip() {
     this.setData({
