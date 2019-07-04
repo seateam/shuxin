@@ -19,7 +19,7 @@ Page({
     cardLength: 0,
   },
   onLoad() {
-    const cards = []
+    this.initWithYou()
     Sea.Ajax({
       url: '/v1/card.get',
     }).then((res) => {
@@ -34,14 +34,17 @@ Page({
         })
       }
     })
-    // Sea.Ajax({
-    //   url: '/v1/card.matcher',
-    // }).then((res) => {
-    //   console.log('🐸card.matcher', res)
-    // })
+
   },
   onShow() {
     this.render()
+  },
+  initWithYou() {
+    Sea.Ajax({
+      url: '/v1/card.matcher',
+    }).then((res) => {
+      console.log('🐸card.matcher', res)
+    })
   },
   bindGetOpenID() {
     app.init复制openID()

@@ -88,6 +88,7 @@ Page({
     }
   },
   postUserInfo(rawData) {
+    const userInfo = JSON.parse(rawData)
     Sea.Ajax({
       url: '/v1/card.store',
       data: {
@@ -116,6 +117,7 @@ Page({
           mark_color: mark.now,
           time_stamp: Date.now(),
           location_text: location.title,
+          public: this.data.public,
         },
       }).then((res) => {
         Sea.loading()

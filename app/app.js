@@ -19,7 +19,7 @@ App({
     this.initNavBar()
     wx.setStorageSync('token', '')
     // 大海 不圆 组长 鱼雷
-    // this.变身('不圆')
+    this.变身('大海')
   },
   onShow() {},
   onHide() {},
@@ -74,12 +74,14 @@ App({
               },
             }).then((res) => {
               if (res.ok) {
-                wx.setStorageSync('token', res.openid)
-                this.data.userInfo = res.userInfo
-                success()
-              } else {
-                console.log('登录失败!')
+                if (!wx.getStorageSync('token')) {
+                  wx.setStorageSync('token', res.openid)
+                  this.data.userInfo = res.userInfo
+                  success()
+                  return
+                }
               }
+              console.log('登录失败!')
             })
           } else {
             console.log('登录失败!' + res.errMsg)
