@@ -19,7 +19,7 @@ App({
     this.initNavBar()
     wx.setStorageSync('token', '')
     // 大海 不圆 组长 鱼雷
-    this.变身('大海')
+    // this.变身('不圆')
   },
   onShow() {},
   onHide() {},

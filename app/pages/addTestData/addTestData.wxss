@@ -15,3 +15,6 @@ page {
   color: #fff;
   border-radius: 20rpx;
 }
+.btn + .btn {
+  margin-top: 40rpx;
+}

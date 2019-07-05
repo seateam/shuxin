@@ -1,1 +1,2 @@
 <div class="btn" bind:tap="bindPost">发布</div>
+<div class="btn" bind:tap="bindLook">查看所有数据</div>
