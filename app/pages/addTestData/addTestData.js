@@ -15,7 +15,7 @@ Page({
       time_stamp: '1547185375000',
       location_text: '合肥新桥国际机场',
       public: true,
-      openid: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
+      // openid: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
     }
     Sea.Ajax({
       url: '/v1/card.add',
@@ -32,7 +32,7 @@ Page({
     Sea.Ajax({
       url: '/v1/card.get',
       data: {
-        openid: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
+        // openid: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
       },
     }).then((res) => {
       console.log('🐸', res.data)
