@@ -4,13 +4,11 @@
 />
 <sea-nav-bar />
 <header>
-  <div class="name">
-    <text wx:if="{{friendName}}" selectable>
-      {{friendName}}
-    </text>
-    <text wx:else selectable>
-      <open-data type="userNickName"></open-data>
-    </text>
+  <div class="name" wx:if="{{friendName}}">
+    {{friendName}}
+  </div>
+  <div class="name" wx:else>
+    <open-data type="userNickName"></open-data>
   </div>
   <div>
     <text>{{friendName ? '我' : '您'}}走过</text>

@@ -37,7 +37,7 @@ header {
 	.heads {
 		position: absolute;
 		right: 8rpx;
-		bottom: 4rpx;
+		bottom: 8rpx;
 		display: flex;
 		align-items: center;
 

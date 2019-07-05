@@ -24,6 +24,10 @@ header {
 	text-align: center;
 	padding: 0 20rpx;
 }
+header .name {
+	font-size: 48rpx;
+	color: #de560f;
+}
 header div {
 	margin-bottom: 36rpx;
 }
@@ -35,8 +39,4 @@ footer div.city {
 }
 footer div.city text {
 	margin-right: 8rpx;
-}
-.name text {
-	font-size: 48rpx;
-	color: #de560f;
 }
