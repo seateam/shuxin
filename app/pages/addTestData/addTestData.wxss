@@ -1,0 +1,17 @@
+page {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300rpx;
+  height: 100rpx;
+  background: pink;
+  color: #fff;
+  border-radius: 20rpx;
+}

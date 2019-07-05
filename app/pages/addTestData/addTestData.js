@@ -2,18 +2,21 @@ const app = getApp()
 const Sea = require('../../packages/bigsea.js')
 Page({
   data: {},
-  onLoad() {
+  onLoad() {},
+  bindPost() {
+    let data = {
+      content: '',
+      location: '',
+      mark_color: '',
+      time_stamp: '',
+      location_text: '',
+      public: '',
+      openid: '用户openid',
+    }
+    console.log('🍓', data)
     Sea.Ajax({
       url: '/v1/card.add',
-      data: {
-        content: '',
-        location: '',
-        mark_color: '',
-        time_stamp: '',
-        location_text: '',
-        public: '',
-        openid: '',
-      },
+      data: data,
     }).then((res) => {
       if (res && res.ok) {
         console.log('🐸', '发布成功')

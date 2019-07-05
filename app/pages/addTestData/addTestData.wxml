@@ -1,0 +1,1 @@
+<div class="btn" bind:tap="bindPost">发布</div>
