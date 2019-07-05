@@ -1,3 +1,4 @@
+const log = console.log.bind('>>>', console)
 const xlsx = require('node-xlsx')
 const axios = require('axios')
 const Qs = require('qs')
@@ -48,16 +49,20 @@ for (const e of who('祖哥')) {
   let url = 'https://api.echo1999.com/v1/card.add?' + Qs.stringify(data)
   request.push(url)
 }
-// 每隔1.5s请求一次
-setInterval(() => {
-  let url = request.splice(0, 1)[0]
-  if (url) {
-    axios(url).then((res) => {
-      if (res.data.ok) {
-        console.log('>>>', '写入成功')
-      } else {
-        console.log('>>>', '写入失败')
-      }
-    })
-  }
-}, 1500)
+// 递龟请求
+const cardAdd = function(url) {
+  axios(url).then((res) => {
+    if (res.data.ok) {
+      log('写入成功')
+    } else {
+      log('写入失败')
+    }
+    // 取出
+    let url = request.splice(0, 1)[0]
+    if (url) {
+      cardAdd(url)
+    }
+  })
+}
+const url = request.splice(0, 1)[0]
+cardAdd(url)

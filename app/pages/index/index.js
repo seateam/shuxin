@@ -20,7 +20,6 @@ Page({
   },
   onLoad() {
     this.init()
-    // app.init复制openID()
     // this.init评委()
   },
   init评委() {
@@ -31,7 +30,7 @@ Page({
       cancelColor: '#E88536',
       confirmText: '好的',
       confirmColor: '#448ACA',
-      success: res => {
+      success: (res) => {
         if (res.confirm) {
           app.变身('不圆')
           this.init()
@@ -68,7 +67,7 @@ Page({
     // 初始化打卡地点
     Sea.Ajax({
       url: '/v1/card.get',
-    }).then(res => {
+    }).then((res) => {
       if (res.ok && res.data.length) {
         const markers = res.data.map((e, i) => {
           const [latitude, longitude] = e.location.split(',')

@@ -46,9 +46,6 @@ Page({
       console.log('🐸card.matcher', res)
     })
   },
-  bindGetOpenID() {
-    app.init复制openID()
-  },
   initProvince(res) {
     const arr = ['省', '自治区']
     const result = res.data.map((e) => e.province)
