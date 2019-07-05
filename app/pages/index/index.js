@@ -20,6 +20,7 @@ Page({
   },
   onLoad() {
     this.init()
+    this.firstOpen = true
     // this.init评委()
   },
   init评委() {
@@ -40,7 +41,11 @@ Page({
   },
   onShow() {
     this.initSearch()
-    this.initMarkers()
+    if (this.firstOpen) {
+      this.firstOpen = false
+    } else {
+      this.initMarkers()
+    }
   },
   init() {
     const navBar = app.data.navBar
