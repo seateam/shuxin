@@ -8,7 +8,6 @@ Page({
   },
   onLoad() {
     this.initWithYou()
-    Sea.alert('即将上线，敬请期待')
   },
   initWithYou() {
     Sea.Ajax({
@@ -17,15 +16,20 @@ Page({
       const users = []
       if (res.ok) {
         for (const e of res.data) {
+          const userInfo = e.userInfo || {}
+          const genderDict = {
+            '0': '保密',
+            '1': '男',
+            '2': '女',
+          }
           users.push({
-            cardID: e.cardId,
+            cardID: String(e.cardId).padStart(11, '0'),
             openid: e.openid,
-            name: '测试用户',
-            gender: '男',
-            similarity: parseInt(e['匹配度'] * 100),
+            name: userInfo.nickName || '未知用户',
+            gender: genderDict[userInfo.gender] || '保密',
+            similarity: parseInt(e.match * 100),
             city: Sea.formatCity(e.city),
-            head:
-              'http://statics03.qingmang.mobi/image/proxy/aHR0cHMlM0EvL3d4LnFsb2dvLmNuL21tb3Blbi92aV8zMi9QaWFqeFNxQlJhRUlJN2EwY2ZIYVpmTDNiQ2pYbzF5WDFURzNSaWMxU3ZEOUdpY3VYR2ljemN3bk9ham9IR2plZGJ3bDlKRHBhQlFhTkpnUEIwaFFkcUJiOFEvMTMy',
+            head: userInfo.avatarUrl || './head.png',
           })
         }
         this.setData({

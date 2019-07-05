@@ -34,7 +34,6 @@ Page({
         })
       }
     })
-
   },
   onShow() {
     this.render()
@@ -43,7 +42,21 @@ Page({
     Sea.Ajax({
       url: '/v1/card.matcher',
     }).then((res) => {
-      console.log('🐸card.matcher', res)
+      if (res.ok) {
+        let arr = []
+        for (const e of res.data) {
+          if (e.userInfo && e.userInfo.avatarUrl) {
+            arr.push(e.userInfo.avatarUrl)
+          }
+        }
+        let heads = this.data.heads
+        arr.forEach((e, i) => {
+          heads[i] = e
+        })
+        this.setData({
+          heads: heads,
+        })
+      }
     })
   },
   initProvince(res) {

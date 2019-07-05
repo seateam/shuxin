@@ -190,7 +190,7 @@ module.exports = {
   formatProvince(province) {
     const arr = ['省', '自治区', '市']
     for (const e of arr) {
-      if (province.endsWith(e)) {
+      if (province && province.endsWith(e)) {
         return province.replace(e, '')
       }
     }
@@ -199,7 +199,7 @@ module.exports = {
   formatCity(city) {
     const arr = ['市', '自治州', '州', '地区', '盟', '县']
     for (const e of arr) {
-      if (city.endsWith(e)) {
+      if (city && city.endsWith(e)) {
         return city.replace(e, '')
       }
     }
