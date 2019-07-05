@@ -1,13 +1,19 @@
-<image class="page-background" src="https://cdn.bigc.cc//blue_tide/img/bg4.jpg" />
+<image
+  class="page-background"
+  src="https://cdn.bigc.cc//blue_tide/img/bg4.jpg"
+/>
 <sea-nav-bar />
 <header>
-  <div>
-    <span>
+  <div class="name">
+    <text wx:if="{{friendName}}" selectable>
+      {{friendName}}
+    </text>
+    <text wx:else selectable>
       <open-data type="userNickName"></open-data>
-    </span>
+    </text>
   </div>
   <div>
-    <text>您走过</text>
+    <text>{{friendName ? '我' : '您'}}走过</text>
     <span> {{info.province_count}} </span>
     <text>个省，</text>
     <span>{{info.city_count}} </span>
@@ -20,7 +26,11 @@
   </div>
 </header>
 <view class="container">
-  <ec-canvas id="mychart-dom-area" canvas-id="mychart-area" ec="{{ ec }}"></ec-canvas>
+  <ec-canvas
+    id="mychart-dom-area"
+    canvas-id="mychart-area"
+    ec="{{ ec }}"
+  ></ec-canvas>
 </view>
 <footer wx:if="{{citys.length}}">
   <div>

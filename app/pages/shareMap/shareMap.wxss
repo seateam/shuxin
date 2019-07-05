@@ -36,7 +36,7 @@ footer div.city {
 footer div.city text {
 	margin-right: 8rpx;
 }
-span {
+.name text {
 	font-size: 48rpx;
 	color: #de560f;
 }

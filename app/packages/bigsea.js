@@ -5,11 +5,14 @@ const config = {
 module.exports = {
   config: config,
   system: wx.getSystemInfoSync(),
-  price(n) {
-    return this.float(Number(n) / 100)
-  },
   float(n) {
     return parseFloat(n.toFixed(10))
+  },
+  type(obj) {
+    return Object.prototype.toString
+      .call(obj)
+      .slice(8, -1)
+      .toLowerCase()
   },
   Ajax(request) {
     let req = {
@@ -67,7 +70,7 @@ module.exports = {
     // 跳转页面
     if (typeof str === 'string') {
       // 补全 /
-      if (str.slice(0, 5) == 'pages') {
+      if (!str.startsWith('/')) {
         str = '/' + str
       }
       if (redirectTo === true) {

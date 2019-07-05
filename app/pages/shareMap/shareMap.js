@@ -28,13 +28,19 @@ Page({
 		},
 		citys: [],
 		province_count: 1,
+		friendName: '',
 	},
-	onLoad() {
+	onLoad(option) {
 		Sea.loading('正在加载')
+		if (option.openid && option.name) {
+			this.setData({
+				friendName: option.name
+			})
+		}
 		Sea.Ajax({
 			url: '/v1/card.map',
 			data: {
-				openid: Sea.friendToken,
+				openid: option.openid || Sea.friendToken,
 			},
 		}).then(res => {
 			if (res.ok) {

@@ -24,6 +24,7 @@ Page({
 			url: '/v1/card.get',
 			data: {
 				id: option.cardID,
+				openid: option.openid || '',
 			},
 		}).then(res => {
 			if (res.ok) {

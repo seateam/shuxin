@@ -17,12 +17,12 @@
         地 图 记 忆 相 似 度
       </span>
     </div>
-    <div class="his his-paper">
+    <div class="his his-paper" bind:tap="bindHisPaper">
       <div class="dot"></div>
       <div>Ta的最新打卡纸条</div>
       <div class="city">{{users[userNow].city}}</div>
     </div>
-    <div class="his his-map">
+    <div class="his his-map" bind:tap="bindHisMap">
       <div class="dot"></div>
       <div>查看Ta的地图</div>
     </div>
@@ -51,7 +51,7 @@
 <block wx:else>
   <div class="his his-special">
     <div class="dot"></div>
-    <div class="title">第二人生</div>
+    <div class="title"><open-data type="userNickName"></open-data></div>
     <div class="cont">
       由 于 你 过 于 特 别 ， 蓝 色 潮 汐 已 无 法 匹 配 到 相 似 度 高 于 50% 的 旅 途 之 友。 请
       继 续 驰 骋 江 湖 吧 ， 给 别 人 一 个 欣 赏 你 的 机 会 ， 你 也 可 开 启 属 于 自 己 的 惊
