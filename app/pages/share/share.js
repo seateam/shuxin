@@ -30,7 +30,7 @@ Page({
       // console.log('🐘', res)
       if (res.ok && res.data && res.data.length) {
         // 处理省份
-        const data = this.initCity(res.data).reverse()
+        const data = this.initCity(res.data)
         const years = data.map((e) => e.year)
         Sea.shareYear = years[0]
         this.data.data = data
