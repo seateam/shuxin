@@ -138,9 +138,10 @@ Page({
     Sea.loading()
   },
   onShareAppMessage() {
+    let openid = this.openid || wx.getStorageSync('token')
     return {
       title: '蓝色潮汐 点击进入我的地图记忆！',
-      path: '/pages/share/share?openid=' + wx.getStorageSync('token'),
+      path: '/pages/shareMap/shareMap?openid=' + openid,
     }
   },
 })
