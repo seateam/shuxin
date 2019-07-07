@@ -7,8 +7,6 @@ Page({
     colorNow: 0,
     showColors: false,
     card: {},
-    cardID: '',
-    openid: '',
   },
   initCard(res) {
     const card = res.data[0]
@@ -19,14 +17,16 @@ Page({
     })
     return card
   },
+  cardID: '',
+  openid: '',
   onLoad(option) {
-    this.data.cardID = option.cardID
-    this.data.openid = option.openid
+    this.cardID = option.cardID
+    this.openid = option.openid
     Sea.Ajax({
       url: '/v1/card.get',
       data: {
-        id: this.data.cardID,
-        openid: this.data.openid || '',
+        id: this.cardID,
+        openid: this.openid || '',
       },
     }).then((res) => {
       if (res.ok) {
@@ -52,8 +52,8 @@ Page({
     Sea.Ajax({
       url: '/v1/card.update',
       data: {
-        id: this.data.cardID,
-        openid: this.data.openid || '',
+        id: this.cardID,
+        openid: this.openid || '',
         mark_color: this.data.colorNow,
       },
     }).then((res) => {

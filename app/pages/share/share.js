@@ -15,22 +15,23 @@ Page({
     ],
     contents: [],
   },
+  openid: '',
   onLoad(option) {
     Sea.loading('正在加载')
-    if (option.friendToken) {
-      Sea.friendToken = option.friendToken
+    if (option.openid) {
+      this.openid = option.openid
     }
     Sea.Ajax({
       url: '/v1/card.share',
       data: {
-        openid: Sea.friendToken,
+        openid: this.openid,
       },
-    }).then(res => {
+    }).then((res) => {
       // console.log('🐘', res)
       if (res.ok && res.data && res.data.length) {
         // 处理省份
         const data = this.initCity(res.data).reverse()
-        const years = data.map(e => e.year)
+        const years = data.map((e) => e.year)
         Sea.shareYear = years[0]
         this.data.data = data
         this.setData(
@@ -49,7 +50,6 @@ Page({
     })
   },
   onUnload() {
-    delete Sea.friendToken
     clearInterval(Countdown)
   },
   onShow() {},
@@ -114,10 +114,10 @@ Page({
       if (arr[0] === 'h1') {
         console.log('处理 h1')
       } else {
-        s.split('，').forEach(e => {
+        s.split('，').forEach((e) => {
           const s2 = e.replace(/\[(.+)\]/, '|$1|').split('|')
           const arr = []
-          s2.forEach(e => {
+          s2.forEach((e) => {
             const arr2 = e.split(',')
             const type = arr2[0]
             if (type === 'span') {
@@ -158,7 +158,9 @@ Page({
     this.data.shareIndex = event.detail.current
   },
   bindHoliday() {
-    Sea.path('/pages/holiday/holiday')
+    Sea.path('/pages/holiday/holiday', {
+      openid: this.openid || '',
+    })
   },
   bindYear() {
     this.setData({
@@ -182,13 +184,14 @@ Page({
     )
   },
   bindMap() {
-    Sea.path('/pages/shareMap/shareMap')
+    Sea.path('/pages/shareMap/shareMap', {
+      openid: this.openid || '',
+    })
   },
   onShareAppMessage() {
-    const token = wx.getStorageSync('token')
     return {
       title: '蓝色潮汐 点击进入我的地图记忆！',
-      path: '/pages/share/share?friendToken=' + token,
+      path: '/pages/share/share?openid=' + wx.getStorageSync('token'),
     }
   },
 })

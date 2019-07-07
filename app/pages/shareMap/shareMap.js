@@ -32,15 +32,15 @@ Page({
 	},
 	onLoad(option) {
 		Sea.loading('正在加载')
-		if (option.openid && option.name) {
+		if (option.openid) {
 			this.setData({
-				friendName: option.name
+				friendName: option.name || '未知用户'
 			})
 		}
 		Sea.Ajax({
 			url: '/v1/card.map',
 			data: {
-				openid: option.openid || Sea.friendToken,
+				openid: option.openid || '',
 			},
 		}).then(res => {
 			if (res.ok) {
