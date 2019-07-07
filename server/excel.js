@@ -9,9 +9,8 @@ const excel = xlsx.parse('./测试数据.xlsx')
 const who = function(name) {
   const arr = []
   for (const e of excel) {
-    let [user_name, openid] = e.name.split(' ')
-    console.log('>>>', user_name, openid)
-    if (openid && name === user_name) {
+    console.log('>>>', e.name)
+    if (openid && name === e.name) {
       for (const e2 of e.data.slice(1)) {
         let [content, location, time_stamp, location_text] = e2
         if (content && location && time_stamp && location_text) {
@@ -24,15 +23,18 @@ const who = function(name) {
 }
 
 // 注意 这里会写入数据
-// 小海 o6iD25ZN-qlcbUMBicYO1EN0tKbA
-// 祖哥 o6iD25VhzkWx-uk2xDszuyD3yhiQ
-// A龟 o6iD25X_2wwl5CnLnoHsmLYPHJ3s
-// B海 o6iD25b9G_ORHJiGWm4uhnjGafkc
-// C韩 o6iD25fqF5FKDQ--9bMJP9zXs3Y4
-const openid = 'o6iD25fqF5FKDQ--9bMJP9zXs3Y4'
+const openidDict = {
+  祖哥: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
+  A龟: 'o6iD25X_2wwl5CnLnoHsmLYPHJ3s',
+  B海: 'o6iD25b9G_ORHJiGWm4uhnjGafkc',
+  C韩: 'o6iD25fqF5FKDQ--9bMJP9zXs3Y4',
+  D大海小号: 'o6iD25ZN-qlcbUMBicYO1EN0tKbA',
+}
+const name = 'A龟'
+const openid = openidDict[name]
 // 生成 url
 const request = []
-for (const e of who('C韩')) {
+for (const e of who(name)) {
   let [content, location, time_stamp, location_text] = e
   let data = {
     content: content,
@@ -47,24 +49,24 @@ for (const e of who('C韩')) {
   request.push(url)
 }
 // 递龟请求
-// const cardAdd = function(url) {
-//   axios(url).then((res) => {
-//     if (res.data.ok) {
-//       log('写入成功')
-//     } else {
-//       log('写入失败')
-//     }
-//     // 取出
-//     let url = request.splice(0, 1)[0]
-//     if (url) {
-//       setTimeout(() => {
-//         cardAdd(url)
-//       }, 5000)
-//     }
-//   })
-// }
-// const url = request.splice(0, 1)[0]
-// cardAdd(url)
+const cardAdd = function(url) {
+  axios(url).then((res) => {
+    if (res.data.ok) {
+      log(name, '写入成功')
+    } else {
+      log(name, '写入失败')
+    }
+    // 取出
+    let url = request.splice(0, 1)[0]
+    if (url) {
+      setTimeout(() => {
+        cardAdd(url)
+      }, 5000)
+    }
+  })
+}
+const url = request.splice(0, 1)[0]
+cardAdd(url)
 
 // 查询
 // axios('https://api.echo1999.com/v1/card.get?openid=' + openid).then((res) => {
