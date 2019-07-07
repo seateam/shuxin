@@ -75,18 +75,6 @@ Page({
     const v = event.detail.value
     this.data.content = v
   },
-  bindUserInfo(res) {
-    const rawData = res.detail.rawData
-    const userInfo = JSON.parse(rawData)
-    if (userInfo) {
-      // 存储 userInfo
-      this.postUserInfo(rawData)
-      // 发布
-      this.bindPost()
-    } else {
-      Sea.tip('未授权无法发布信息')
-    }
-  },
   postUserInfo(rawData) {
     const userInfo = JSON.parse(rawData)
     Sea.Ajax({
@@ -104,7 +92,25 @@ Page({
       }
     })
   },
-  bindPost() {
+  // 更新用户信息
+  initUserInfo(res) {
+    if (res.detail.errMsg) {
+      Sea.tip('未授权无法发布信息')
+      return false
+    }
+    const rawData = res.detail.rawData
+    const userInfo = JSON.parse(rawData)
+    if (userInfo) {
+      // 存储 userInfo
+      this.postUserInfo(rawData)
+      return true
+    }
+    return false
+  },
+  bindPost(res) {
+    if (!res || !this.initUserInfo(res)) {
+      return
+    }
     const { location, mark, content } = this.data
     const { lat, lng } = location.location
     if (content) {

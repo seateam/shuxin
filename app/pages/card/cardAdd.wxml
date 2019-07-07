@@ -5,12 +5,7 @@
 <sea-nav-bar />
 <header>
   <div></div>
-  <button
-    open-type="{{userInfo ? '' : 'getUserInfo'}}"
-    class="post"
-    bindgetuserinfo="{{userInfo ? '' : 'bindUserInfo'}}"
-    bind:tap="{{userInfo ? 'bindPost' : ''}}"
-  >
+  <button open-type="getUserInfo" class="post" bindgetuserinfo="bindPost">
     发布
   </button>
 </header>
