@@ -30,7 +30,7 @@ const openidDict = {
   C韩: 'o6iD25fqF5FKDQ--9bMJP9zXs3Y4',
   D大海小号: 'o6iD25ZN-qlcbUMBicYO1EN0tKbA',
 }
-const name = 'A龟'
+const name = '祖哥'
 const openid = openidDict[name]
 // 生成 url
 const request = []

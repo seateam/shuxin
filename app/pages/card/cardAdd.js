@@ -94,12 +94,6 @@ Page({
   },
   // 更新用户信息
   initUserInfo(res) {
-    if (!res) {
-      return false
-    }
-    if (app.data.userInfo) {
-      return true
-    }
     if (res.detail.errMsg === 'getUserInfo:fail auth deny') {
       Sea.tip('未授权无法发布信息')
       return false
@@ -114,7 +108,7 @@ Page({
     return false
   },
   bindPost(res) {
-    if (!this.initUserInfo(res)) {
+    if (!(res && this.initUserInfo(res))) {
       return
     }
     const { location, mark, content } = this.data
