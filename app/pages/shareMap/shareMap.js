@@ -33,9 +33,26 @@ Page({
   onLoad(option) {
     Sea.loading('正在加载')
     if (option.openid) {
-      this.setData({
-        friendName: option.name || '未知用户',
-      })
+      if (option.name) {
+        this.setData({
+          friendName: option.name,
+        })
+      } else {
+        Sea.Ajax({
+          url: '/v1/card.userinfor',
+          data: {
+            openid: option.openid,
+          },
+        }).then((res) => {
+          let name = '未知用户'
+          if (Sea.has(res, 'data[0].nickName')) {
+            name = res.data[0].nickName
+          }
+          this.setData({
+            friendName: name,
+          })
+        })
+      }
     }
     Sea.Ajax({
       url: '/v1/card.map',
