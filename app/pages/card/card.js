@@ -7,6 +7,7 @@ Page({
     colorNow: 0,
     showColors: false,
     card: {},
+    selfCard: true,
   },
   initCard(res) {
     const card = res.data[0]
@@ -22,6 +23,11 @@ Page({
   onLoad(option) {
     this.cardID = option.cardID
     this.openid = option.openid
+    if (this.openid) {
+      this.setData({
+        selfCard: false,
+      })
+    }
     Sea.Ajax({
       url: '/v1/card.get',
       data: {

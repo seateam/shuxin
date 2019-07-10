@@ -13,7 +13,7 @@
 <footer>
   <div></div>
   <div class="edit">
-    <text bind:tap="bindEdit">修改</text>
+    <text bind:tap="bindEdit" wx:if="{{selfCard}}">修改</text>
     <div class="colors" wx:if="{{showColors}}">
       <div class="close" bind:tap="bindClose">×</div>
       <div
