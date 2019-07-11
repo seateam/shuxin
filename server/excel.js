@@ -29,8 +29,9 @@ const openidDict = {
   B海: 'o6iD25b9G_ORHJiGWm4uhnjGafkc',
   C韩: 'o6iD25fqF5FKDQ--9bMJP9zXs3Y4',
   D大海小号: 'o6iD25ZN-qlcbUMBicYO1EN0tKbA',
+  祖_新增: 'o6iD25VhzkWx-uk2xDszuyD3yhiQ',
 }
-const name = '祖哥'
+const name = '祖_新增'
 const openid = openidDict[name]
 // 生成 url
 const request = []
@@ -49,24 +50,24 @@ for (const e of who(name)) {
   request.push(url)
 }
 // 递龟请求
-const cardAdd = function(url) {
-  axios(url).then((res) => {
-    if (res.data.ok) {
-      log(name, '写入成功')
-    } else {
-      log(name, '写入失败')
-    }
-    // 取出
-    let url = request.splice(0, 1)[0]
-    if (url) {
-      setTimeout(() => {
-        cardAdd(url)
-      }, 5000)
-    }
-  })
-}
-const url = request.splice(0, 1)[0]
-cardAdd(url)
+// const cardAdd = function(url) {
+//   axios(url).then((res) => {
+//     if (res.data.ok) {
+//       log(name, '写入成功')
+//     } else {
+//       log(name, '写入失败')
+//     }
+//     // 取出
+//     let url = request.splice(0, 1)[0]
+//     if (url) {
+//       setTimeout(() => {
+//         cardAdd(url)
+//       }, 5000)
+//     }
+//   })
+// }
+// const url = request.splice(0, 1)[0]
+// cardAdd(url)
 
 // 查询
 // axios('https://api.echo1999.com/v1/card.get?openid=' + openid).then((res) => {

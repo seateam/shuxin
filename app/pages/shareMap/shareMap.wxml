@@ -11,7 +11,7 @@
     <open-data type="userNickName"></open-data>
   </div>
   <div>
-    <text>{{friendName ? '我' : '您'}}走过</text>
+    <text>走过</text>
     <span> {{info.province_count}} </span>
     <text>个省，</text>
     <span>{{info.city_count}} </span>
