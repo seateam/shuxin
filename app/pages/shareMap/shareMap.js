@@ -53,6 +53,18 @@ Page({
           })
         })
       }
+    } else {
+      Sea.Ajax({
+        url: '/v1/card.userinfor',
+      }).then((res) => {
+        let name = '未知用户'
+        if (Sea.has(res, 'data[0].nickName')) {
+          name = res.data[0].nickName
+        }
+        this.setData({
+          friendName: name,
+        })
+      })
     }
     Sea.Ajax({
       url: '/v1/card.map',

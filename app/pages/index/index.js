@@ -21,7 +21,7 @@ Page({
   onLoad() {
     this.init()
     this.firstOpen = true
-    // this.init评委()
+    this.init评委()
   },
   init评委() {
     wx.showModal({
