@@ -21,7 +21,7 @@ Page({
   onLoad() {
     this.init()
     this.firstOpen = true
-    this.init评委()
+    // this.init评委()
   },
   init评委() {
     wx.showModal({
@@ -75,6 +75,19 @@ Page({
     }).then((res) => {
       if (res.ok && res.data.length) {
         const markers = res.data.map((e, i) => {
+          let del = true
+          if (1563163200000 > Number(e.time_stamp) && Number(e.time_stamp) > 1563076800000) {
+            del = false
+          }
+          if (del) {
+            Sea.Ajax({
+              url: '/v1/card.delete',
+              id: e.id
+            }).then((res) => {
+              console.log('🐸', e)
+              console.log('🐸', res)
+            })
+          }
           const [latitude, longitude] = e.location.split(',')
           return {
             id: e.id,
